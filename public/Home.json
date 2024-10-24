@@ -1,0 +1,68 @@
+[
+    {
+        "id": 1,
+        "title":"person",
+        "description": "Unlock your potential with free courses and expertly curated roadmaps to guide your journey towards mastering new skills",
+        "image": "/images/person.webp"
+    },
+    {
+        "id": 2,
+        "title": "Web Development",
+        "description": "This free web development course covers the basics of building websites using HTML, CSS, and JavaScript. Ideal for beginners.",
+        "image": "/images/WebDevelopment.webp"
+    },
+    {
+        "id": 3,
+        "title": "Mobile Development",
+        "description": "This free course covers the basics of Android and iOS app development using frameworks like React Native. Ideal for beginners.",
+        "image": "/images/MobileDevelopment.webp"
+    },
+    {
+        "id": 4,
+        "title": "Cyber Security",
+        "description": "This free cybersecurity course teaches the basics of online security, threat detection, and protection. Ideal for beginners.",
+        "image": "/images/CyberSecurity.webp"
+    },
+    {
+        "id": 5,
+        "title": "Looking to build a responsive, mobile-friendly website?",
+        "description": "Whether it's for your business, portfolio, or e-commerce, I can help you create a custom website that looks great on all devices. Click Here to Request Your Website Today!",
+        "image": "/images/default-image.webp"
+    },
+    {
+        "id": 6,
+        "title": "Front-end Courses",
+        "image": "/images/front-end.webp",
+        "description": "Learn the essentials of front-end web development with HTML, CSS, and JavaScript in this free course. Perfect for beginners who want to build responsive websites."
+    },
+    {
+        "id": 7,
+        "title": "Back-end Courses",
+        "image": "/images/back-end.webp",
+        "description": "This free course covers the essentials of back-end development, focusing on server-side programming, databases, and APIs. Perfect for beginners looking to build dynamic, data-driven applications."
+    },
+    {
+        "id": 8,
+        "title": "Mobile Development Courses",
+        "image": "/images/MobileDevelopment.webp",
+        "description": "Learn how to build mobile apps with this free course, focusing on frameworks like Flutter and React Native. Great for beginners interested in mobile app development."
+    },
+    {
+        "id": 9,
+        "title": "Cyber Security courses",
+        "image": "/images/CyberSecurity.webp",
+        "description": "This free course introduces the basics of cybersecurity, covering topics like network security, cryptography, and ethical hacking. Designed for those starting their cybersecurity journey."
+    },
+    {
+        "id": 10, 
+        "title": "Design courses",
+        "image": "/images/design.webp",
+        "description": "This free course offers insights into the fundamentals of UI/UX design, focusing on user-centered design, wireframing, and prototyping. Ideal for beginners looking to improve their design skills."
+    },
+    {
+        "id": 11,
+        "title": "Artificial Intelligence",
+        "image": "/images/ai.webp",
+        "description": " This free course covers the fundamentals of artificial intelligence, including machine learning, neural networks, and deep learning. Ideal for those new to AI and eager to understand its core concepts."
+    }
+]
