@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Loading from "../MainComponents/Loading";
+import { Course } from "../MainComponents/CourseContext";
 
 const SeparateCourses = () => {
   const [search, setSearch] = useState("");
+  const [coursesLoading, setCoursesLoading] = useState(true);
 
   return (
     <div className="separate-courses">
@@ -15,22 +18,37 @@ const SeparateCourses = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <Cards search={search} />
+      {coursesLoading ? (
+        <Loading setCoursesLoading={setCoursesLoading} />
+      ) : (
+        <Cards search={search} setLoad={setCoursesLoading} />
+      )}
     </div>
   );
 };
 
-const Cards = ({ search }) => {
-  const [courses, setCourses] = useState([]);
+const Cards = ({ search, setLoad }) => {
+  const { courses = [], setSelectedCourse, setCourses } = useContext(Course);
+
   const [filteredCourses, setFilteredCourses] = useState([]);
 
   useEffect(() => {
-    axios.get("/Courses.json").then((response) => {
-      setCourses(response.data);
-    });
-  }, []);
+    const fetchCourses = async () => {
+      try {
+        const response = await axios.get("/Courses.json");
+        setCourses(response.data);
+        setLoad(false);
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+        setLoad(false);
+      }
+    };
+
+    fetchCourses();
+  }, [setLoad]);
 
   useEffect(() => {
+    if (!courses.length) return;
     const allCourses = [
       ...(courses[0]?.html || []),
       ...(courses[1]?.css || []),
@@ -47,6 +65,10 @@ const Cards = ({ search }) => {
 
     setFilteredCourses(filtered);
   }, [courses, search]);
+
+  const handleSelectedCourse = (res) => {
+    setSelectedCourse(res);
+  };
 
   return (
     <div className="cards flex justify-center gap-9 items-center mt-10 flex-wrap">
@@ -75,7 +97,11 @@ const Cards = ({ search }) => {
             <p className="text-white mt-1 mb-2 p-3 text-sm">{res.advantages}</p>
           </div>
           <div className="wrapper flex justify-center">
-            <Link className="cta" to="/">
+            <Link
+              className="cta"
+              to={`/course/${res.id}`}
+              onClick={() => handleSelectedCourse(res)}
+            >
               <span>Start Now</span>
               <span>
                 <svg
