@@ -1,5 +1,5 @@
-import { React, useState, useEffect, createContext } from "react";
-import axios from "axios";
+import { React, useState, createContext } from "react";
+// import axios from "axios";
 
 export const Course = createContext();
 
@@ -19,7 +19,6 @@ const CourseContext = ({ children }) => {
   //   request();
   //   console.log(courses);
   // }, []);
-
   return (
     <Course.Provider
       value={{ selectedCourse, setSelectedCourse, courses, setCourses }}

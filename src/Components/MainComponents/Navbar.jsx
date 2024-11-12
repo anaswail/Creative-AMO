@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import Logo from "../../images/Logo.webp";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLaptopCode, faX } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleUp,
+  faLaptopCode,
+  faX,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const { scrollY } = useScroll();
@@ -50,13 +54,16 @@ const Navbar = () => {
             Courses
           </Link>
         </li>
-        <li className="mx-3">
-          <Link to="/RoadMaps" className="text-white hover:text-[#ffac15]">
+        <li className="mx-3 group relative ">
+          <Link to="/RoadMaps" className="text-white hover:text-[#ffac15] ">
             Road Maps
           </Link>
         </li>
         <li className="mx-3">
-          <Link to="/Trainers" className="text-white hover:text-[#ffac15]">
+          <Link
+            to="/Trainers"
+            className="text-white hover:text-[#ffac15] group"
+          >
             Trainers
           </Link>
         </li>

@@ -1,11 +1,22 @@
-import React from 'react'
+import React from "react";
+import "../../styles/Error.css";
+import { Link } from "react-router-dom";
 
-const error = () => {
+const Error = () => {
   return (
-    <div className="error h-screen w-full flex justify-center items-center">
-        <h1 className='text-white text-5xl font-bold'>Error 404</h1>
+    <div className="error-page">
+      {" "}
+      <h1 className="error-title">
+        {" "}
+        <span>4</span> <span className="text-[#ffac15]">0</span> <span>4</span>{" "}
+      </h1>{" "}
+      <p className="error-message">
+        Oops! We can't find the page you're looking for.
+      </p>{" "}
+      <Link to="/" className="error-link">
+        Go Back Home
+      </Link>{" "}
     </div>
-  )
-}
-
-export default error
+  );
+};
+export default Error;

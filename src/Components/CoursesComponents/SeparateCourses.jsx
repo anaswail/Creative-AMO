@@ -38,6 +38,7 @@ const Cards = ({ search, setLoad }) => {
         const response = await axios.get("/Courses.json");
         setCourses(response.data);
         setLoad(false);
+        window.scrollTo(0, 0);
       } catch (error) {
         console.error("Error fetching courses:", error);
         setLoad(false);
@@ -75,7 +76,7 @@ const Cards = ({ search, setLoad }) => {
       {filteredCourses.map((res, index) => (
         <div
           key={index}
-          className="card w-80 bg-[#0d0b21] h-[490px] rounded-2xl p-4 border-tr overflow-hidden relative z-10 grid"
+          className="card w-72 bg-[#0d0b21] h-[490px] rounded-2xl p-4 border-tr overflow-hidden relative z-10 grid"
         >
           <div className="image-container">
             <img
@@ -100,7 +101,10 @@ const Cards = ({ search, setLoad }) => {
             <Link
               className="cta"
               to={`/course/${res.id}`}
-              onClick={() => handleSelectedCourse(res)}
+              onClick={() => {
+                handleSelectedCourse(res);
+                window.scrollTo(0, 0);
+              }}
             >
               <span>Start Now</span>
               <span>
