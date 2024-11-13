@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, Routes, Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Logo from "../../images/Logo.webp";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,7 +13,9 @@ const Navbar = () => {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [loading, setLoading] = useState(false);
 
+  // handle nav hidden
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
     if (latest > previous && latest > 100 && toggleMenu == false) {
@@ -23,8 +25,16 @@ const Navbar = () => {
     }
   });
 
+  // menu bar
   const active = () => {
     setToggleMenu(!toggleMenu);
+  };
+
+  // setScroll
+  const handleLoading = () => {
+    setTimeout(() => {
+      setLoading(true);
+    }, 3000);
   };
 
   return (

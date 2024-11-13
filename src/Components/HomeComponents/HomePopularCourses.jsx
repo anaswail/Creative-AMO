@@ -6,10 +6,10 @@ import "../../styles/Card.css";
 const HomePopularCourses = () => {
   return (
     <>
-      <h1 className="text-white text-center text-3xl font-bold">
+      <h1 className="dark:text-white text-black text-center text-3xl font-bold">
         Our Popular Courses
       </h1>
-      <p className="text-white w-1/3 text-center my-5">
+      <p className="dark:text-white text-black w-1/3 text-center my-5">
         Discover some of the many benefits you will enjoy when you add us to
         your online learning platform.
       </p>

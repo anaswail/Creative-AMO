@@ -2360,5 +2360,1239 @@
         ]
       }
     ]
+  },
+  {
+    "track": "Windows Desktop Development",
+    "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE1UlEQVR4nO2dS2zcRBjHh1cLHFrYnc9pSqQgkRMS4qmCqAoH4AAnqp6RcuEh9UgR4lkhLtygx0BQVEpAeGablEOKuMClICJxgwsIlYKKkCgSfdADavmj8UZldz3rjb127Nj/nzS3+JvHzx5/Ho+zShFCCCGEEEIIIYQQQgghhBBCSCaw3N4JGzzKEvw/BsvtnaWdTrAyCytgkd4xmKUQW6mTgkJQvgQKQfkDTyEof7ApBOUPcA2EGH1S1RwYfZJCKgSFVAwKSQBL22+C0T/1FavfUgVCIQnAym7PfP6CKhAKSQBGPx0Xop9QBUIhCcDIO3EhO6ZVgVBIAjD684Gr4zygrlIFQiEJwMjp/ucgWVUF0yghMPrx9U45UYYVr38hud07pl0dY7axGUJg9N2w+gKMPoNO8FjeGRasfghG/w6rLyJs7RqjnfUXgo6ehJFfe2JdgpEXk+4HaTIsWP0MrPzTM7X9hk5rKlNb6y4E4dQNbu73xPoaodoy9Dgjb8eOWZq4NR5fbYlixeLLqqs7dXvrLMRdATCy6Bms0whbt+SVYeFYMAErpzztNWmzsnoLMfo1z7RzEaZ9X94ZFkK5K7pHxet7NWWb6ykEVvbByL8DMS6jE+wtIsOKjusEe6M6+kW6NuxrtBB09D3es9Xol4tew4LVr/ivyon7myvEyAHP8ZfWM1WNu4bl6ojqit+3DjRWSDeGPuy9mS+P3nC23gzLu8Fv8N7TlXl43e2urRCXjlr50iPlW3w6eWPea1hRem3lG4+ME1iZ2aqaLiSKszipuy+VZDCOTX4oTJlhufTaykeeen52KXGqNtdZSBQrbN0OK2c9Z+7r+a1h6YOe+OfRkTtTt7fuQrrxgic96eiqbypJvYa1MrPVsxJw2dWZqa1NEOJwKW9PrA+H3UeyZFhrUuZ7jnkp6e8TYzVGCNwyil6Akf1FZFhrx+6P6hjjJVZjhFT5LeFA/RRS9lvC/vopZOw1rDyhkJL3YQ1CISXvwxqEQkrehzUIhfSAMLgj9uXvBmZYURt4U68WFFIxNpkQOQcjczUv5zaPkGaX2XJkRAt1+ngFBgCVKm5MUrzoykdGtOlMjpXeeVvRspFSMKeug9FLpXfaVr6sFC4FoboGVj6uQGexKYrRR90JXIyML9S1sPJJciPcviaZr0AGNLdBZT7qc7KY0I1dAVeGPjLibPh7PZ8P1A2E+uHoXUzy2JjcpOCguhpGfzBShgkeUQ0FRu8ZKcXNLnlIgZV3R0xTF9xZohoOuleKZxN3X3lvvEpM8FzyleGeyPWe3HpVhytl+BN8t4TtZ7MFP9LaFn1WNjy420O1O/debXLWXp6dTZhR/nBjm/eyyF/oBA8U0qMagFDfCyt/JozfU+mDum0yw6apMT6WbAoIW7sSpq/30wc0+rMhwQ4V0oMaAiuHhmSlx9MHcxud/XPgCSxuv7mQHtQIhNtasPqrYc8l6QMaeXNECsdiM46BkTcyfsDPQUcRY5Bht31XitXLlCI5C9GdTDKufNdt5BdKkbyEnEr7YVBcSigzsPI9pci4V8Z3OCq3jSXjipSF6eu7X8zqHylG0t7Af4BtP+/GMBcZMTmd1hSMPMifqAiSf6bDjVHGf2xDCCGEEEIIIYQQQgghhBBCCFEN5T+xRa1V8/O6lAAAAABJRU5ErkJggg==",
+    "details": "The Windows Desktop Development track equips you with the necessary skills to build robust and efficient desktop applications specifically for the Windows operating system. You'll master C# and .NET Framework, gain proficiency in WPF, UWP, and familiarize yourself with Visual Studio and MVVM design patterns. This comprehensive track ensures you can create, test, and deploy high-quality Windows applications.",
+    "RoadMap": [
+      {
+        "firstSection": [
+          {
+            "title": "Learn C# and .NET Framework",
+            "description": "Start with C# programming and learn how to use the .NET Framework for Windows desktop applications. The .NET Framework provides a robust runtime environment for high-performance applications.",
+            "roadmap": "Learn basic C# syntax, .NET libraries, object-oriented programming, and LINQ.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Programming"
+          }
+        ]
+      },
+      {
+        "secondSection": [
+          {
+            "title": "Windows Presentation Foundation (WPF)",
+            "description": "Learn WPF for creating rich desktop applications with a modern user interface. WPF allows for the development of visually stunning, flexible, and interactive UI applications.",
+            "roadmap": "Learn XAML, data binding, controls, layouts, styles, and templates in WPF.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "UI Development"
+          }
+        ]
+      },
+      {
+        "thirdSection": [
+          {
+            "title": "Universal Windows Platform (UWP)",
+            "description": "Study UWP to create apps that work across all Windows devices (PCs, tablets, phones). UWP provides a common app platform for all Windows 10 devices.",
+            "roadmap": "Learn UWP controls, adaptive layout, device APIs, and packaging/deployment.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Cross-Platform"
+          }
+        ]
+      },
+      {
+        "fourthSection": [
+          {
+            "title": "Master Visual Studio",
+            "description": "Get comfortable using Visual Studio, the primary IDE for Windows application development. Visual Studio offers powerful tools for coding, debugging, and testing your applications.",
+            "roadmap": "Learn IDE setup, project management, debugging, code refactoring, and extensions.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "IDE"
+          }
+        ]
+      },
+      {
+        "fifthSection": [
+          {
+            "title": "Learn MVVM Design Pattern",
+            "description": "Understand the Model-View-ViewModel (MVVM) pattern for building maintainable WPF applications. MVVM helps in separating the business logic from the UI, making the application easier to test and maintain.",
+            "roadmap": "Learn the principles of MVVM, implementing MVVM in WPF, and using frameworks like MVVM Light.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Design Pattern"
+          }
+        ]
+      },
+      {
+        "sixthSection": [
+          {
+            "title": "Database Integration",
+            "description": "Learn how to connect your desktop apps to databases using technologies like Entity Framework and SQL Server. Efficient database integration ensures that your applications can store and manage data effectively.",
+            "roadmap": "Learn Entity Framework, SQL Server, database design, and CRUD operations.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Data Management"
+          }
+        ]
+      },
+      {
+        "seventhSection": [
+          {
+            "title": "Testing & Debugging",
+            "description": "Master debugging and unit testing tools in Visual Studio to ensure the reliability of your applications. Proper testing and debugging are crucial for maintaining high-quality software.",
+            "roadmap": "Learn about breakpoints, watch windows, unit tests, and integration tests.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Quality Assurance"
+          }
+        ]
+      },
+      {
+        "eighthSection": [
+          {
+            "title": "Deployment",
+            "description": "Learn how to package and deploy applications using ClickOnce or other deployment methods. Efficient deployment strategies ensure your software can be easily distributed and updated.",
+            "roadmap": "Learn ClickOnce, MSI installers, and Windows Store submission.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Deployment"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "track": "macOS Desktop Development",
+    "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAELklEQVR4nO2dPYhVRxTHR41gRLPu3nMWXRVBE6yFFGkSLZIijZVFsLARCwlI0M5CsQnpbNL4AQrRkL0z17fYhQQsFDSGdFELDQRsFD9wtfED+Ye5q7jvrVnYN3fvnJl7fjDNe+zyf/O7M/fNPe/ONUZRFEVRAoCjT+CoguWncAxt3F4fzPT5JMqx9bNk8COVwJEPRHpQS6lHRvQw2jAzWn4xOk2xpAPiiRl8MeRcpCycOf2vQuKiQoShQnIQousUbm6dESpE1ync7DqjASG6TnENrjOChejlFDS6zggfIbpOCWHB/atCFhcVIgwVIgwVIgwVIgwVIgwVIgwVIgwVIgwVIgwVIgwVIozOC4Eb3wzLx1DSdiOATguBo4Nw/KLOWtI3RgCdFQJL+2YVgl79X8m0bTopBOWGD+sS6bucp4wQuinEjX/5LiNdRsmrjBCyF4ILEwVssQOWPsf5kdH6NUtfw9IVWDqAE2Z5/cOMavwrVOOf4cymFVHz5ioEP4195KciWHred66w9BtccQiu2A1L38PR7YHMj2DpMC6ZD6LkzlEIyrUMy7cGsyys0a8xRkt2QgCzBI4vhcnwo4msH2Wt589OSFXsDJfBF73YtrPnKcTxuUAhr9Eb3dh27oyF0N+BQv5oO3PeQizdD52u2s6cuRC+GzhC/mw7c+ZC6GqgkJeoxja0nTtfIY5PBgrx09Z5/ZbVlJCKdwULqRv9iIvrVraeP7sRUvIq/zP+hqT83nr+3IR4YPl4I0JK3mNaJt9rWS5wlFj+C6VZ1nr2HIV4YPnbACEvYGmbiUC+QmCWwJIbUsj+aLlzFeLxl8/h+Of+qYj+heXTcPQDHJ2FpXt9I6Oi70xEshbyFtjiUzjaC0df4KhZ2veerxjOVBD3+cqhiUwnhKSEChGGChGGChGGChGGChGGChGGChGGChGGChGGCumAkOmAy97aXPMbmE1qx7KgLf7KsfUDdydpc8P0AT3AVDERLKT+o6liwtvV6YuHORin6757j4yhhSiLhwoRRlZC0BvdWNfZ/Va2daMeymKrSYhshMDLeP+TgR7HvB+ku0LsvL9AKU0iZCSE53uA2bRJhK4IeWISISMh1JtHyKRJhHyElMXW+gQ+5/IEPYx5g05nhcz6plW+uYLg22RKMrITkgMqJAEhWu9wsh4sqfUOF13ErEevar0D4uolWu9gsfUSMWAguLT/1zmgQmQBFSILqJBF7uCpYjUcHYXjG30bWUptts54A46O+OwmJ1Dyx7D0T/ROdkPLuYMLvMXkgN/wJXxHUY7fLN/0O2ib1HmzQT6yaFXce94bAZavD3ywc+iNrDHCQW9kTb3PVl92umZSB46e9X2okteaREBF6wamracmdQaHvUkMJJ4/uw+ExPPPIfqJ2DXbTOrE7kCoEBUimthHNBIbIf8BSi4mIIWyBdQAAAAASUVORK5CYII=",
+    "details": "The macOS Desktop Development track equips you with the necessary skills to build robust and efficient desktop applications specifically for macOS. You'll master Swift and Objective-C, gain proficiency in Cocoa and Cocoa Touch, familiarize yourself with Xcode and Interface Builder, and learn to integrate with macOS features using AppKit. This comprehensive track ensures you can create, test, and deploy high-quality macOS applications.",
+    "RoadMap": [
+      {
+        "firstSection": [
+          {
+            "title": "Learn Swift and Objective-C",
+            "description": "Start by learning Swift, Apple’s primary programming language for macOS, or Objective-C for legacy codebases. Swift offers modern syntax and powerful features, while Objective-C provides compatibility with older macOS applications.",
+            "roadmap": "Learn Swift syntax, fundamentals of Objective-C, object-oriented programming, and memory management.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Programming"
+          }
+        ]
+      },
+      {
+        "secondSection": [
+          {
+            "title": "Learn Cocoa and Cocoa Touch",
+            "description": "Study the Cocoa framework for creating macOS applications, which is used for UI design and interacting with the operating system. Cocoa Touch is used for iOS development but shares many similarities with Cocoa.",
+            "roadmap": "Learn about Cocoa classes, interface elements, event handling, and MVC design pattern.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Framework"
+          }
+        ]
+      },
+      {
+        "thirdSection": [
+          {
+            "title": "Xcode and Interface Builder",
+            "description": "Get comfortable with Xcode, Apple’s IDE, and learn to use Interface Builder for designing app interfaces. Xcode provides tools for coding, testing, and debugging your applications.",
+            "roadmap": "Learn Xcode setup, project management, Interface Builder, and debugging tools.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "IDE"
+          }
+        ]
+      },
+      {
+        "fourthSection": [
+          {
+            "title": "Master macOS Human Interface Guidelines",
+            "description": "Understand Apple’s design principles for building intuitive and visually consistent applications. These guidelines ensure that your applications provide a seamless and enjoyable user experience.",
+            "roadmap": "Study Apple’s design principles, UI patterns, and accessibility features.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Design Principles"
+          }
+        ]
+      },
+      {
+        "fifthSection": [
+          {
+            "title": "AppKit",
+            "description": "Learn AppKit to create native macOS applications, including integrating with macOS features like menus, windows, and notifications. AppKit provides a comprehensive set of UI components and functionalities.",
+            "roadmap": "Learn about AppKit components, window management, menus, and notifications.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "UI Framework"
+          }
+        ]
+      },
+      {
+        "sixthSection": [
+          {
+            "title": "Networking and File Handling",
+            "description": "Learn how to work with files and connect your app to the internet for data fetching and integration. Networking and file handling are crucial for building feature-rich applications.",
+            "roadmap": "Learn URLSession, FileManager, and techniques for handling file operations and network requests.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Data Handling"
+          }
+        ]
+      },
+      {
+        "seventhSection": [
+          {
+            "title": "Persistent Data Storage",
+            "description": "Study Core Data and other local storage solutions for handling app data. Persistent data storage is essential for maintaining user data and application state.",
+            "roadmap": "Learn about Core Data, data models, CRUD operations, and other local storage options.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Data Management"
+          }
+        ]
+      },
+      {
+        "eighthSection": [
+          {
+            "title": "Testing and Debugging",
+            "description": "Use Xcode’s debugging tools to troubleshoot and test your macOS applications. Proper testing and debugging ensure the reliability and performance of your software.",
+            "roadmap": "Learn about breakpoints, logging, unit tests, and performance analysis tools in Xcode.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Quality Assurance"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "track": "Cross-Platform Desktop Development",
+    "image": "data:image/png;base64,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",
+    "details": "The macOS Desktop Development track focuses on building applications specifically for macOS, integrating well with Apple’s ecosystem. You'll gain expertise in Swift and Objective-C, master the Cocoa framework, and become proficient with Xcode and AppKit. This track is ideal for developing software optimized for Apple hardware and UI guidelines, perfect for distribution on the Mac App Store.",
+    "RoadMap": [
+      {
+        "firstSection": [
+          {
+            "title": "Learn Swift and Objective-C",
+            "description": "Start by learning Swift, Apple’s primary programming language for macOS, or Objective-C for legacy codebases. These languages are essential for macOS application development.",
+            "roadmap": "Learn basic syntax, object-oriented programming, and memory management.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Programming"
+          }
+        ]
+      },
+      {
+        "secondSection": [
+          {
+            "title": "Learn Cocoa and Cocoa Touch",
+            "description": "Study the Cocoa framework for creating macOS applications, which is used for UI design and interacting with the operating system. Cocoa Touch extends Cocoa to iOS applications.",
+            "roadmap": "Learn about AppKit, UIKit, and foundational Cocoa libraries.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "UI Development"
+          }
+        ]
+      },
+      {
+        "thirdSection": [
+          {
+            "title": "Xcode and Interface Builder",
+            "description": "Get comfortable with Xcode, Apple’s IDE, and learn to use Interface Builder for designing app interfaces. Xcode is the primary tool for macOS development.",
+            "roadmap": "Learn project setup, debugging, using Interface Builder, and working with storyboards.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "IDE"
+          }
+        ]
+      },
+      {
+        "fourthSection": [
+          {
+            "title": "Master macOS Human Interface Guidelines",
+            "description": "Understand Apple’s design principles for building intuitive and visually consistent applications. Following these guidelines ensures that apps feel natural to macOS users.",
+            "roadmap": "Learn about design principles, user experience guidelines, and Apple’s aesthetic standards.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Design Guidelines"
+          }
+        ]
+      },
+      {
+        "fifthSection": [
+          {
+            "title": "AppKit",
+            "description": "Learn AppKit to create native macOS applications, including integrating with macOS features like menus, windows, and notifications. AppKit is essential for macOS UI development.",
+            "roadmap": "Learn about UI elements, event handling, and macOS-specific features.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Framework"
+          }
+        ]
+      },
+      {
+        "sixthSection": [
+          {
+            "title": "Networking and File Handling",
+            "description": "Learn how to work with files and connect your app to the internet for data fetching and integration. Networking is crucial for apps that require external data.",
+            "roadmap": "Learn URLSession, file management APIs, and data parsing techniques.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Data Management"
+          }
+        ]
+      },
+      {
+        "seventhSection": [
+          {
+            "title": "Persistent Data Storage",
+            "description": "Study Core Data and other local storage solutions for handling app data. Efficient data storage is crucial for performance and user experience.",
+            "roadmap": "Learn Core Data, SQLite, and NSUserDefaults for persistent storage.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Storage"
+          }
+        ]
+      },
+      {
+        "eighthSection": [
+          {
+            "title": "Testing and Debugging",
+            "description": "Use Xcode’s debugging tools to troubleshoot and test your macOS applications. Proper testing and debugging are crucial for high-quality software.",
+            "roadmap": "Learn Xcode’s debugger, unit testing, and performance profiling tools.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Quality Assurance"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "track": "Game Development for Desktop",
+    "image": "data:image/png;base64,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",
+    "details": "The Game Development for Desktop track equips you with the skills necessary to create engaging and high-performance games for Windows, macOS, and Linux. You'll learn essential programming languages, master popular game engines, and understand key game design principles. This comprehensive track ensures you can develop, test, and deploy games across multiple desktop platforms.",
+    "RoadMap": [
+      {
+        "firstSection": [
+          {
+            "title": "Learn C++ or C#",
+            "description": "C++ is the industry-standard for game development, while C# is used with Unity, a popular game engine. Both languages provide the necessary performance and features for creating high-quality games.",
+            "roadmap": "Learn basic C++ syntax or C# syntax, object-oriented programming, and game-specific libraries.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Programming"
+          }
+        ]
+      },
+      {
+        "secondSection": [
+          {
+            "title": "Master Game Engines",
+            "description": "Learn to use popular game engines like Unity and Unreal Engine to build both 2D and 3D games. These engines provide powerful tools and frameworks for game development.",
+            "roadmap": "Unity: Learn Unity basics, C# scripting, and 2D/3D game development. Unreal Engine: Learn Unreal Engine basics, C++ programming, and high-performance game development.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Game Engines"
+          }
+        ]
+      },
+      {
+        "thirdSection": [
+          {
+            "title": "Understand Game Design Principles",
+            "description": "Learn how to design engaging gameplay, balance, and pacing to create enjoyable and memorable gaming experiences.",
+            "roadmap": "Study game mechanics, level design, user experience, and playtesting.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Design Principles"
+          }
+        ]
+      },
+      {
+        "fourthSection": [
+          {
+            "title": "Graphics Programming",
+            "description": "Study how to create and implement 2D/3D graphics in your game, including textures, shaders, and models. High-quality graphics enhance the visual appeal and immersion of your games.",
+            "roadmap": "Learn basics of graphics programming, working with textures, creating and applying shaders, and importing 3D models.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Graphics"
+          }
+        ]
+      },
+      {
+        "fifthSection": [
+          {
+            "title": "Sound and Music",
+            "description": "Learn how to incorporate sound effects and background music to enhance gameplay. Sound design is crucial for creating immersive gaming experiences.",
+            "roadmap": "Study sound effect libraries, music composition, and integrating audio in game engines.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Audio"
+          }
+        ]
+      },
+      {
+        "sixthSection": [
+          {
+            "title": "Networking for Multiplayer Games",
+            "description": "Study how to integrate multiplayer features into your games using networking libraries and tools. Multiplayer gaming is a key component of many popular games.",
+            "roadmap": "Learn basics of networking, multiplayer game architecture, and using networking libraries (e.g., Photon, Mirror).",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Multiplayer"
+          }
+        ]
+      },
+      {
+        "seventhSection": [
+          {
+            "title": "Game Physics",
+            "description": "Learn how to simulate realistic physics (e.g., gravity, collisions) in your games. Physics engines help create believable and engaging game worlds.",
+            "roadmap": "Study physics principles, using physics engines, and implementing realistic physics in your games.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Physics"
+          }
+        ]
+      },
+      {
+        "eighthSection": [
+          {
+            "title": "Deploy and Distribute Games",
+            "description": "Learn how to package your games for different desktop platforms and distribute them (Steam, itch.io, etc.). Successful deployment ensures your games reach a wide audience.",
+            "roadmap": "Learn packaging tools (e.g., Unity Build, Unreal Engine Packaging), platform-specific requirements, and distribution channels.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Deployment"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "track": "Linux Desktop Development",
+    "image": "data:image/png;base64,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",
+    "details": "The Linux Desktop Development track equips you with the skills necessary to create robust and efficient desktop applications for Linux-based systems. You'll master essential programming languages, learn to use powerful frameworks like GTK and Qt, and understand the nuances of system-level programming on Linux. This comprehensive track ensures you can develop, test, and distribute applications tailored for the open-source and customizable nature of Linux.",
+    "RoadMap": [
+      {
+        "firstSection": [
+          {
+            "title": "Learn C/C++ or Python",
+            "description": "Start by learning C/C++ (for performance) or Python (for rapid development) for Linux desktop apps. Both languages are widely used in the development of Linux applications.",
+            "roadmap": "Learn basic syntax, object-oriented programming, and libraries specific to Linux development.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Programming"
+          }
+        ]
+      },
+      {
+        "secondSection": [
+          {
+            "title": "Learn GTK or Qt",
+            "description": "Use GTK (GIMP Toolkit) or Qt to build graphical applications for Linux. Both frameworks provide the tools needed to create powerful and efficient desktop applications.",
+            "roadmap": "Learn the basics of GTK or Qt, creating windows and dialogs, handling events, and integrating with other Linux libraries.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "UI Frameworks"
+          }
+        ]
+      },
+      {
+        "thirdSection": [
+          {
+            "title": "Linux System Programming",
+            "description": "Study Linux system programming, including process management, file handling, and network programming. Understanding the core system interactions is crucial for building effective Linux applications.",
+            "roadmap": "Learn about processes, threads, inter-process communication, file I/O, and network sockets.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "System Programming"
+          }
+        ]
+      },
+      {
+        "fourthSection": [
+          {
+            "title": "Understand X11 or Wayland",
+            "description": "Learn about X11 and Wayland, the display server protocols used in Linux for GUI applications. These protocols are essential for understanding how graphical applications interact with the Linux operating system.",
+            "roadmap": "Study the architecture, configuration, and application interaction with X11 and Wayland.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Display Servers"
+          }
+        ]
+      },
+      {
+        "fifthSection": [
+          {
+            "title": "Desktop Environment Integration",
+            "description": "Learn how to integrate your applications with popular Linux desktop environments (GNOME, KDE). Proper integration ensures a seamless user experience and better adoption of your applications.",
+            "roadmap": "Learn about desktop environment APIs, theming, and interacting with desktop-specific features.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Environment Integration"
+          }
+        ]
+      },
+      {
+        "sixthSection": [
+          {
+            "title": "Package and Distribute",
+            "description": "Learn how to package Linux applications in formats like .deb or .rpm for distribution on various Linux distros. Proper packaging ensures your applications can be easily installed and managed by users.",
+            "roadmap": "Study packaging tools, creating .deb and .rpm packages, and repository management.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Distribution"
+          }
+        ]
+      },
+      {
+        "seventhSection": [
+          {
+            "title": "Testing and Debugging",
+            "description": "Use debugging tools like GDB and Valgrind for testing and memory management on Linux. Thorough testing and debugging are essential for maintaining high-quality software.",
+            "roadmap": "Learn about GDB, Valgrind, and other Linux debugging tools, as well as unit testing frameworks.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Quality Assurance"
+          }
+        ]
+      },
+      {
+        "eighthSection": [
+          {
+            "title": "Build for Multiple Distributions",
+            "description": "Learn how to ensure your app works across various Linux distributions (Ubuntu, Fedora, Arch). Cross-distribution compatibility ensures a wider audience for your applications.",
+            "roadmap": "Study distribution-specific requirements, testing on multiple distros, and maintaining compatibility.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Cross-Distribution"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "track": "2D Game Development",
+    "image": "data:image/png;base64,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",
+    "details": "The 2D Game Development track provides you with the essential skills to create engaging and visually appealing 2D games. Whether for mobile, indie, or retro-style games, this track covers programming basics, mastering game engines, and fundamental game design principles. You'll learn to create graphics, incorporate sound, and apply simple game physics, ensuring you can develop, test, and deploy 2D games across various platforms.",
+    "RoadMap": [
+      {
+        "firstSection": [
+          {
+            "title": "Learn Programming Basics",
+            "description": "Start by learning a language like Python (Pygame), C# (Unity), or JavaScript (HTML5 Canvas, Phaser). Understanding the basics of programming is crucial for game development.",
+            "roadmap": "Learn basic syntax, object-oriented programming, and game-specific libraries.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Programming"
+          }
+        ]
+      },
+      {
+        "secondSection": [
+          {
+            "title": "Master Game Engines",
+            "description": "Learn how to use popular game engines that are well-suited for 2D game development. These engines provide the necessary tools and frameworks for creating efficient and visually appealing games.",
+            "roadmap": "Unity: Learn Unity basics, C# scripting, and 2D game development. Godot: Learn Godot basics, GDScript or C# scripting, and 2D game development. Construct: Use drag-and-drop features to create games with minimal coding.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Game Engines"
+          }
+        ]
+      },
+      {
+        "thirdSection": [
+          {
+            "title": "Learn Game Design",
+            "description": "Study the basic principles of game design, such as levels, difficulty curves, player rewards, and mechanics. Good game design is essential for creating engaging and enjoyable games.",
+            "roadmap": "Study game mechanics, level design, user experience, and playtesting.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Design Principles"
+          }
+        ]
+      },
+      {
+        "fourthSection": [
+          {
+            "title": "Graphics Creation",
+            "description": "Learn how to create or acquire 2D assets, such as sprites, backgrounds, and animations. Quality graphics are crucial for the visual appeal of your games.",
+            "roadmap": "Learn about sprite creation, animation techniques, and using graphic design software.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Graphics"
+          }
+        ]
+      },
+      {
+        "fifthSection": [
+          {
+            "title": "Sound and Music",
+            "description": "Study how to incorporate sound effects and background music into your game. Good sound design enhances the gameplay experience and immersion.",
+            "roadmap": "Learn about sound effect libraries, music composition, and integrating audio in game engines.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Audio"
+          }
+        ]
+      },
+      {
+        "sixthSection": [
+          {
+            "title": "Game Physics",
+            "description": "Learn simple game physics like gravity, collision detection, and object movement. Implementing realistic physics can make games more engaging and fun to play.",
+            "roadmap": "Study physics principles, collision detection algorithms, and using physics engines.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Physics"
+          }
+        ]
+      },
+      {
+        "seventhSection": [
+          {
+            "title": "Prototyping",
+            "description": "Build a simple game prototype to test your ideas quickly. Prototyping allows you to refine game mechanics and design before full development.",
+            "roadmap": "Learn rapid prototyping techniques and tools to create basic game prototypes.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Prototyping"
+          }
+        ]
+      },
+      {
+        "eighthSection": [
+          {
+            "title": "Deployment",
+            "description": "Learn how to package your game for different platforms, such as mobile devices, PC, or the web. Successful deployment ensures your game can reach a wide audience.",
+            "roadmap": "Study packaging tools, platform-specific requirements, and distribution channels.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Deployment"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "track": "3D Game Development",
+    "image": "data:image/png;base64,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",
+    "details": "The 3D Game Development track provides you with the skills necessary to create fully immersive games with 3D environments and models. Ideal for larger studios and AAA game development, this track covers essential programming languages, mastering 3D game engines, and fundamental game design principles. You'll learn to create 3D models and animations, implement game physics, enhance visuals with lighting and shaders, and optimize your games for various platforms.",
+    "RoadMap": [
+      {
+        "firstSection": [
+          {
+            "title": "Learn C++ or C#",
+            "description": "Start by learning C++ (for Unreal Engine) or C# (for Unity). These languages are foundational for 3D game development and are used extensively in the industry.",
+            "roadmap": "Learn basic syntax, object-oriented programming, and game-specific libraries.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Programming"
+          }
+        ]
+      },
+      {
+        "secondSection": [
+          {
+            "title": "Master 3D Game Engines",
+            "description": "Learn how to create 3D games with popular game engines like Unity and Unreal Engine. These engines provide the necessary tools and frameworks for creating high-quality 3D games.",
+            "roadmap": "Unity: Learn Unity basics, C# scripting, and 3D game development. Unreal Engine: Learn Unreal Engine basics, C++ programming, and Blueprints for visual scripting.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Game Engines"
+          }
+        ]
+      },
+      {
+        "thirdSection": [
+          {
+            "title": "3D Modeling and Animation",
+            "description": "Learn to create 3D models and animations using software like Blender, Maya, or 3ds Max. High-quality models and animations are crucial for the visual appeal of your games.",
+            "roadmap": "Study basic modeling techniques, rigging, animation principles, and using modeling software.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Modeling and Animation"
+          }
+        ]
+      },
+      {
+        "fourthSection": [
+          {
+            "title": "Learn about Game Physics",
+            "description": "Study how to implement 3D physics, such as rigid body dynamics, character controllers, and environmental interactions. Realistic physics enhance the gameplay experience.",
+            "roadmap": "Learn about physics engines, implementing rigid body dynamics, and creating interactive environments.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Physics"
+          }
+        ]
+      },
+      {
+        "fifthSection": [
+          {
+            "title": "Lighting and Shading",
+            "description": "Understand lighting techniques and shaders to enhance the visual quality of your game. Proper lighting and shading can significantly improve the realism and immersion of your games.",
+            "roadmap": "Study different lighting techniques, creating and applying shaders, and using lighting tools in game engines.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Visuals"
+          }
+        ]
+      },
+      {
+        "sixthSection": [
+          {
+            "title": "AI and Pathfinding",
+            "description": "Learn about artificial intelligence in 3D games, including NPC behavior and pathfinding algorithms. AI is essential for creating engaging and challenging gameplay.",
+            "roadmap": "Study AI principles, implementing NPC behavior, and using pathfinding algorithms.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Artificial Intelligence"
+          }
+        ]
+      },
+      {
+        "seventhSection": [
+          {
+            "title": "Sound and Music",
+            "description": "Learn how to integrate 3D spatial sound into your game to improve immersion. Good sound design is crucial for creating a compelling audio-visual experience.",
+            "roadmap": "Learn about sound effect libraries, music composition, and integrating audio in game engines.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Audio"
+          }
+        ]
+      },
+      {
+        "eighthSection": [
+          {
+            "title": "Optimization",
+            "description": "Master techniques for optimizing 3D games to run smoothly on a variety of devices. Optimization ensures a better gameplay experience and broader accessibility.",
+            "roadmap": "Study performance profiling, optimizing assets, and implementing efficient algorithms.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Performance"
+          }
+        ]
+      },
+      {
+        "ninthSection": [
+          {
+            "title": "Deployment",
+            "description": "Learn how to deploy your 3D games to platforms like PC, consoles, and VR/AR systems. Successful deployment ensures your game reaches a wide audience.",
+            "roadmap": "Study packaging tools, platform-specific requirements, and distribution channels.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Deployment"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "track": "Mobile Game Development",
+    "image": "data:image/png;base64,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",
+    "details": "The Mobile Game Development track equips you with the skills necessary to create engaging and high-performance games for smartphones and tablets. With a focus on both iOS and Android platforms, this track covers programming basics, mastering game engines, and understanding mobile design guidelines. You'll learn to handle mobile-specific features, optimize performance, implement monetization strategies, and deploy your games to popular app stores.",
+    "RoadMap": [
+      {
+        "firstSection": [
+          {
+            "title": "Learn C# (Unity) or Java/Kotlin (Android)",
+            "description": "Start with C# for Unity (cross-platform), or Java/Kotlin if focusing on Android games. These languages provide the foundational skills needed for mobile game development.",
+            "roadmap": "Learn basic syntax, object-oriented programming, and game-specific libraries.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Programming"
+          }
+        ]
+      },
+      {
+        "secondSection": [
+          {
+            "title": "Master Unity for Mobile",
+            "description": "Learn how to develop games for both iOS and Android using Unity’s cross-platform capabilities. Unity provides a comprehensive set of tools for building high-quality mobile games.",
+            "roadmap": "Learn Unity basics, C# scripting, mobile optimization, and cross-platform deployment.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Game Engine"
+          }
+        ]
+      },
+      {
+        "thirdSection": [
+          {
+            "title": "Learn Swift (for iOS)",
+            "description": "If focusing solely on iOS games, learn Swift and Xcode for iOS development. Swift is Apple's powerful and intuitive programming language designed for iOS development.",
+            "roadmap": "Learn Swift syntax, Xcode basics, and iOS-specific development techniques.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "iOS Development"
+          }
+        ]
+      },
+      {
+        "fourthSection": [
+          {
+            "title": "Understand Mobile Design Guidelines",
+            "description": "Learn platform-specific design guidelines (iOS Human Interface Guidelines, Android Material Design) to create user-friendly and aesthetically pleasing games.",
+            "roadmap": "Study platform-specific guidelines, user experience principles, and mobile UI design.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Design Principles"
+          }
+        ]
+      },
+      {
+        "fifthSection": [
+          {
+            "title": "Handle Mobile-Specific Features",
+            "description": "Learn how to implement mobile-specific features like touch controls, accelerometer, GPS, and push notifications. These features enhance gameplay and user interaction.",
+            "roadmap": "Study mobile APIs, handling touch events, integrating GPS, and implementing push notifications.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Mobile Features"
+          }
+        ]
+      },
+      {
+        "sixthSection": [
+          {
+            "title": "Optimize for Mobile",
+            "description": "Study techniques to optimize game performance for mobile devices with limited resources. Efficient optimization ensures your game runs smoothly on a variety of devices.",
+            "roadmap": "Learn about memory management, reducing load times, and improving frame rates.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Optimization"
+          }
+        ]
+      },
+      {
+        "seventhSection": [
+          {
+            "title": "Monetization Strategies",
+            "description": "Learn about monetization models such as ads, in-app purchases, and premium games. Effective monetization strategies can help you generate revenue from your mobile games.",
+            "roadmap": "Study different monetization models, integrating ads, setting up in-app purchases, and pricing strategies.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Monetization"
+          }
+        ]
+      },
+      {
+        "eighthSection": [
+          {
+            "title": "Testing and Debugging",
+            "description": "Learn to test on real devices and use mobile-specific debugging tools (e.g., Android Studio, Xcode). Thorough testing and debugging are essential for maintaining high-quality games.",
+            "roadmap": "Learn about testing on physical devices, using emulators, and debugging tools.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Quality Assurance"
+          }
+        ]
+      },
+      {
+        "ninthSection": [
+          {
+            "title": "Deployment",
+            "description": "Learn how to publish games to the Google Play Store or Apple App Store. Successful deployment ensures your games reach a wide audience.",
+            "roadmap": "Study app store guidelines, creating store listings, and managing updates.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Deployment"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "track": "Game AI Development",
+    "image": "data:image/png;base64,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",
+    "details": "The Game AI Development track equips you with the skills necessary to develop advanced artificial intelligence systems for games. You'll learn to create dynamic and engaging NPCs, enemies, and other game behaviors, making your games more interactive and challenging. This track covers AI fundamentals, machine learning, and scripting, ensuring you can develop, test, and deploy AI systems in various game environments.",
+    "RoadMap": [
+      {
+        "firstSection": [
+          {
+            "title": "Learn AI Fundamentals",
+            "description": "Start with basic AI concepts like search algorithms, decision trees, and pathfinding (A*, Dijkstra’s). Understanding these foundations is crucial for developing effective AI systems.",
+            "roadmap": "Learn basic AI concepts, search algorithms, decision trees, and pathfinding algorithms.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "AI Basics"
+          }
+        ]
+      },
+      {
+        "secondSection": [
+          {
+            "title": "Study AI Programming in Games",
+            "description": "Learn how to implement AI systems in games, such as NPC decision-making, enemy behavior, and pathfinding. These skills are essential for creating interactive and challenging game experiences.",
+            "roadmap": "Study NPC decision-making, enemy behavior, and pathfinding techniques.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Game AI"
+          }
+        ]
+      },
+      {
+        "thirdSection": [
+          {
+            "title": "Master Machine Learning",
+            "description": "Explore machine learning algorithms and their applications in games, such as dynamic difficulty adjustment or predictive behaviors. Machine learning can enhance game AI by making it more adaptable and intelligent.",
+            "roadmap": "Learn about machine learning algorithms, dynamic difficulty adjustment, and predictive behaviors in games.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Machine Learning"
+          }
+        ]
+      },
+      {
+        "fourthSection": [
+          {
+            "title": "Learn about Steering Behaviors",
+            "description": "Understand steering behaviors (e.g., flocking, seeking, avoiding) for controlling NPC movement. These behaviors help create realistic and fluid NPC movements.",
+            "roadmap": "Study steering behaviors, including flocking, seeking, and avoiding.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Steering Behaviors"
+          }
+        ]
+      },
+      {
+        "fifthSection": [
+          {
+            "title": "Behavior Trees and Finite State Machines",
+            "description": "Learn how to design complex AI systems using behavior trees and FSMs. These techniques are widely used for structuring AI logic and ensuring responsive and intelligent behavior.",
+            "roadmap": "Learn about behavior trees, finite state machines, and their applications in game AI.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "AI Structures"
+          }
+        ]
+      },
+      {
+        "sixthSection": [
+          {
+            "title": "Deepen Knowledge in Game Design",
+            "description": "Study how AI impacts game design, balancing difficulty and player experience. Understanding the role of AI in game design helps create more engaging and balanced games.",
+            "roadmap": "Learn about the impact of AI on game design, difficulty balancing, and player experience.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Game Design"
+          }
+        ]
+      },
+      {
+        "seventhSection": [
+          {
+            "title": "Learn Scripting for AI",
+            "description": "Implement AI logic using scripting languages (e.g., C# in Unity, C++ in Unreal Engine). Scripting is essential for defining AI behavior and integrating it into the game engine.",
+            "roadmap": "Study scripting languages for AI, including C# for Unity and C++ for Unreal Engine.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Scripting"
+          }
+        ]
+      },
+      {
+        "eighthSection": [
+          {
+            "title": "Test AI in Games",
+            "description": "Learn to debug and test AI systems to ensure they provide an engaging player experience. Proper testing ensures that AI systems work as intended and enhance gameplay.",
+            "roadmap": "Learn about debugging AI systems, unit testing, and player feedback.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Testing"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "track": "VR/AR Game Development",
+    "image": "data:image/png;base64,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",
+    "details": "The VR/AR Game Development track focuses on creating immersive gaming experiences using virtual reality (VR) and augmented reality (AR). This highly innovative and in-demand field is perfect for developers looking to create futuristic and interactive gaming experiences. You'll learn essential programming languages, master VR/AR hardware, and understand the principles of creating and optimizing immersive worlds.",
+    "RoadMap": [
+      {
+        "firstSection": [
+          {
+            "title": "Learn Unity and Unreal Engine",
+            "description": "Both Unity and Unreal Engine have strong support for VR/AR development. These engines provide the necessary tools and frameworks for creating immersive and interactive experiences.",
+            "roadmap": "Learn the basics of Unity and Unreal Engine, setting up projects, and creating simple VR/AR applications.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Game Engines"
+          }
+        ]
+      },
+      {
+        "secondSection": [
+          {
+            "title": "Learn C# (Unity) or C++ (Unreal)",
+            "description": "Focus on learning the programming languages used by these engines (C# for Unity, C++ for Unreal). Proficiency in these languages is essential for building VR/AR applications.",
+            "roadmap": "Learn basic syntax, object-oriented programming, and scripting within Unity or Unreal Engine.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Programming"
+          }
+        ]
+      },
+      {
+        "thirdSection": [
+          {
+            "title": "Understand VR/AR Hardware",
+            "description": "Get familiar with VR/AR devices such as Oculus Rift, HTC Vive, Microsoft HoloLens, and their SDKs. Understanding the hardware is crucial for developing effective VR/AR experiences.",
+            "roadmap": "Learn about device setup, SDK integration, and hardware-specific features.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Hardware"
+          }
+        ]
+      },
+      {
+        "fourthSection": [
+          {
+            "title": "Create Immersive Worlds",
+            "description": "Learn how to create 3D environments and interactive objects for VR/AR. Immersive world-building is key to creating compelling VR/AR experiences.",
+            "roadmap": "Study 3D modeling, texturing, and animating objects. Learn to use tools like Blender or Maya.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "World-Building"
+          }
+        ]
+      },
+      {
+        "fifthSection": [
+          {
+            "title": "Handle User Interaction",
+            "description": "Study how to design and implement natural user interactions with motion controllers or hand tracking. User interaction is a critical component of VR/AR experiences.",
+            "roadmap": "Learn about motion controller integration, hand tracking techniques, and gesture recognition.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "User Interaction"
+          }
+        ]
+      },
+      {
+        "sixthSection": [
+          {
+            "title": "Optimize for VR/AR",
+            "description": "Learn how to optimize your games to run smoothly in VR/AR environments, considering performance and comfort. Optimization is crucial for maintaining immersion and preventing motion sickness.",
+            "roadmap": "Study performance profiling, optimization techniques, and comfort considerations.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Optimization"
+          }
+        ]
+      },
+      {
+        "seventhSection": [
+          {
+            "title": "Study Design Principles",
+            "description": "Learn VR/AR design principles, such as comfort, immersion, and minimizing motion sickness. Good design principles are essential for creating enjoyable VR/AR experiences.",
+            "roadmap": "Learn about VR/AR comfort guidelines, immersive design techniques, and reducing motion sickness.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Design Principles"
+          }
+        ]
+      },
+      {
+        "eighthSection": [
+          {
+            "title": "Deploy to VR/AR Platforms",
+            "description": "Learn how to deploy your game to VR/AR platforms such as Oculus, Viveport, or Microsoft’s Windows Mixed Reality. Proper deployment ensures your game reaches its intended audience.",
+            "roadmap": "Study platform-specific deployment requirements, packaging tools, and distribution channels.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Deployment"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "track": "Indie Game Development",
+    "image": "data:image/png;base64,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",
+    "details": "The Indie Game Development track focuses on creating smaller-scale games with high creativity and limited resources. Ideal for developers who want to self-publish and target niche markets, this track provides the freedom to experiment with different genres and mechanics. You'll learn essential programming, game engine mastery, game design, asset creation, marketing, and community building to ensure your indie game is a success.",
+    "RoadMap": [
+      {
+        "firstSection": [
+          {
+            "title": "Learn Basic Programming",
+            "description": "Start with C#, JavaScript, or other languages suited to game engines like Unity or Godot. Understanding basic programming is crucial for game development.",
+            "roadmap": "Learn basic syntax, object-oriented programming, and game-specific libraries.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Programming"
+          }
+        ]
+      },
+      {
+        "secondSection": [
+          {
+            "title": "Master Game Engines",
+            "description": "Learn Unity, Godot, or other accessible engines to quickly create prototypes. These engines provide the tools and frameworks necessary for efficient game development.",
+            "roadmap": "Unity: Learn Unity basics, C# scripting, and 2D/3D game development. Godot: Learn Godot basics and GDScript or C# scripting.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Game Engines"
+          }
+        ]
+      },
+      {
+        "thirdSection": [
+          {
+            "title": "Understand Game Design and Monetization",
+            "description": "Learn how to balance fun gameplay, story, and monetization strategies (like ads or crowdfunding). Effective game design and monetization are essential for a successful indie game.",
+            "roadmap": "Study game mechanics, storytelling, player experience, and various monetization strategies.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Game Design"
+          }
+        ]
+      },
+      {
+        "fourthSection": [
+          {
+            "title": "Create 2D/3D Assets",
+            "description": "Learn how to make or acquire assets for your game (sprites, 3D models, music, sound effects). High-quality assets enhance the visual and auditory experience of your game.",
+            "roadmap": "Learn about sprite creation, 3D modeling, animation techniques, and using asset libraries.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Asset Creation"
+          }
+        ]
+      },
+      {
+        "fifthSection": [
+          {
+            "title": "Prototype Quickly",
+            "description": "Learn rapid prototyping techniques to test your game ideas quickly. Prototyping allows you to refine game mechanics and design before full development.",
+            "roadmap": "Learn rapid prototyping tools and techniques to create basic game prototypes.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Prototyping"
+          }
+        ]
+      },
+      {
+        "sixthSection": [
+          {
+            "title": "Market Your Game",
+            "description": "Learn how to market your game through social media, game jams, and platforms like Steam or itch.io. Effective marketing ensures your game reaches a wide audience.",
+            "roadmap": "Study social media marketing, game jams participation, and distribution platforms.",
+            "design": "rounded-l-[30px]"
+          },
+          {
+            "title": "Marketing"
+          }
+        ]
+      },
+      {
+        "seventhSection": [
+          {
+            "title": "Community Building",
+            "description": "Engage with players and build a community around your game for feedback and support. A strong community can provide valuable insights and help promote your game.",
+            "roadmap": "Learn about community management, engaging with players, and gathering feedback.",
+            "design": "rounded-r-[30px]"
+          },
+          {
+            "title": "Community"
+          }
+        ]
+      }
+    ]
   }
 ]

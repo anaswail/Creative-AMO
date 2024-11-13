@@ -26,7 +26,7 @@ function App() {
   });
 
   return (
-    <div className="App bg-[#080c14] overflow-x-hidden">
+    <div className="App bg-[#080c14] overflow-x-hidden dark ">
       <BrowserRouter>
         <CourseContext>
           <RoadContext>

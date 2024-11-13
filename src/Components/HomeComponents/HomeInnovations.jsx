@@ -7,10 +7,10 @@ import "../../styles/Innovations.css";
 const HomeInnovations = () => {
   return (
     <div className="innovation mt-20 flex flex-col justify-center items-center">
-      <h1 className="title text-white text-4xl font-bold my-5">
+      <h1 className="title dark:text-white text-black text-4xl font-bold my-5">
         our Innovations
       </h1>
-      <p className="description text-white text-xl w-[40%] text-center">
+      <p className="description dark:text-white text-black text-xl w-[40%] text-center">
         Discover some of the many benefits you will enjoy when you add us to
         your online learning platform
       </p>
