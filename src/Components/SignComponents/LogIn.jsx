@@ -1,11 +1,14 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { DataContext } from '../../data/data';
 
 const LogIn = () => {
+  const {email, setEmail, password, setPassword, Login} = useContext(DataContext)
   return (
     <div className="flex justify-center items-center bg-[#080c14] pt-44">
       <div className="bg-[#06042e] p-8 w-[550px] shadow-lg border-2 border-white">
-        <form className="signin-form">
+        <form className="signin-form" onSubmit={(e)=> {e.preventDefault()}}>
           <h2 className="text-2xl font-bold mb-4 text-white">Welcome back!</h2>
           <p className="text-sm mb-1 text-white">
             Hey there! Ready to log in? Just enter your username and password below
@@ -25,6 +28,8 @@ const LogIn = () => {
           <div className="mb-5 input-group">
             <label htmlFor="email" className="block mb-2 text-white">Email</label>
             <input
+              value={email}
+              onChange={(e)=>{setEmail(e.target.value)}}
               type="email"
               id="email"
               name="email"
@@ -37,6 +42,8 @@ const LogIn = () => {
           <div className="mb-5 input-group">
             <label htmlFor="password" className="block mb-2 text-white">Password</label>
             <input
+              value={password}
+              onChange={(e)=>{setPassword(e.target.value)}}
               type="password"
               id="password"
               name="password"
@@ -54,7 +61,7 @@ const LogIn = () => {
             <Link to="/ForgetPassword" className="text-[#58a6ff] hover:underline text-sm">Forgot Password?</Link>
           </div>
 
-          <button type="submit" className="w-full bg-[#f39c12] text-black py-3 border-none rounded-full text-lg cursor-pointer flex justify-center items-center hover:translate-x-3 transition-all font-semibold ">
+          <button type="submit" onClick={Login} className="w-full bg-[#f39c12] text-black py-3 border-none rounded-full text-lg cursor-pointer flex justify-center items-center hover:translate-x-3 transition-all font-semibold ">
             Login <span className="ml-2">→</span>
           </button>
 

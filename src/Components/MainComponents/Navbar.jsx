@@ -8,8 +8,11 @@ import {
   faLaptopCode,
   faX,
 } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { DataContext } from "../../data/data";
 
 const Navbar = () => {
+  const {success} = useContext(DataContext);
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -83,7 +86,8 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
-      <div className="profile max-lg:hidden">
+      { success ? "" :
+        <div className="profile max-lg:hidden">
         <Link to="/LogIn" className="text-[#0d0b21]">
           <button className="bg-white py-2 px-7 mr-5 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
             Login
@@ -96,6 +100,7 @@ const Navbar = () => {
           </button>
         </Link>
       </div>
+      }
 
       {/*Toggle Menu*/}
       {toggleMenu ? (

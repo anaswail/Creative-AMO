@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import CourseContext from "./Components/MainComponents/CourseContext";
@@ -18,8 +18,11 @@ import SignUp from "./Components/SignComponents/SignUp";
 import Loading from "./Components/MainComponents/Loading";
 import CourseDetails from "./Components/CoursesComponents/CourseDetails";
 import Track from "./Components/RoadMapsComponents/Track";
+import { useContext } from "react";
+import { DataContext } from "./data/data";
 
 function App() {
+  const { success } = useContext(DataContext)
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     window.addEventListener("load", () => setLoading(true));
@@ -27,7 +30,6 @@ function App() {
 
   return (
     <div className="App bg-[#080c14] overflow-x-hidden dark ">
-      <BrowserRouter>
         <CourseContext>
           <RoadContext>
             <Navbar />
@@ -36,21 +38,20 @@ function App() {
             ) : (
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/Courses/*" element={<Courses />} />
+                <Route path="/Courses/*" element={ success ? <Courses /> : <Navigate to="/login" />} />
                 <Route path="/RoadMaps" element={<RoadMaps />} />
                 <Route path="/RoadMaps/:id" element={<Track />} />
                 <Route path="/Trainers" element={<Trainers />} />
                 <Route path="/AboutUs" element={<AboutUs />} />
-                <Route path="/LogIn" element={<LogIn />} />
-                <Route path="/SignUp" element={<SignUp />} />
-                <Route path="/course/:id" element={<CourseDetails />} />
+                <Route path="/LogIn" element={ success ? <Navigate to="/" /> : <LogIn />} />
+                <Route path="/SignUp" element={ success ? <Navigate to="/" /> : <SignUp />} />
+                <Route path="/course/:id" element={ success ? <CourseDetails /> : <Navigate to="/login" />} />
                 <Route path="*" element={<Erorr />} />
               </Routes>
             )}
             <Footer />
           </RoadContext>
         </CourseContext>
-      </BrowserRouter>
     </div>
   );
 }

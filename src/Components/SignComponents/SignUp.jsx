@@ -1,11 +1,14 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { DataContext } from '../../data/data';
 
 const SignUp = () => {
+  const {fname, lname, email, password, setFname, setLname, setEmail, setPassword, Register} = useContext(DataContext)
   return (
     <div className="flex justify-center items-center bg-[#080c14] pt-44">
       <div className="bg-[#06042e] p-8 w-[550px] shadow-lg border-2 border-white">
-        <form className="signup-form">
+        <form className="signup-form" onSubmit={(e) => {e.preventDefault()}}>
           <h2 className="text-2xl font-bold mb-4 text-white">Create Your Account</h2>
           <p className="text-sm mb-1 text-white">
             Hey there! Ready to join the party? We just need a few details from you to get started.
@@ -25,6 +28,8 @@ const SignUp = () => {
           <div className="mb-5 input-group">
             <label htmlFor="firstName" className="block mb-2 text-white">First Name</label>
             <input
+              value={fname}
+              onChange={(e)=>{setFname(e.target.value)}}
               type="text"
               id="firstName"
               placeholder="First Name"
@@ -35,6 +40,8 @@ const SignUp = () => {
           <div className="mb-5 input-group">
             <label htmlFor="lastName" className="block mb-2 text-white">Last Name</label>
             <input
+              value={lname}
+              onChange={(e)=>{setLname(e.target.value)}}
               type="text"
               id="lastName"
               placeholder="Last Name"
@@ -45,6 +52,8 @@ const SignUp = () => {
           <div className="mb-5 input-group">
             <label htmlFor="email" className="block mb-2 text-white">Email</label>
             <input
+              value={email}
+              onChange={(e)=>{setEmail(e.target.value)}}
               type="email"
               id="email"
               placeholder="Email"
@@ -55,6 +64,8 @@ const SignUp = () => {
           <div className="mb-5 input-group">
             <label htmlFor="password" className="block mb-2 text-white">Password</label>
             <input
+              value={password}
+              onChange={(e)=>{setPassword(e.target.value)}}
               type="password"
               id="password"
               placeholder="Password"
@@ -62,17 +73,7 @@ const SignUp = () => {
             />
           </div>
 
-          <div className="mb-5 input-group">
-            <label htmlFor="confirmPassword" className="block mb-2 text-white">Confirm Password</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              placeholder="Confirm Password"
-              className="mt-2 w-full px-3 py-3 border border-[#ccc] rounded-[10px] bg-white text-sm placeholder-slate-500"
-            />
-          </div>
-
-          <button type="submit" className="w-full bg-[#f39c12] text-black py-3 border-none rounded-full text-lg cursor-pointer flex justify-center items-center hover:translate-x-3 transition-all font-semibold">
+          <button type="submit" onClick={(Register)} className="w-full bg-[#f39c12] text-black py-3 border-none rounded-full text-lg cursor-pointer flex justify-center items-center hover:translate-x-3 transition-all font-semibold">
             Sign Up <span className="ml-2">→</span>
           </button>
 
