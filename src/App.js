@@ -20,6 +20,7 @@ import CourseDetails from "./Components/CoursesComponents/CourseDetails";
 import Track from "./Components/RoadMapsComponents/Track";
 import { useContext } from "react";
 import { DataContext } from "./data/data";
+import Prefile from "./Components/PrefileComponents/Prefile";
 
 function App() {
   const { success } = useContext(DataContext)
@@ -39,6 +40,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/Courses/*" element={ success ? <Courses /> : <Navigate to="/login" />} />
+                <Route path="/Prefile" element={ success ? <Prefile /> : <Navigate to="/login" />} />
                 <Route path="/RoadMaps" element={<RoadMaps />} />
                 <Route path="/RoadMaps/:id" element={<Track />} />
                 <Route path="/Trainers" element={<Trainers />} />

@@ -13,13 +13,14 @@ export const DataProvider = ({ children }) => {
   const [lname, setLname] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-  const [title, setTitle] = useState(null)
+  const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const storedToken = Cookies.get("token"); 
     if (storedToken) { 
-      setSuccess(true); 
+      setSuccess(true);
+      fetchData();
     }
   }, []);
 
@@ -48,6 +49,7 @@ export const DataProvider = ({ children }) => {
           navigate("/courses");
           toast.success("login successfull");
           ResetData();
+          fetchData();
         })
         .catch((err) => {
           console.log(err);
@@ -70,9 +72,36 @@ export const DataProvider = ({ children }) => {
           setSuccess(success);
           Cookies.set("token", token, { expires: 7 });
           ResetData();
+          fetchData();
         });
     }
   };
+
+  function fetchData () {
+    axios.get("http://fi3.bot-hosting.net:22756/api/v1/users/me", {
+      headers: {
+        Authorization: `Bearer ${Cookies.get("token")}`
+      }
+    })
+    .then(res => {
+      setUserData(res.data);
+    })
+    .catch(err => {
+      console.log("Error fetching data:", err); 
+    });
+  };
+
+  const logout = async () => {
+    try {
+      Cookies.remove("token");
+      navigate("/login");
+      setSuccess(false);
+      setUserData(null)
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  };
+  
 
   let data = {
     success,
@@ -80,6 +109,7 @@ export const DataProvider = ({ children }) => {
     password,
     fname,
     lname,
+    userData,
     setSuccess,
     setEmail,
     setPassword,
@@ -87,8 +117,7 @@ export const DataProvider = ({ children }) => {
     setLname,
     Register,
     Login,
-    title,
-    setTitle
+    logout
   };
   return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
 };

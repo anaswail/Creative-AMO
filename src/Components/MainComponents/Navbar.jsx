@@ -6,13 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleUp,
   faLaptopCode,
+  faUser,
   faX,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { DataContext } from "../../data/data";
 
 const Navbar = () => {
-  const {success} = useContext(DataContext);
+  const { success } = useContext(DataContext);
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -50,12 +51,12 @@ const Navbar = () => {
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
     >
-      <a href="/" className="logo flex justify-center items-center ">
+      <Link to="/" className="logo flex justify-center items-center ">
         <img src={Logo} alt="Creative AMO" className="w-32 max-md:w-28" />
         <h1 className="text-white font-bold text-2xl max-md:text-xl">
           Creative AMO
         </h1>
-      </a>
+      </Link>
       <ul className="p-0 flex list-none max-lg:hidden  ">
         <li className="mx-3">
           <Link to="/" className="text-white hover:text-[#ffac15]">
@@ -86,21 +87,28 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
-      { success ? "" :
+      {success ? (
+        <Link
+          className="hidden lg:flex justify-center items-center w-10 h-10 rounded-full border border-white hover:border-[#ffac15] text-white hover:text-[#ffac15] "
+          to="/Prefile"
+        >
+          <FontAwesomeIcon icon={faUser} />
+        </Link>
+      ) : (
         <div className="profile max-lg:hidden">
-        <Link to="/LogIn" className="text-[#0d0b21]">
-          <button className="bg-white py-2 px-7 mr-5 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
-            Login
-          </button>
-        </Link>
+          <Link to="/LogIn" className="text-[#0d0b21]">
+            <button className="bg-white py-2 px-7 mr-5 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
+              Login
+            </button>
+          </Link>
 
-        <Link to="/SignUp" className="text-[#0d0b21]">
-          <button className="bg-white py-2 px-7 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
-            Sign up
-          </button>
-        </Link>
-      </div>
-      }
+          <Link to="/SignUp" className="text-[#0d0b21]">
+            <button className="bg-white py-2 px-7 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
+              Sign up
+            </button>
+          </Link>
+        </div>
+      )}
 
       {/*Toggle Menu*/}
       {toggleMenu ? (
@@ -110,54 +118,65 @@ const Navbar = () => {
             className="text-white text-2xl absolute top-2 right-2 cursor-pointer "
             onClick={active}
           />
-          <div className="profile absolute bottom-3 text-center w-full">
-            <a href="/LogIn" className="text-[#0d0b21]">
-              <button className="bg-white py-2 px-7 mr-5 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
-                Login
-              </button>
-            </a>
+          {success ? (
+            <div className="profile flex justify-center items-center absolute bottom-6 text-center h-12 w-full">
+            <Link
+              className="flex justify-center items-center w-10 h-10 rounded-full border border-white hover:border-[#ffac15] text-white hover:text-[#ffac15] "
+              to="/Prefile"
+            >
+              <FontAwesomeIcon icon={faUser} />
+            </Link>
+            </div>
+          ) : (
+            <div className="profile absolute bottom-3 text-center w-full">
+              <Link to="/LogIn" className="text-[#0d0b21]">
+                <button className="bg-white py-2 px-7 mr-5 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
+                  Login
+                </button>
+              </Link>
 
-            <a href="/SignUp" className="text-[#0d0b21]">
-              <button className="bg-white py-2 px-7 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
-                Sign up
-              </button>
-            </a>
-          </div>
+              <Link to="/SignUp" className="text-[#0d0b21]">
+                <button className="bg-white py-2 px-7 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
+                  Sign up
+                </button>
+              </Link>
+            </div>
+          )}
           <ul className="p-0 flex list-none flex-col justify-center items-center gap-10 text-2xl ">
             <li className="mx-3">
-              <a href="/" className="text-white hover:text-[#ffac15]">
+              <Link to="/" className="text-white hover:text-[#ffac15]">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="mx-3">
-              <a href="/Courses" className="text-white hover:text-[#ffac15]">
+              <Link to="/Courses" className="text-white hover:text-[#ffac15]">
                 Courses
-              </a>
+              </Link>
             </li>
             <li className="mx-3">
-              <a href="/RoadMaps" className="text-white hover:text-[#ffac15]">
+              <Link to="/RoadMaps" className="text-white hover:text-[#ffac15]">
                 Road Maps
-              </a>
+              </Link>
             </li>
             <li className="mx-3">
-              <a href="/Trainers" className="text-white hover:text-[#ffac15]">
+              <Link to="/Trainers" className="text-white hover:text-[#ffac15]">
                 Trainers
-              </a>
+              </Link>
             </li>
             <li className="mx-3">
-              <a href="/AboutUs" className="text-white hover:text-[#ffac15]">
+              <Link to="/AboutUs" className="text-white hover:text-[#ffac15]">
                 AboutUs
-              </a>
+              </Link>
             </li>
           </ul>
 
-          <a
-            href="/"
+          <Link
+            to="/"
             className="logo flex justify-center items-center absolute top-8 left-1/2 -translate-x-1/2 w-full "
           >
             <img src={Logo} alt="Creative AMO" className="w-32" />
             <h1 className="text-white font-bold text-2xl">Creative AMO</h1>
-          </a>
+          </Link>
         </div>
       ) : (
         <></>
