@@ -73,7 +73,10 @@ const Cards = ({ search, setLoad }) => {
 
   return (
     <div className="cards flex justify-center gap-9 items-center mt-10 flex-wrap">
-      {filteredCourses.map((res, index) => (
+      {filteredCourses.map((res, index) => {
+        console.log(res.playListId)
+        // getYtData(res.playListId)
+        return (
         <div
           key={index}
           className="card w-72 bg-[#0d0b21] h-[490px] rounded-2xl p-4 border-tr overflow-hidden relative z-10 grid"
@@ -144,9 +147,27 @@ const Cards = ({ search, setLoad }) => {
             </Link>
           </div>
         </div>
-      ))}
+      )})}
     </div>
   );
 };
+
+async function getYtData(id) {
+  const apiKey = "AIzaSyDcx-nZ3fkqEcSF_WXutU82YvatKmBUB6w";
+  const url = `https://www.googleapis.com/youtube/v3/playlistItems`;
+  const params = {
+    part: 'snippet',
+    maxResults: 100,
+    playlistId: id,
+    key: apiKey    
+  };
+  await axios.get(url, { params })
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.log('Error fetching YouTube data:', err);
+    });
+}
 
 export default SeparateCourses;

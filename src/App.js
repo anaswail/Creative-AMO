@@ -21,6 +21,7 @@ import Track from "./Components/RoadMapsComponents/Track";
 import { useContext } from "react";
 import { DataContext } from "./data/data";
 import Prefile from "./Components/PrefileComponents/Prefile";
+import AdminPrefile from "./Components/PrefileComponents/AdminPrefile";
 
 function App() {
   const { success } = useContext(DataContext);
@@ -76,6 +77,7 @@ function App() {
                     success ? <CourseDetails /> : <Navigate to="/login" />
                   }
                 />
+                <Route path="/admin" element={<AdminPrefile />} />
                 <Route path="*" element={<Erorr />} />
               </Routes>
             )}

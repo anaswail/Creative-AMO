@@ -139,7 +139,7 @@ const Navbar = ({ Mood }) => {
             <div className="profile flex justify-center items-center absolute bottom-6 text-center h-12 w-full">
               <Link
                 className="flex justify-center items-center w-10 h-10 rounded-full border border-white hover:border-[#ffac15] text-white hover:text-[#ffac15] "
-                to="/Prefile"
+                to="/admin"
               >
                 <FontAwesomeIcon icon={faUser} />
               </Link>

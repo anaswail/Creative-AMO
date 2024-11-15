@@ -14,6 +14,7 @@ export const DataProvider = ({ children }) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [userData, setUserData] = useState(null);
+  const [url , setUrl] = useState("http://localhost:3000");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,7 +23,12 @@ export const DataProvider = ({ children }) => {
       setSuccess(true);
       fetchData();
     }
+    fetch('/config.json')
+      .then((response) => response.json())
+      .then((data) => setUrl(data.url))
+      .catch((error) => console.error('Error loading config:', error));
   }, []);
+
 
   const ResetData = () => {
     setFname("");
@@ -36,7 +42,7 @@ export const DataProvider = ({ children }) => {
       return toast.error("Please provide an email and password");
     } else {
       axios
-        .post("http://fi3.bot-hosting.net:22756/api/v1/users/register", {
+        .post(`${url}/api/v1/users/register`, {
           firstname: fname,
           lastname: lname || null,
           email,
@@ -58,12 +64,13 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  const Login = () => {
+  const Login = async () => {
     if (!email || !password) {
       toast.error("Please provide an email and password");
     } else {
-      axios
-        .post("http://fi3.bot-hosting.net:22756/api/v1/users/login", {
+      try{
+        await axios
+        .post(`${url}/api/v1/users/login`, {
           email,
           password,
         })
@@ -74,11 +81,13 @@ export const DataProvider = ({ children }) => {
           ResetData();
           fetchData();
         });
+      } catch (err) { toast.error("try again")}
+      
     }
   };
 
   function fetchData () {
-    axios.get("http://fi3.bot-hosting.net:22756/api/v1/users/me", {
+    axios.get(`${url}/api/v1/users/me`, {
       headers: {
         Authorization: `Bearer ${Cookies.get("token")}`
       }
@@ -110,6 +119,7 @@ export const DataProvider = ({ children }) => {
     fname,
     lname,
     userData,
+    url,
     setSuccess,
     setEmail,
     setPassword,
