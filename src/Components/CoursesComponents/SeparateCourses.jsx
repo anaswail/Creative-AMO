@@ -12,7 +12,7 @@ const SeparateCourses = () => {
     <div className="separate-courses">
       <div className="searchBar w-full text-center">
         <input
-          className="p-3 text-xl w-96 rounded-2xl placeholder:text-sm outline-none my-10 "
+          className="p-3 text-xl w-96 rounded-2xl placeholder:text-sm dark:bg-white bg-[#0d0b21] text-white dark:text-[#0d0b21] outline-none my-10 "
           type="text"
           placeholder="Search for the trainer, language or genre..."
           onChange={(e) => setSearch(e.target.value)}

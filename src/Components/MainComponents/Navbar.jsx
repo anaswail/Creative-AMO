@@ -8,11 +8,13 @@ import {
   faLaptopCode,
   faUser,
   faX,
+  faMoon,
+  faSun,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { DataContext } from "../../data/data";
 
-const Navbar = () => {
+const Navbar = ({ Mood }) => {
   const { success } = useContext(DataContext);
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
@@ -109,7 +111,22 @@ const Navbar = () => {
           </Link>
         </div>
       )}
-
+      <div className="changeMode inline-block">
+        <FontAwesomeIcon
+          icon={faSun}
+          className=" text-[#ffac15] hover:text-[#e7b454] text-2xl mr-6 cursor-pointer dark:block hidden "
+          onClick={() => {
+            Mood("light");
+          }}
+        />
+        <FontAwesomeIcon
+          icon={faMoon}
+          className="text-[#7c75b4] text-2xl mr-6 cursor-pointer hover:text-[#a29bd8] dark:hidden block"
+          onClick={() => {
+            Mood("dark");
+          }}
+        />
+      </div>
       {/*Toggle Menu*/}
       {toggleMenu ? (
         <div className="mobileMenu h-screen w-96 bg-[#0d0b21] fixed top-0 right-0 flex flex-col justify-center items-center">
@@ -120,12 +137,12 @@ const Navbar = () => {
           />
           {success ? (
             <div className="profile flex justify-center items-center absolute bottom-6 text-center h-12 w-full">
-            <Link
-              className="flex justify-center items-center w-10 h-10 rounded-full border border-white hover:border-[#ffac15] text-white hover:text-[#ffac15] "
-              to="/Prefile"
-            >
-              <FontAwesomeIcon icon={faUser} />
-            </Link>
+              <Link
+                className="flex justify-center items-center w-10 h-10 rounded-full border border-white hover:border-[#ffac15] text-white hover:text-[#ffac15] "
+                to="/Prefile"
+              >
+                <FontAwesomeIcon icon={faUser} />
+              </Link>
             </div>
           ) : (
             <div className="profile absolute bottom-3 text-center w-full">

@@ -23,37 +23,66 @@ import { DataContext } from "./data/data";
 import Prefile from "./Components/PrefileComponents/Prefile";
 
 function App() {
-  const { success } = useContext(DataContext)
+  const { success } = useContext(DataContext);
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    window.addEventListener("load", () => setLoading(true));
+  const [mood, setMood] = useState(() => {
+    // Get the saved mood from localStorage or default to "dark"
+    return localStorage.getItem("mood") || "dark";
   });
 
+  // Update localStorage whenever the mood changes
+  useEffect(() => {
+    localStorage.setItem("mood", mood);
+  }, [mood]);
+
+  useEffect(() => {
+    window.addEventListener("load", () => setLoading(true));
+  }, []);
+
   return (
-    <div className="App bg-[#080c14] overflow-x-hidden dark ">
+    <div className={`App overflow-x-hidden ${mood}`}>
+      <div className="dark:bg-[#080c14] bg-white">
         <CourseContext>
           <RoadContext>
-            <Navbar />
+            <Navbar Mood={setMood} /> {/* Pass Mood properly */}
             {loading ? (
               <Loading setHomeLoad={setLoading} />
             ) : (
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/Courses/*" element={ success ? <Courses /> : <Navigate to="/login" />} />
-                <Route path="/Prefile" element={ success ? <Prefile /> : <Navigate to="/login" />} />
+                <Route
+                  path="/Courses/*"
+                  element={success ? <Courses /> : <Navigate to="/login" />}
+                />
+                <Route
+                  path="/Prefile"
+                  element={success ? <Prefile /> : <Navigate to="/login" />}
+                />
                 <Route path="/RoadMaps" element={<RoadMaps />} />
                 <Route path="/RoadMaps/:id" element={<Track />} />
                 <Route path="/Trainers" element={<Trainers />} />
                 <Route path="/AboutUs" element={<AboutUs />} />
-                <Route path="/LogIn" element={ success ? <Navigate to="/" /> : <LogIn />} />
-                <Route path="/SignUp" element={ success ? <Navigate to="/" /> : <SignUp />} />
-                <Route path="/course/:id" element={ success ? <CourseDetails /> : <Navigate to="/login" />} />
+                <Route
+                  path="/LogIn"
+                  element={success ? <Navigate to="/" /> : <LogIn />}
+                />
+                <Route
+                  path="/SignUp"
+                  element={success ? <Navigate to="/" /> : <SignUp />}
+                />
+                <Route
+                  path="/course/:id"
+                  element={
+                    success ? <CourseDetails /> : <Navigate to="/login" />
+                  }
+                />
                 <Route path="*" element={<Erorr />} />
               </Routes>
             )}
             <Footer />
           </RoadContext>
         </CourseContext>
+      </div>
     </div>
   );
 }

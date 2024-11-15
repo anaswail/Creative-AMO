@@ -55,7 +55,7 @@ const RoadMaps = () => {
       {/* Search Bar */}
       <div className="searchBar w-full text-center my-10">
         <input
-          className="p-3 text-xl w-96 rounded-2xl placeholder:text-sm outline-none mt-6 mb-3"
+          className="p-3 text-xl w-96 rounded-2xl placeholder:text-sm outline-none mt-6 mb-3 dark:bg-white bg-[#0d0b21] text-white dark:text-[#0d0b21]"
           type="text"
           placeholder="Search for the tracks..."
           onChange={(e) => setSearch(e.target.value)}
