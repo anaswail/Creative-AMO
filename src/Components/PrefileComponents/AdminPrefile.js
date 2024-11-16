@@ -8,33 +8,34 @@ import { toast } from "react-toastify";
 const AddCourses = () => {
   const { url } = useContext(DataContext);
  
-  // const checkAuth = async (token) => {
-  //   await axios
-  //   .get(`http://fi3.bot-hosting.net:22756/api/v1/admin/auth`, {
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   })
-  //   .then((response) => {
-  //     if (response.data.role !== "admin") {
-  //       navigate("/");
-  //     }
-  //   })  
-  //   .catch((error) => {
-  //     navigate("/");
-  //   });
-  // }
+  const checkAuth = async (token) => {
+    await axios
+    .get(`http://fi3.bot-hosting.net:22756/api/v1/admin/check`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((responce) => {
+      console.log(responce.data)
+      if (responce.data.admin !== "admin") {
+        navigate("/");
+      }
+    })  
+    .catch((error) => {
+      navigate("/");
+    });
+  }
     
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   const token = Cookies.get("token");
-  //   if (!token) {
-  //     console.log("no token");
-  //     navigate("/");
-  //   } else {
-  //     checkAuth(token)
-  //   }
-  // }, [navigate]);
+  useEffect(() => {
+    const token = Cookies.get("token");
+    if (!token) {
+      console.log("no token");
+      navigate("/");
+    } else {
+      checkAuth(token)
+    }
+  }, [navigate]);
 
   const AddCourse = () => {
     const token = Cookies.get("token");
@@ -123,7 +124,6 @@ const AddCourses = () => {
       ...formData,
       [name]: value,
     });
-    console.log(formData);
   };
 
   const handleSubmit = (e) => {
