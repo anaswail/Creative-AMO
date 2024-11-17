@@ -130,7 +130,11 @@ const Navbar = ({ Mood }) => {
           <div className="image-container lg:flex justify-center transition-all items-center overflow-hidden w-10 h-10 rounded-full border group-hover:border-[#ffac15] ">
             <img src={profileImage} alt="profile image" />
           </div>
-          <h1 className="text-xl font-bold ">Anas Wael</h1>
+          <h1 className="text-xl font-bold ">
+            {userData?.fname && userData?.lname
+              ? `${userData.fname} ${userData.lname}`
+              : "Creative User"}
+          </h1>
         </Link>
       ) : (
         <div className="profile max-lg:hidden">
