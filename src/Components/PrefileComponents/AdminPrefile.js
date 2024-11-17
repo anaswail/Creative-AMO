@@ -16,7 +16,6 @@ const AddCourses = () => {
       },
     })
     .then((responce) => {
-      console.log(responce.data)
       if (responce.data.admin !== "admin") {
         navigate("/");
       }
@@ -42,6 +41,10 @@ const AddCourses = () => {
     if (!token) {
       console.log("no token");
     } else {
+      if(formData.title === "" || formData.instructor === "" || formData.discription === "" || formData.playlistId === "") {
+        toast.error("Please fill all the fields");
+        return;
+      }
       axios
         .post(
           `${url}/api/v1/courses/add`,
@@ -50,6 +53,7 @@ const AddCourses = () => {
             instructor: formData.instructor,
             playListId: formData.playlistId,
             category: formData.category,
+            discription: formData.discription,
           },
           {
             headers: {
@@ -58,6 +62,14 @@ const AddCourses = () => {
           }
         )
         .then(() => {
+          setFormData({
+            title: "",
+            instructor: "",
+            discription: "",
+            playlistId: "",
+            category: "HTML",
+            email: ""
+          })
           toast.success("Course added successfully:");
         })
         .catch((error) => {
@@ -93,8 +105,10 @@ const AddCourses = () => {
   const [formData, setFormData] = useState({
     title: "",
     instructor: "",
+    discription: "",
     playlistId: "",
     category: "HTML",
+    email: ""
   });
 
   const [categorys, setCategorys] = useState([
@@ -122,13 +136,12 @@ const AddCourses = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: value, 
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Courses added:", formData);
   };
 
   return (
@@ -218,7 +231,27 @@ const AddCourses = () => {
                 </option>
               ))}
             </select>
+            
+
           </div>
+
+          <div className="w-full">
+              <label
+                htmlFor="discription"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Discription:
+              </label>
+              <textarea
+                id="discription"
+                name="discription"
+                value={formData.discription}
+                onChange={handleChange}
+                placeholder="ex: This is a course about HTML"
+                required
+                className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ></textarea>
+            </div>
 
           <div className="w-full">
             <button
@@ -237,7 +270,7 @@ const AddCourses = () => {
         </h2>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-wrap gap-4 justify-center"
+          className="flex flex-wrap items-end gap-4 justify-center"
         >
           <div className="w-full sm:w-[48%]">
             <label
@@ -248,10 +281,10 @@ const AddCourses = () => {
             </label>
             <input
               type="text"
-              id="title"
-              name="title"
+              id="email"
+              name="email"
               placeholder="ex: HTML Tetorials"
-              value={formData.title}
+              value={formData.email}
               onChange={handleChange}
               required
               className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -260,7 +293,7 @@ const AddCourses = () => {
           <div className="w-full sm:w-[48%]">
             {/* button  */}
             <button
-              onClick={AddAdmin}
+              onClick={()=>{AddAdmin(formData.email)}} 
               type="submit"
               className="w-full px-4 py-2 bg-[#ffac15] text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
