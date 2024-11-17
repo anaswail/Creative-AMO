@@ -28,7 +28,7 @@ const AboutUs = () => {
         </p>
       </div>
       <div className="members flex justify-center items-center flex-wrap mt-20 gap-14">
-        <div className="member w-[450px] h-44 bg-[#0d0b21] rounded-md flex items-center p-5">
+        <div className="member w-[500px] h-44 bg-[#0d0b21] rounded-md flex items-center p-5">
           <div className="image-content rounded-full overflow-hidden w-36 h-36 flex justify-center items-center border-solid border-[3px] border-[#ffac15]">
             <img
               src={Anas}
@@ -92,7 +92,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-        <div className="member w-[450px] h-44 bg-[#0d0b21] rounded-md flex items-center p-5 ">
+        <div className="member w-[500px] h-44 bg-[#0d0b21] rounded-md flex items-center p-5 ">
           <div className="image-content rounded-full overflow-hidden w-36 h-36 flex justify-center items-center border-solid border-[3px] border-[#ffac15]">
             <img
               src={Anas}
@@ -102,7 +102,75 @@ const AboutUs = () => {
           </div>
 
           <div className="text-context ml-10">
-            <h1 className="font-bold text-3xl text-[#ffac15]">Anas Wael</h1>
+            <h1 className="font-bold text-3xl text-[#ffac15]">
+              Marwan Makhlouf
+            </h1>
+            <h2 className="text-white text-base mb-8 mt-2">
+              MERN Stack Developer
+            </h2>
+            <div className="socialMedia flex gap-1 mt-2">
+              <a
+                href="https://anas-portofolio.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={faGlobe}
+                  className="text-white hover:text-[#ffac15] text-xl"
+                />
+              </a>
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={faFacebook}
+                  className="text-white hover:text-[#ffac15] text-xl"
+                />
+              </a>
+              <a
+                href="https://wa.me/yourphonenumber"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={faWhatsapp}
+                  className="text-white hover:text-[#ffac15] text-xl"
+                />
+              </a>
+              <a
+                href="https://github.com/anaswail"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon
+                  icon={faGithub}
+                  className="text-white hover:text-[#ffac15] text-xl"
+                />
+              </a>
+              <a href="mailto:your-email@gmail.com">
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className="text-white hover:text-[#ffac15] text-xl"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="member w-[500px] h-44 bg-[#0d0b21] rounded-md flex items-center p-5">
+          <div className="image-content rounded-full overflow-hidden w-36 h-36 flex justify-center items-center border-solid border-[3px] border-[#ffac15]">
+            <img
+              src={Anas}
+              alt="Circular Image"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <div className="text-context ml-10">
+            <h1 className="font-bold text-3xl text-[#ffac15]">
+              Mohamed Haikal
+            </h1>
             <h2 className="text-white text-base mb-8 mt-2">
               Front-end (React) Developer
             </h2>
@@ -156,7 +224,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-        <div className="member w-[450px] h-44 bg-[#0d0b21] rounded-md flex items-center p-5">
+        <div className="member w-[500px] h-44 bg-[#0d0b21] rounded-md flex items-center p-5">
           <div className="image-content rounded-full overflow-hidden w-36 h-36 flex justify-center items-center border-solid border-[3px] border-[#ffac15]">
             <img
               src={Anas}
@@ -166,74 +234,8 @@ const AboutUs = () => {
           </div>
 
           <div className="text-context ml-10">
-            <h1 className="font-bold text-3xl text-[#ffac15]">Anas Wael</h1>
-            <h2 className="text-white text-base mb-8 mt-2">
-              Front-end (React) Developer
-            </h2>
-            <div className="socialMedia flex gap-1 mt-2">
-              <a
-                href="https://anas-portofolio.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faGlobe}
-                  className="text-white hover:text-[#ffac15] text-xl"
-                />
-              </a>
-              <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faFacebook}
-                  className="text-white hover:text-[#ffac15] text-xl"
-                />
-              </a>
-              <a
-                href="https://wa.me/yourphonenumber"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faWhatsapp}
-                  className="text-white hover:text-[#ffac15] text-xl"
-                />
-              </a>
-              <a
-                href="https://github.com/anaswail"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  icon={faGithub}
-                  className="text-white hover:text-[#ffac15] text-xl"
-                />
-              </a>
-              <a href="mailto:your-email@gmail.com">
-                <FontAwesomeIcon
-                  icon={faEnvelope}
-                  className="text-white hover:text-[#ffac15] text-xl"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="member w-[450px] h-44 bg-[#0d0b21] rounded-md flex items-center p-5">
-          <div className="image-content rounded-full overflow-hidden w-36 h-36 flex justify-center items-center border-solid border-[3px] border-[#ffac15]">
-            <img
-              src={Anas}
-              alt="Circular Image"
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          <div className="text-context ml-10">
-            <h1 className="font-bold text-3xl text-[#ffac15]">Anas Wael</h1>
-            <h2 className="text-white text-base mb-8 mt-2">
-              Front-end (React) Developer
-            </h2>
+            <h1 className="font-bold text-3xl text-[#ffac15]">Omar Mahran</h1>
+            <h2 className="text-white text-base mb-8 mt-2">UI & UX Designer</h2>
             <div className="socialMedia flex gap-1 mt-2">
               <a
                 href="https://anas-portofolio.vercel.app/"

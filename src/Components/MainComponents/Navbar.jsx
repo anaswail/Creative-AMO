@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../../images/Logo.webp";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,6 +21,7 @@ const Navbar = ({ Mood }) => {
   const [hidden, setHidden] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
   const [loading, setLoading] = useState(false);
+  const location = useLocation();
 
   // handle nav hidden
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -50,6 +51,9 @@ const Navbar = ({ Mood }) => {
   };
   const { userData } = useContext(DataContext);
 
+  if (location.pathname == "/Prefile") {
+    return "";
+  }
   return (
     <motion.nav
       className="bg-[#0d0b21]  h-36 rounded-bl-full flex justify-around items-center fixed top-0 right-0 z-50 w-full "
@@ -126,9 +130,7 @@ const Navbar = ({ Mood }) => {
           <div className="image-container lg:flex justify-center transition-all items-center overflow-hidden w-10 h-10 rounded-full border group-hover:border-[#ffac15] ">
             <img src={profileImage} alt="profile image" />
           </div>
-          <h1 className="text-xl font-bold ">
-            {userData.fname} {userData.lname}
-          </h1>
+          <h1 className="text-xl font-bold ">Anas Wael</h1>
         </Link>
       ) : (
         <div className="profile max-lg:hidden">
