@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Course } from "../MainComponents/CourseContext";
-
+ 
 const CourseDetails = () => {
   const { selectedCourse } = useContext(Course);
   return (

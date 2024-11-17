@@ -81,7 +81,7 @@ export const DataProvider = ({ children }) => {
           ResetData();
           fetchData();
         });
-      } catch (err) { toast.error("try again")}
+      } catch (err) { toast.error("try again after a few minutes") }
       
     }
   };
