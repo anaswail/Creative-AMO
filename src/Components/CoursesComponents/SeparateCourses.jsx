@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Loading from "../MainComponents/Loading";
 import { Course } from "../MainComponents/CourseContext";
+import { DataContext } from "../../data/data";
 
 const SeparateCourses = () => {
   const [search, setSearch] = useState("");
@@ -29,13 +30,14 @@ const SeparateCourses = () => {
 
 const Cards = ({ search, setLoad }) => {
   const { courses = [], setSelectedCourse, setCourses } = useContext(Course);
+  const {url} = useContext(DataContext);
 
   const [filteredCourses, setFilteredCourses] = useState([]);
 
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get("/Courses.json");
+        const response = await axios.get(`http://${url}/api/v1/courses/get`);
         setCourses(response.data);
         setLoad(false);
         window.scrollTo(0, 0);
@@ -75,7 +77,7 @@ const Cards = ({ search, setLoad }) => {
     <div className="cards flex justify-center gap-9 items-center mt-10 flex-wrap">
       {filteredCourses.map((res, index) => {
         console.log(res.playListId)
-        // getYtData(res.playListId)
+        getYtData([])
         return (
         <div
           key={index}

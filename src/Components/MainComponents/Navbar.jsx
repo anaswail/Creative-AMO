@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../../images/Logo.webp";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { DataContext } from "../../data/data";
+import profileImage from "../../images/profileImage.webp";
 
 const Navbar = ({ Mood }) => {
   const { success } = useContext(DataContext);
@@ -20,6 +21,7 @@ const Navbar = ({ Mood }) => {
   const [hidden, setHidden] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
   const [loading, setLoading] = useState(false);
+  const location = useLocation();
 
   // handle nav hidden
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -43,6 +45,15 @@ const Navbar = ({ Mood }) => {
     }, 3000);
   };
 
+  // Scroll to top on link click
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+  const { userData } = useContext(DataContext);
+
+  if (location.pathname == "/Prefile") {
+    return "";
+  }
   return (
     <motion.nav
       className="bg-[#0d0b21]  h-36 rounded-bl-full flex justify-around items-center fixed top-0 right-0 z-50 w-full "
@@ -53,7 +64,11 @@ const Navbar = ({ Mood }) => {
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
     >
-      <Link to="/" className="logo flex justify-center items-center ">
+      <Link
+        to="/"
+        className="logo flex justify-center items-center "
+        onClick={scrollToTop}
+      >
         <img src={Logo} alt="Creative AMO" className="w-32 max-md:w-28" />
         <h1 className="text-white font-bold text-2xl max-md:text-xl">
           Creative AMO
@@ -61,17 +76,29 @@ const Navbar = ({ Mood }) => {
       </Link>
       <ul className="p-0 flex list-none max-lg:hidden  ">
         <li className="mx-3">
-          <Link to="/" className="text-white hover:text-[#ffac15]">
+          <Link
+            to="/"
+            className="text-white hover:text-[#ffac15]"
+            onClick={scrollToTop}
+          >
             Home
           </Link>
         </li>
         <li className="mx-3">
-          <Link to="/Courses" className="text-white hover:text-[#ffac15]">
+          <Link
+            to="/Courses"
+            className="text-white hover:text-[#ffac15]"
+            onClick={scrollToTop}
+          >
             Courses
           </Link>
         </li>
         <li className="mx-3 group relative ">
-          <Link to="/RoadMaps" className="text-white hover:text-[#ffac15] ">
+          <Link
+            to="/RoadMaps"
+            className="text-white hover:text-[#ffac15] "
+            onClick={scrollToTop}
+          >
             Road Maps
           </Link>
         </li>
@@ -79,22 +106,31 @@ const Navbar = ({ Mood }) => {
           <Link
             to="/Trainers"
             className="text-white hover:text-[#ffac15] group"
+            onClick={scrollToTop}
           >
             Trainers
           </Link>
         </li>
         <li className="mx-3">
-          <Link to="/AboutUs" className="text-white hover:text-[#ffac15]">
+          <Link
+            to="/AboutUs"
+            className="text-white hover:text-[#ffac15]"
+            onClick={scrollToTop}
+          >
             AboutUs
           </Link>
         </li>
       </ul>
       {success ? (
         <Link
-          className="hidden lg:flex justify-center items-center w-10 h-10 rounded-full border border-white hover:border-[#ffac15] text-white hover:text-[#ffac15] "
+          className="flex text-white items-center gap-3 border-white transition-all group hover:text-[#ffac15]"
           to="/Prefile"
+          onClick={scrollToTop}
         >
-          <FontAwesomeIcon icon={faUser} />
+          <div className="image-container lg:flex justify-center transition-all items-center overflow-hidden w-10 h-10 rounded-full border group-hover:border-[#ffac15] ">
+            <img src={profileImage} alt="profile image" />
+          </div>
+          <h1 className="text-xl font-bold ">Anas Wael</h1>
         </Link>
       ) : (
         <div className="profile max-lg:hidden">
@@ -161,27 +197,47 @@ const Navbar = ({ Mood }) => {
           )}
           <ul className="p-0 flex list-none flex-col justify-center items-center gap-10 text-2xl ">
             <li className="mx-3">
-              <Link to="/" className="text-white hover:text-[#ffac15]">
+              <Link
+                to="/"
+                className="text-white hover:text-[#ffac15]"
+                onClick={scrollToTop}
+              >
                 Home
               </Link>
             </li>
             <li className="mx-3">
-              <Link to="/Courses" className="text-white hover:text-[#ffac15]">
+              <Link
+                to="/Courses"
+                className="text-white hover:text-[#ffac15]"
+                onClick={scrollToTop}
+              >
                 Courses
               </Link>
             </li>
             <li className="mx-3">
-              <Link to="/RoadMaps" className="text-white hover:text-[#ffac15]">
+              <Link
+                to="/RoadMaps"
+                className="text-white hover:text-[#ffac15]"
+                onClick={scrollToTop}
+              >
                 Road Maps
               </Link>
             </li>
             <li className="mx-3">
-              <Link to="/Trainers" className="text-white hover:text-[#ffac15]">
+              <Link
+                to="/Trainers"
+                className="text-white hover:text-[#ffac15]"
+                onClick={scrollToTop}
+              >
                 Trainers
               </Link>
             </li>
             <li className="mx-3">
-              <Link to="/AboutUs" className="text-white hover:text-[#ffac15]">
+              <Link
+                to="/AboutUs"
+                className="text-white hover:text-[#ffac15]"
+                onClick={scrollToTop}
+              >
                 AboutUs
               </Link>
             </li>
