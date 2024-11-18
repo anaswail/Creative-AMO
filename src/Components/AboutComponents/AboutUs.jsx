@@ -1,5 +1,7 @@
 import React from "react";
 import Anas from "../../images/Anas.webp";
+import Omar from "../../images/Omar.webp";
+import Mohamed from "../../images/Mohamed.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -161,7 +163,7 @@ const AboutUs = () => {
         <div className="member w-[500px] h-44 bg-[#0d0b21] rounded-md flex items-center p-5">
           <div className="image-content rounded-full overflow-hidden w-36 h-36 flex justify-center items-center border-solid border-[3px] border-[#ffac15]">
             <img
-              src={Anas}
+              src={Mohamed}
               alt="Circular Image"
               className="w-full h-full object-cover"
             />
@@ -227,7 +229,7 @@ const AboutUs = () => {
         <div className="member w-[500px] h-44 bg-[#0d0b21] rounded-md flex items-center p-5">
           <div className="image-content rounded-full overflow-hidden w-36 h-36 flex justify-center items-center border-solid border-[3px] border-[#ffac15]">
             <img
-              src={Anas}
+              src={Omar}
               alt="Circular Image"
               className="w-full h-full object-cover"
             />

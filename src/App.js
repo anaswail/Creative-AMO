@@ -22,6 +22,9 @@ import { useContext } from "react";
 import { DataContext } from "./data/data";
 import Prefile from "./Components/PrefileComponents/Prefile";
 import AdminPrefile from "./Components/PrefileComponents/AdminPrefile";
+import Settings from "./Components/PrefileComponents/Settings";
+import ProfileCourses from "./Components/PrefileComponents/ProfileCourses";
+import DashboardLayout from "./Components/PrefileComponents/DashboardLayout";
 
 function App() {
   const { success } = useContext(DataContext);
@@ -58,7 +61,11 @@ function App() {
                 <Route
                   path="/Prefile"
                   element={success ? <Prefile /> : <Navigate to="/login" />}
-                />
+                >
+                  <Route path="DashboardLayout" element={<DashboardLayout />} />
+                  <Route path="Settings" element={<Settings />} />
+                  <Route path="Profile-Courses" element={<ProfileCourses />} />
+                </Route>
                 <Route path="/RoadMaps" element={<RoadMaps />} />
                 <Route path="/RoadMaps/:id" element={<Track />} />
                 <Route path="/Trainers" element={<Trainers />} />
