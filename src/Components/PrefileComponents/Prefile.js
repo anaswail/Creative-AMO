@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { DataContext } from "../../data/data";
 import profileImage from "../../images/profileImage.webp";
 
 const MainProfile = () => {
+  const {userData} = useContext(DataContext)
   return (
     <div className="flex min-h-screen bg-transparent text-white">
       <Sidebar />
@@ -102,7 +103,7 @@ const ProfileHeader = () => {
         </p>
       </div>
     </div>
-  );
+  ); 
 };
 
 // Course Progress Component
