@@ -25,13 +25,13 @@ const Home = () => {
         <HomeSecondSection image={group} />
       </div>
 
-      <div className="popularCourses flex flex-col mb-16 justify-center items-center h-screen overflow-hidden">
+      <div className="popularCourses flex flex-col mb-16 justify-center items-center md:h-screen overflow-hidden">
         <HomePopularCourses />
       </div>
 
-      <HomeWork />
+      {/* <HomeWork />
 
-      <HomeInnovations />
+      <HomeInnovations /> */}
     </>
   );
 };

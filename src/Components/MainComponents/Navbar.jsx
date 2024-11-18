@@ -51,12 +51,9 @@ const Navbar = ({ Mood }) => {
   };
   const { userData } = useContext(DataContext);
 
-  if (location.pathname == "/Prefile") {
-    return "";
-  }
   return (
     <motion.nav
-      className="bg-[#0d0b21]  h-36 rounded-bl-full flex justify-around items-center fixed top-0 right-0 z-50 w-full "
+      className="bg-[#0d0b21] h-36 rounded-bl-full max-md:rounded-bl-[20%] flex justify-around items-center fixed top-0 right-0 z-50 w-full "
       variants={{
         visible: { y: 0 },
         hidden: { y: "-100%" },
@@ -122,20 +119,22 @@ const Navbar = ({ Mood }) => {
         </li>
       </ul>
       {success ? (
-        <Link
-          className="flex text-white items-center gap-3 border-white transition-all group hover:text-[#ffac15]"
-          to="/Prefile"
-          onClick={scrollToTop}
-        >
-          <div className="image-container lg:flex justify-center transition-all items-center overflow-hidden w-10 h-10 rounded-full border group-hover:border-[#ffac15] ">
-            <img src={profileImage} alt="profile image" />
-          </div>
-          <h1 className="text-xl font-bold ">
-            {userData?.fname && userData?.lname
-              ? `${userData.fname} ${userData.lname}`
-              : "Creative User"}
-          </h1>
-        </Link>
+        <div className="flex">
+          <Link
+            className="flex text-white items-center max-md:hidden gap-3 border-white transition-all group hover:text-[#ffac15]"
+            to="/Profile"
+            onClick={scrollToTop}
+          >
+            <div className="image-container lg:flex justify-center transition-all items-center overflow-hidden w-10 h-10 rounded-full border group-hover:border-[#ffac15] ">
+              <img src={profileImage} alt="profile image" />
+            </div>
+            <h1 className="text-xl font-bold ">
+              {userData?.fname && userData?.lname
+                ? `${userData.fname} ${userData.lname}`
+                : "Creative User"}
+            </h1>
+          </Link>
+        </div>
       ) : (
         <div className="profile max-lg:hidden">
           <Link to="/LogIn" className="text-[#0d0b21]">
@@ -151,7 +150,7 @@ const Navbar = ({ Mood }) => {
           </Link>
         </div>
       )}
-      <div className="changeMode inline-block">
+      <div className="changeMode inline-block max-md:hidden">
         <FontAwesomeIcon
           icon={faSun}
           className=" text-[#ffac15] hover:text-[#e7b454] text-2xl mr-6 cursor-pointer dark:block hidden "
@@ -176,13 +175,37 @@ const Navbar = ({ Mood }) => {
             onClick={active}
           />
           {success ? (
-            <div className="profile flex justify-center items-center absolute bottom-6 text-center h-12 w-full">
+            <div className="flex absolute bottom-6 items-center gap-5">
               <Link
-                className="flex justify-center items-center w-10 h-10 rounded-full border border-white hover:border-[#ffac15] text-white hover:text-[#ffac15] "
-                to="/admin"
+                className="flex text-white items-center  gap-3  border-white transition-all group hover:text-[#ffac15]"
+                to="/Profile"
+                onClick={scrollToTop}
               >
-                <FontAwesomeIcon icon={faUser} />
+                <div className="image-container lg:flex justify-center transition-all items-center overflow-hidden w-10 h-10 rounded-full border group-hover:border-[#ffac15] ">
+                  <img src={profileImage} alt="profile image" />
+                </div>
+                <h1 className="text-xl font-bold ">
+                  {userData?.fname && userData?.lname
+                    ? `${userData.fname} ${userData.lname}`
+                    : "Creative User"}
+                </h1>
               </Link>
+              <div className="changeMode inline-block">
+                <FontAwesomeIcon
+                  icon={faSun}
+                  className=" text-[#ffac15] hover:text-[#e7b454] text-2xl mr-6 cursor-pointer dark:block hidden "
+                  onClick={() => {
+                    Mood("light");
+                  }}
+                />
+                <FontAwesomeIcon
+                  icon={faMoon}
+                  className="text-[#7c75b4] text-2xl mr-6 cursor-pointer hover:text-[#a29bd8] dark:hidden block"
+                  onClick={() => {
+                    Mood("dark");
+                  }}
+                />
+              </div>
             </div>
           ) : (
             <div className="profile absolute bottom-3 text-center w-full">

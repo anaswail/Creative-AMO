@@ -59,7 +59,7 @@ function App() {
                   element={success ? <Courses /> : <Navigate to="/login" />}
                 />
                 <Route
-                  path="/Prefile"
+                  path="/Profile"
                   element={success ? <Prefile /> : <Navigate to="/login" />}
                 >
                   <Route path="DashboardLayout" element={<DashboardLayout />} />

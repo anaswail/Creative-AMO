@@ -1,45 +1,25 @@
-import React, { useContext } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { DataContext } from "../../data/data";
 import profileImage from "../../images/profileImage.webp";
-import Settings from "./Settings";
-import DashboardLayout from "./DashboardLayout";
-import ProfileCourses from "./ProfileCourses";
 
 const MainProfile = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("DashboardLayout");
+  }, []);
   return (
-    <div className="flex min-h-screen bg-transparent text-white">
+    <div className="flex min-h-screen bg-transparent text-white pt-32">
       <Sidebar />
       <main className="flex-1 p-6 space-y-11">
-        <Navbar />
         <ProfileHeader />
+        <Outlet />
       </main>
     </div>
   );
 };
 
-// Navbar Component
-const Navbar = () => {
-  const { userData } = useContext(DataContext);
-
-  return (
-    <header className=" h-20 bg-transparent text-yellow-500 flex items-center px-4 z-10">
-      <div className="text-3xl font-extrabold">Let's Code...</div>
-      <div className="ml-auto flex gap-4">
-        <div className="flex items-center space-x-2">
-          <div className="text-white rounded-full w-10 h-10 bg-gray-600 overflow-hidden">
-            <img src={profileImage} alt="Creative AMO" />
-          </div>
-          {userData && (
-            <h1>
-              {userData.fname} {userData.lname}
-            </h1>
-          )}
-        </div>
-      </div>
-    </header>
-  );
-};
 // Sidebar Component
 const Sidebar = () => {
   return (
@@ -48,15 +28,13 @@ const Sidebar = () => {
         Creative AMO
       </div>
       <nav className="flex flex-col gap-2">
-        <Link to="/" className="hover:text-yellow-200 text-2xl ml-2 py-3">
-          Home
-        </Link>
         <Link
-          to="/RoadMaps"
+          to="DashboardLayout"
           className="hover:text-yellow-200 text-2xl ml-2 py-3"
         >
-          RoadMaps
+          Home
         </Link>
+
         <Link
           to="Profile-Courses"
           className="hover:text-yellow-200 text-2xl ml-2 py-3"
