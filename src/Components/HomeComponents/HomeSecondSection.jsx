@@ -3,7 +3,11 @@ import React from "react";
 const HomeSecondSection = (props) => {
   return (
     <div className="w-screen md:h-[100vh] flex justify-center items-center gap-10 md:p-20 p-8 max-md:flex-col-reverse">
-      <img className="w-[400px]" src={props.image} alt="group developers" />
+      <img
+        className="w-[400px] max-lg:w-[300px]"
+        src={props.image}
+        alt="group developers"
+      />
       <div className="flex flex-col gap-5 w-1/2 max-md:w-full max-md:text-center">
         <div className="dark:text-white text-black">
           <h2 className="text-xl">Free Courses</h2>

@@ -146,7 +146,7 @@ const AddCourses = () => {
 
   return (
     <div className="bg-[#080c14] w-screen h-fit pt-40">
-      <div className="max-w-4xl mx-auto p-6 border border-gray-300 rounded-lg shadow-lg ">
+      <div className="max-w-4xl m-5 mx-auto p-6 border border-gray-300 rounded-lg shadow-lg ">
         <h2 className="text-2xl font-semibold text-[#ffac15] text-center mb-6">
           Add Courses
         </h2>
@@ -264,7 +264,7 @@ const AddCourses = () => {
           </div>
         </form>
       </div>
-      <div className="max-w-4xl mx-auto p-6 border border-gray-300 rounded-lg shadow-lg ">
+      <div className="max-w-4xl m-5 mx-auto p-6 border border-gray-300 rounded-lg shadow-lg ">
         <h2 className="text-2xl font-semibold text-[#ffac15] text-center mb-6">
           Add Admin
         </h2>

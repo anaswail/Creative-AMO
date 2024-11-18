@@ -2,6 +2,7 @@ import React from "react";
 import Anas from "../../images/Anas.webp";
 import Omar from "../../images/Omar.webp";
 import Mohamed from "../../images/Mohamed.webp";
+import Maruane from "../../images/Maruane.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -25,11 +26,11 @@ const AboutUs = () => {
     {
       name: "Marouane Makhlouf",
       role: "MERN Stack Developer",
-      image: Anas,
+      image: Maruane,
       socialMedia: {
-        portfolio: "https://marouaneelalami-portofolio.vercel.app/",
-        facebook: "https://marouaneelalami-portofolio.vercel.app/",
-        github: "https://github.com/marouaneelalami",
+        portfolio: "https://marouanemakhlouf.github.io/Portfolio/",
+        facebook: "https://www.facebook.com/profile.php?id=100080248663458",
+        github: "https://github.com/MarouaneMakhlouf",
         whatsapp: "https://wa.me/+212638387499",
         email: "",
       },
@@ -39,11 +40,11 @@ const AboutUs = () => {
       role: "Frontend Developer",
       image: Mohamed,
       socialMedia: {
-        portfolio: "https://mohamedamin-portofolio.vercel.app/",
-        facebook: "https://mohamedamin-portofolio.vercel.app/",
-        github: "https://github.com/mohamedamin12",
+        portfolio: "https://wa.me/+201093185244",
+        facebook: "https://www.facebook.com/mohamed.haikal.129",
+        github: "https://github.com/mohamed-haikal",
         whatsapp: "https://wa.me/+201093185244",
-        email: "",
+        email: "https://wa.me/+201093185244",
       },
     },
     {
@@ -51,11 +52,11 @@ const AboutUs = () => {
       role: "UI/UX Designer",
       image: Omar,
       socialMedia: {
-        portfolio: "https://omarel-moujahid-portofolio.vercel.app/",
-        facebook: "https://omarel-moujahid-portofolio.vercel.app/",
-        github: "https://github.com/OmarElMoujahid",
+        portfolio: "https://wa.me/+201284561062",
+        facebook:
+          "https://www.facebook.com/profile.php?id=100075985174679&mibextid=ZbWKwL",
         whatsapp: "https://wa.me/+201284561062",
-        email: "",
+        email: "https://wa.me/+201284561062",
       },
     },
   ];

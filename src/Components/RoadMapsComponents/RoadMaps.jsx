@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { RoadMapContext } from "../MainComponents/RoadContext";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const RoadMaps = () => {
   const [search, setSearch] = useState("");
   const [filteredRoad, setFilteredRoad] = useState([]);
+  const [loading, setLoading] = useState(false);
   const {
     roads = [],
     setRoads,
@@ -15,12 +17,15 @@ const RoadMaps = () => {
 
   useEffect(() => {
     const fetchTracks = async () => {
+      setLoading(true);
       try {
         const response = await axios.get("/RoadMap.json");
         setRoads(response.data);
         setFilteredRoad(response.data);
       } catch (error) {
         console.error("Error fetching the road maps:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -41,6 +46,14 @@ const RoadMaps = () => {
     setSelectedRoad(track);
     window.scrollTo(0, 0);
   };
+
+  if (loading == true) {
+    return (
+      <div className="flex h-screen bg-[#0d0b21] w-full z-50 fixed top-0 left-0 justify-center items-center">
+        <PulseLoader color="#ffac15" size={30} margin={4} />
+      </div>
+    );
+  }
 
   return (
     <div className="roadMaps">

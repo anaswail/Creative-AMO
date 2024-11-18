@@ -10,7 +10,7 @@ const HomeInnovations = () => {
       <h1 className="title dark:text-white text-black text-4xl font-bold my-5">
         our Innovations
       </h1>
-      <p className="description dark:text-white text-black text-xl w-[40%] text-center">
+      <p className="description dark:text-white text-black text-xl w-[40%] max-md:w-3/4 text-center">
         Discover some of the many benefits you will enjoy when you add us to
         your online learning platform
       </p>
@@ -36,7 +36,7 @@ const Cards = () => {
           res.id <= 11 && (
             <div
               key={res.id}
-              className="card w-80 bg-[#0d0b21] h-[490px] rounded-2xl p-4 border-tr overflow-hidden relative z-10 grid"
+              className="card w-80 bg-[#0d0b21] h-[490px] max-md:w-72  rounded-2xl p-4 border-tr overflow-hidden relative z-10 grid"
             >
               <div className="image-container">
                 <img

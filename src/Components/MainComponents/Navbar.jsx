@@ -53,7 +53,7 @@ const Navbar = ({ Mood }) => {
 
   return (
     <motion.nav
-      className="bg-[#0d0b21] h-36 rounded-bl-full max-md:rounded-bl-[20%] flex justify-around items-center fixed top-0 right-0 z-50 w-full "
+      className="bg-[#0d0b21] h-36 rounded-bl-full max-md:rounded-bl-[30%] flex justify-around items-center fixed top-0 right-0 z-50 w-full "
       variants={{
         visible: { y: 0 },
         hidden: { y: "-100%" },

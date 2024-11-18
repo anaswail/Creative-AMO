@@ -16,7 +16,7 @@ import group from "../../images/group.webp";
 const Home = () => {
   return (
     <>
-      <div className="mainSection bg-[#0d0b21] w-full rounded-bl-[30%] md:rounded-bl-[50%] min-h-screen flex justify-around items-center pt-28 max-md:flex-col">
+      <div className="mainSection bg-[#0d0b21] w-full rounded-bl-[20%] md:rounded-bl-[50%] min-h-screen flex justify-around items-center pt-28 max-md:flex-col">
         <TextContent />
         <ImageContent />
       </div>
@@ -25,13 +25,13 @@ const Home = () => {
         <HomeSecondSection image={group} />
       </div>
 
-      <div className="popularCourses flex flex-col mb-16 justify-center items-center md:h-screen overflow-hidden">
+      <div className="popularCourses flex flex-col mb-16 justify-center items-center  overflow-hidden">
         <HomePopularCourses />
       </div>
 
-      {/* <HomeWork />
+      <HomeWork />
 
-      <HomeInnovations /> */}
+      <HomeInnovations />
     </>
   );
 };

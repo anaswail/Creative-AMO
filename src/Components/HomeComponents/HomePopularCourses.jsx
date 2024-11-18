@@ -28,14 +28,14 @@ const Cards = () => {
   }, []);
 
   return (
-    <div className="cards flex justify-center gap-9 max-md:gap-2 items-center mt-10 flex-wrap">
+    <div className="cards flex justify-center gap-9  items-center mt-10 flex-wrap">
       {data.map(
         (res) =>
           res.id >= 2 &&
           res.id <= 4 && (
             <div
               key={res.id}
-              className="card w-80 bg-[#0d0b21] h-[490px] max-md:w-64  rounded-2xl p-4 border-tr overflow-hidden relative z-10 grid"
+              className="card w-80 bg-[#0d0b21] h-[490px] max-md:w-72  rounded-2xl p-4 border-tr overflow-hidden relative z-10 grid"
             >
               <div className="image-container">
                 <img

@@ -15,7 +15,6 @@ import LogIn from "./Components/SignComponents/LogIn";
 import Erorr from "./Components/MainComponents/Erorr";
 import Footer from "./Components/MainComponents/Footer";
 import SignUp from "./Components/SignComponents/SignUp";
-import Loading from "./Components/MainComponents/Loading";
 import CourseDetails from "./Components/CoursesComponents/CourseDetails";
 import Track from "./Components/RoadMapsComponents/Track";
 import { useContext } from "react";
@@ -25,10 +24,10 @@ import AdminPrefile from "./Components/PrefileComponents/AdminPrefile";
 import Settings from "./Components/PrefileComponents/Settings";
 import ProfileCourses from "./Components/PrefileComponents/ProfileCourses";
 import DashboardLayout from "./Components/PrefileComponents/DashboardLayout";
+import Learn from "./Components/CoursesComponents/Learn";
 
 function App() {
   const { success } = useContext(DataContext);
-  const [loading, setLoading] = useState(false);
   const [mood, setMood] = useState(() => {
     // Get the saved mood from localStorage or default to "dark"
     return localStorage.getItem("mood") || "dark";
@@ -39,55 +38,50 @@ function App() {
     localStorage.setItem("mood", mood);
   }, [mood]);
 
-  useEffect(() => {
-    window.addEventListener("load", () => setLoading(true));
-  }, []);
-
+  //
   return (
     <div className={`App overflow-x-hidden ${mood}`}>
       <div className="dark:bg-[#080c14] bg-white">
         <CourseContext>
           <RoadContext>
             <Navbar Mood={setMood} /> {/* Pass Mood properly */}
-            {loading ? (
-              <Loading setHomeLoad={setLoading} />
-            ) : (
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route
-                  path="/Courses/*"
-                  element={success ? <Courses /> : <Navigate to="/login" />}
-                />
-                <Route
-                  path="/Profile"
-                  element={success ? <Prefile /> : <Navigate to="/login" />}
-                >
-                  <Route path="DashboardLayout" element={<DashboardLayout />} />
-                  <Route path="Settings" element={<Settings />} />
-                  <Route path="Profile-Courses" element={<ProfileCourses />} />
-                </Route>
-                <Route path="/RoadMaps" element={<RoadMaps />} />
-                <Route path="/RoadMaps/:id" element={<Track />} />
-                <Route path="/Trainers" element={<Trainers />} />
-                <Route path="/AboutUs" element={<AboutUs />} />
-                <Route
-                  path="/LogIn"
-                  element={success ? <Navigate to="/" /> : <LogIn />}
-                />
-                <Route
-                  path="/SignUp"
-                  element={success ? <Navigate to="/" /> : <SignUp />}
-                />
-                <Route
-                  path="/course/:id"
-                  element={
-                    success ? <CourseDetails /> : <Navigate to="/login" />
-                  }
-                />
-                <Route path="/admin" element={<AdminPrefile />} />
-                <Route path="*" element={<Erorr />} />
-              </Routes>
-            )}
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route
+                path="/Courses/*"
+                element={success ? <Courses /> : <Navigate to="/login" />}
+              />
+              <Route
+                path="/Profile"
+                element={success ? <Prefile /> : <Navigate to="/login" />}
+              >
+                <Route path="DashboardLayout" element={<DashboardLayout />} />
+                <Route path="Settings" element={<Settings />} />
+                <Route path="Profile-Courses" element={<ProfileCourses />} />
+              </Route>
+              <Route path="/RoadMaps" element={<RoadMaps />} />
+              <Route path="/RoadMaps/:id" element={<Track />} />
+              <Route path="/Trainers" element={<Trainers />} />
+              <Route path="/AboutUs" element={<AboutUs />} />
+              <Route
+                path="/LogIn"
+                element={success ? <Navigate to="/" /> : <LogIn />}
+              />
+              <Route
+                path="/SignUp"
+                element={success ? <Navigate to="/" /> : <SignUp />}
+              />
+              <Route
+                path="/course/:id"
+                element={success ? <CourseDetails /> : <Navigate to="/login" />}
+              />
+              <Route path="/admin" element={<AdminPrefile />} />
+              <Route
+                path="/learn/:playlistId"
+                element={success ? <Learn /> : <Navigate to="/login" />}
+              />
+              <Route path="*" element={<Erorr />} />
+            </Routes>
             <Footer />
           </RoadContext>
         </CourseContext>

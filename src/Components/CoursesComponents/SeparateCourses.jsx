@@ -1,26 +1,22 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Loading from "../MainComponents/Loading";
 import { Course } from "../MainComponents/CourseContext";
 import { DataContext } from "../../data/data";
 import Cookies from "js-cookie";
+import PulseLoader from "react-spinners/PulseLoader";
+import replaceImage from "../../images/video.gif";
 
 const SeparateCourses = () => {
-  const [coursesLoading, setCoursesLoading] = useState(true);
-
   return (
     <div className="separate-courses">
-      {coursesLoading ? (
-        <Loading setCoursesLoading={setCoursesLoading} />
-      ) : (
-        <Cards setLoad={setCoursesLoading} />
-      )}
+      <Cards />
     </div>
   );
 };
 
-const Cards = ({ setLoad }) => {
+const Cards = () => {
+  const [loading, setLoading] = useState(false);
   const { courses = [], setSelectedCourse, setCourses } = useContext(Course);
   const { url } = useContext(DataContext);
 
@@ -29,25 +25,26 @@ const Cards = ({ setLoad }) => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(`${url}/api/v1/courses/get`, {
           headers: {
             Authorization: `Bearer ${Cookies.get("token")}`,
           },
         });
         setCourses(response.data.courses);
-        setLoad(false);
         window.scrollTo(0, 0);
       } catch (error) {
         console.error("Error fetching courses:", error);
-        setLoad(false);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchCourses();
-  }, [setLoad]);
+  }, []);
 
   useEffect(() => {
-    if (!courses.length) return;
+    if (!courses.length) setLoading(true);
     const loadAllCourses = async () => {
       const coursePromises = courses.flatMap(async (category) => {
         const categoryCourses = Object.values(category)[0] || [];
@@ -75,6 +72,14 @@ const Cards = ({ setLoad }) => {
     setSelectedCourse(res);
   };
 
+  if (loading == true) {
+    return (
+      <div className="flex h-screen bg-[#0d0b21] w-full z-50 fixed top-0 left-0 justify-center items-center">
+        <PulseLoader color="#ffac15" size={30} margin={4} />
+      </div>
+    );
+  }
+
   return (
     <div className="cards flex justify-center gap-9 items-center mt-10 flex-wrap">
       {allCourses.map((res, index) => (
@@ -84,14 +89,14 @@ const Cards = ({ setLoad }) => {
         >
           <div className="image-container">
             <img
-              className="rounded-md w-fit h-fit"
+              className="rounded-md w-fit h-fit "
               loading="lazy"
-              src={res.image}
+              src={res.image || replaceImage}
               alt={res.channelTitle || res.instructor}
             />
           </div>
           <div className="information my-5 p-1 flex justify-between items-center">
-            <span className="bg-[#ffac15] py-1 px-4 rounded-md text-[#0d0b21] text-xs font-semibold">
+            <span className="bg-[#ffac15] py-1 px-4 rounded-md text-[#0d0b21] text-xs font-semibold truncate w-32">
               {res.channelTitle || res.instructor}
             </span>
             <span className="bg-[#ffac15] py-1 px-4 rounded-md text-[#0d0b21] text-xs font-semibold">

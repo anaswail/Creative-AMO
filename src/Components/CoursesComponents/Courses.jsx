@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   Link,
   Route,
@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import SeparateCourses from "./SeparateCourses";
 import CompleteTracks from "./CompleteTracks";
+import { DataContext } from "../../data/data";
 
 const Courses = () => {
   const [activeButton, setActiveButton] = useState(null);
