@@ -22,8 +22,9 @@ import { useContext } from "react";
 import { DataContext } from "./data/data";
 import Prefile from "./Components/PrefileComponents/Prefile";
 import AdminPrefile from "./Components/PrefileComponents/AdminPrefile";
+import Learn from "./Components/CoursesComponents/Learn";
 
-function App() {
+function App() { 
   const { success } = useContext(DataContext);
   const [loading, setLoading] = useState(false);
   const [mood, setMood] = useState(() => {
@@ -77,7 +78,8 @@ function App() {
                     success ? <CourseDetails /> : <Navigate to="/login" />
                   }
                 />
-                <Route path="/admin" element={<AdminPrefile />} />
+                <Route path="/admin" element={success ? <AdminPrefile /> : <Navigate to="/login" />} />
+                <Route path="/learn/:playlistId" element={success ? <Learn /> : <Navigate to="/login" />} />
                 <Route path="*" element={<Erorr />} />
               </Routes>
             )}

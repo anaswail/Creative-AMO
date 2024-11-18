@@ -25,7 +25,7 @@ const AboutUs = () => {
       role: "MERN Stack Developer",
       image: Anas,
       socialMedia: {
-        portfolio: "https://marouaneelalami-portofolio.vercel.app/",
+        portfolio: "https://marouanemakhlouf.github.io/Portfolio/",
         facebook: "https://marouaneelalami-portofolio.vercel.app/",
         github: "https://github.com/marouaneelalami",
         whatsapp: "https://wa.me/+2120000000",

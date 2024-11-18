@@ -14,18 +14,22 @@ export const DataProvider = ({ children }) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [userData, setUserData] = useState(null);
-  const [url , setUrl] = useState("http://localhost:3000");
+  const [url , setUrl] = useState("http://fi3.bot-hosting.net:22756");
+  const [selectedCourse, setSelectedCourse] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const storedToken = Cookies.get("token"); 
     if (storedToken) { 
       setSuccess(true);
-      fetchData();
+      
     }
     fetch('/config.json')
       .then((response) => response.json())
-      .then((data) => setUrl(data.url))
+      .then((data) => {
+        setUrl(data.url)
+        fetchData();
+      })
       .catch((error) => console.error('Error loading config:', error));
   }, []);
 
@@ -86,14 +90,15 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  function fetchData () {
-    axios.get(`${url}/api/v1/users/me`, {
+  async function fetchData () {
+    await axios.get(`${url}/api/v1/users/me`, {
       headers: {
         Authorization: `Bearer ${Cookies.get("token")}`
       }
     })
     .then(res => {
       setUserData(res.data);
+      console.log(res.data)
     })
     .catch(err => {
       console.log("Error fetching data:", err); 
@@ -127,7 +132,7 @@ export const DataProvider = ({ children }) => {
     setLname,
     Register,
     Login,
-    logout
+    logout,
   };
   return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
 };
