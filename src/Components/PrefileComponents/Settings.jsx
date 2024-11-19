@@ -56,7 +56,7 @@ const Settings = () => {
     <div className="mt-36">
       {userData ? (
         <>
-          <div className="flex justify-center items-center gap-10 flex-wrap">
+          <div className="flex justify-start items-center gap-10 flex-wrap w-full">
             {settingsData.map((setting, index) => (
               <div
                 key={index}
@@ -74,12 +74,17 @@ const Settings = () => {
               </div>
             ))}
           </div>
-          <button
-            onClick={handleDelete}
-            className="py-2 px-6 bg-red-500 text-white font-bold rounded-md hover:bg-red-600"
-          >
-            Logout
-          </button>
+          <div className="btns mt-8 ">
+            <button
+              onClick={handleDelete}
+              className="py-2 px-6 bg-red-500 text-white font-bold rounded-md hover:bg-red-600 "
+            >
+              Logout
+            </button>
+            <button className="py-2 px-6 ml-3 bg-green-500 text-white hover:bg-green-600 font-bold rounded-md   ">
+              save changes
+            </button>
+          </div>
         </>
       ) : (
         <div className="flex h-screen bg-[#0d0b21] w-full fixed top-0 left-0 justify-center items-center">
