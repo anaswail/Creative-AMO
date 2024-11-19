@@ -118,6 +118,7 @@ const Navbar = ({ Mood }) => {
           </Link>
         </li>
       </ul>
+
       {success ? (
         <div className="flex">
           <Link
@@ -227,7 +228,7 @@ const Navbar = ({ Mood }) => {
               <Link
                 to="/"
                 className="text-white hover:text-[#ffac15]"
-                onClick={scrollToTop}
+                onClick={(scrollToTop, active)}
               >
                 Home
               </Link>
@@ -236,7 +237,7 @@ const Navbar = ({ Mood }) => {
               <Link
                 to="/Courses"
                 className="text-white hover:text-[#ffac15]"
-                onClick={scrollToTop}
+                onClick={(scrollToTop, active)}
               >
                 Courses
               </Link>
@@ -245,7 +246,7 @@ const Navbar = ({ Mood }) => {
               <Link
                 to="/RoadMaps"
                 className="text-white hover:text-[#ffac15]"
-                onClick={scrollToTop}
+                onClick={(scrollToTop, active)}
               >
                 Road Maps
               </Link>
@@ -254,7 +255,7 @@ const Navbar = ({ Mood }) => {
               <Link
                 to="/Trainers"
                 className="text-white hover:text-[#ffac15]"
-                onClick={scrollToTop}
+                onClick={(scrollToTop, active)}
               >
                 Trainers
               </Link>
@@ -263,7 +264,7 @@ const Navbar = ({ Mood }) => {
               <Link
                 to="/AboutUs"
                 className="text-white hover:text-[#ffac15]"
-                onClick={scrollToTop}
+                onClick={(scrollToTop, active)}
               >
                 AboutUs
               </Link>

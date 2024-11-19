@@ -115,6 +115,32 @@ export const DataProvider = ({ children }) => {
       console.error("Error during logout:", error);
     }
   };
+
+  async function getYtData(id) {
+    const apiKey = "AIzaSyDcx-nZ3fkqEcSF_WXutU82YvatKmBUB6w";
+    const url = `https://www.googleapis.com/youtube/v3/playlistItems`;
+    const params = {
+      part: 'snippet',
+      maxResults: 1,
+      playlistId: id,
+      key: apiKey,
+    };
+  
+    try {
+      const res = await axios.get(url, { params });
+      const data = res.data;
+      if (data.items && data.items.length > 0) {
+        const firstVideo = data.items[0].snippet;
+        return {
+          image: firstVideo.thumbnails.high.url,
+          channelTitle: firstVideo.channelTitle,
+        };
+      }
+    } catch (err) {
+      console.log('Error fetching YouTube data:', err);
+      return {};
+    }
+  }
   
 
   let data = {
@@ -133,6 +159,7 @@ export const DataProvider = ({ children }) => {
     Register,
     Login,
     logout,
+    getYtData
   };
   return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
 };

@@ -23,34 +23,22 @@ const Learn = () => {
       const data = await getYtData(playlistId);
       if (data && data.length > 0) {
         setAllVideos(data);
-        setVideoData(data[videoIndex]);
+        setVideoData(data[0]);
       }
     };
-
+    window.scrollTo(0, 0);
     fetchData();
   }, [playlistId]);
 
-  const handleNextVideo = () => {
-    if (videoIndex < allVideos.length - 1) {
-      setVideoIndex(videoIndex + 1);
-      setVideoData(allVideos[videoIndex + 1]);
-    }
-  };
-
-  const handlePreviousVideo = () => {
-    if (videoIndex > 0) {
-      setVideoIndex(videoIndex - 1);
-      setVideoData(allVideos[videoIndex - 1]);
-    }
+  const handleVideoSelect = (index) => {
+    setVideoIndex(index);
+    setVideoData(allVideos[index]);
   };
 
   return (
-    <div className="pt-36 w-screen flex justify-center items-start">
+    <div className="pt-36 w-screen flex flex-col justify-center items-center">
       {videoData ? (
         <div className="w-[90%] sm:w-[70%] flex flex-col justify-center items-center">
-          <h3 className="bg-[#ffac15] text-[#080c14] py-3 px-12 font-bold text-2xl rounded-full text-center my-5">
-            {videoData.snippet.channelTitle}
-          </h3>
           <div className="relative w-full pb-[56.25%]">
             <iframe
               className="absolute top-0 left-0 w-full h-full"
@@ -63,19 +51,47 @@ const Learn = () => {
           </div>
           <div className="mt-4 flex justify-between w-full">
             <button
-              onClick={handlePreviousVideo}
+              onClick={() => handleVideoSelect(videoIndex - 1)}
               disabled={videoIndex === 0}
               className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-400"
             >
               Previous
             </button>
             <button
-              onClick={handleNextVideo}
+              onClick={() => handleVideoSelect(videoIndex + 1)}
               disabled={videoIndex === allVideos.length - 1}
               className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-400"
             >
               Next
             </button>
+          </div>
+
+          {/* Slider Section */}
+          <div className="mt-6 w-full overflow-x-auto bg-gray-800 p-4 rounded-lg">
+            <div
+              className="flex flex-wrap gap-5 justify-center w-full"
+              style={{ direction: "rtl" }}
+            >
+              {allVideos.map((video, index) => (
+                <div
+                  key={index}
+                  onClick={() => handleVideoSelect(index)}
+                  style={{ direction: "rtl" }}
+                  className={`cursor-pointer p-2 rounded-lg w-full sm:w-[45%] md:w-[30%] flex gap-5 ${
+                    index === videoIndex
+                      ? "bg-blue-500 text-white"
+                      : "bg-gray-700 text-gray-300"
+                  }`}
+                >
+                  <img
+                    src={video.snippet.thumbnails.default.url}
+                    alt={video.snippet.title}
+                    className="w-fit h-14 rounded-md mb-2"
+                  />
+                  <p className="text-xs">{video.snippet.title}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       ) : (
@@ -112,7 +128,6 @@ async function getYtData(id) {
       err.response ? err.response.data : err.message
     );
     return null;
-  } finally {
   }
 }
 
