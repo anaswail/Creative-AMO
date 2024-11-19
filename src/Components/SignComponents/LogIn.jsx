@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "../../data/data";
+import Swal from "sweetalert2";
 
 const LogIn = () => {
   const { email, setEmail, password, setPassword, Login } =
@@ -18,6 +19,15 @@ const LogIn = () => {
       setEmail("");
       setPassword("");
     }
+  };
+  const showNotification = () => {
+    Swal.fire({
+      position: "top-end",
+      icon: "Hello 🎉",
+      title: "Welcome back again 😉💪",
+      showConfirmButton: false,
+      timer: 1700,
+    });
   };
 
   return (
@@ -101,6 +111,7 @@ const LogIn = () => {
 
           <button
             type="submit"
+            onClick={showNotification}
             className="w-full bg-[#f39c12] text-black py-3 border-none rounded-full text-lg cursor-pointer flex justify-center items-center hover:translate-x-3 transition-all font-semibold"
           >
             Login <span className="ml-2">→</span>

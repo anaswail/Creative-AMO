@@ -2,6 +2,8 @@ import { useContext, useEffect } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { DataContext } from "../../data/data";
 import profileImage from "../../images/profileImage.webp";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const MainProfile = () => {
   const navigate = useNavigate();
@@ -57,8 +59,12 @@ const ProfileHeader = () => {
   const { userData } = useContext(DataContext);
 
   return (
-    <div className="flex text-center mb-4 mt-4 gap-4 p-4 bg-transparent rounded-md text-orange-200 h-[150px] border-b-[2px] border-white border-solid width-full ">
-      <div className="bg-slate-400 rounded-full w-24 h-24 overflow-hidden">
+    <div className="flex text-center items-center mb-4 mt-4 gap-4 p-4 bg-transparent rounded-md text-orange-200 h-[150px] border-b-[2px] border-white border-solid width-full ">
+      <div className="bg-slate-400 rounded-full w-32 h-32 overflow-hidden relative group  ">
+        <FontAwesomeIcon
+          icon={faPenToSquare}
+          className="bg-white text-xl cursor-pointer hover:bg-[#0d0b21] hover:text-white text-[#0d0b21] rounded-bl-full p-5 absolute  transition-all duration-300 rounded-t-md rounded-b-md group-hover:top-0 group-hover:right-0 -right-10 -top-10 "
+        />
         <img
           src={profileImage}
           alt="Creative AMO"
@@ -68,7 +74,7 @@ const ProfileHeader = () => {
       <div className="text-base p-2">
         <h2 className="text-3xl font-bold mb-2">
           {userData?.fname && userData?.lname
-            ? `${userData.fname} ${userData.lname}`
+            ? `Welcome ${userData.fname} ${userData.lname}`
             : "Creative User"}
         </h2>
         {/* <p className="font-light mb-2">Contact: +2450000000</p> */}

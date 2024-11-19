@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "../../data/data";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const {
@@ -23,6 +24,11 @@ const SignUp = () => {
 
     // Clear the form inputs only if the registration is successful
     if (isRegistered) {
+      Swal.fire({
+        title: `Hello ${fname} `,
+        text: "Welcome to the first step to becoming a great programmer.!",
+        icon: "success",
+      });
       setFname("");
       setLname("");
       setEmail("");
@@ -120,6 +126,7 @@ const SignUp = () => {
 
           <button
             type="submit"
+            onClick={handleSignUp}
             className="w-full bg-[#f39c12] text-black py-3 border-none rounded-full text-lg cursor-pointer flex justify-center items-center hover:translate-x-3 transition-all font-semibold"
           >
             Sign Up <span className="ml-2">→</span>
