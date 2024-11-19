@@ -4,7 +4,6 @@ import { DataContext } from "../../data/data";
 import profileImage from "../../images/profileImage.webp";
 
 const MainProfile = () => {
-  const {userData} = useContext(DataContext)
   return (
     <div className="flex min-h-screen bg-transparent text-white">
       <Sidebar />
@@ -79,7 +78,7 @@ const Sidebar = () => {
 
 // Profile Header Component
 const ProfileHeader = () => {
-  const { userData } = useContext(DataContext);
+  const { userData, logout } = useContext(DataContext);
 
   return (
     <div className="flex text-center mb-4 mt-4 gap-4 p-4 bg-transparent rounded-md text-orange-200 h-[150px] border-b-[2px] border-white border-solid width-full ">
@@ -99,9 +98,12 @@ const ProfileHeader = () => {
         {/* <p className="font-light mb-2">Contact: +2450000000</p> */}
         <p className="font-light mb-2">
           Email:{" "}
-          {userData?.email ? `${userData.email}` : "anaswail246@gmail.com"}{" "}
+          {userData?.email ? `${userData.email}` : "N/A"}{" "}
         </p>
       </div>
+      <button onClick={logout} className="py-2 px-4 bg-red-500 text-white">
+            Logout
+          </button>
     </div>
   ); 
 };

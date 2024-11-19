@@ -78,8 +78,8 @@ function App() {
                     success ? <CourseDetails /> : <Navigate to="/login" />
                   }
                 />
-                <Route path="/admin" element={success ? <AdminPrefile /> : <Navigate to="/login" />} />
-                <Route path="/learn/:playlistId" element={success ? <Learn /> : <Navigate to="/login" />} />
+                <Route path="/admin" element={ <AdminPrefile /> } />
+                <Route path="/learn/:playlistId" element={ success ? <Learn /> : <Navigate to="/login" />} />
                 <Route path="*" element={<Erorr />} />
               </Routes>
             )}

@@ -121,6 +121,7 @@ const Navbar = ({ Mood }) => {
           </Link>
         </li>
       </ul>
+
       {success ? (
         <Link
           className="flex text-white items-center gap-3 border-white transition-all group hover:text-[#ffac15]"
@@ -179,7 +180,8 @@ const Navbar = ({ Mood }) => {
             <div className="profile flex justify-center items-center absolute bottom-6 text-center h-12 w-full">
               <Link
                 className="flex justify-center items-center w-10 h-10 rounded-full border border-white hover:border-[#ffac15] text-white hover:text-[#ffac15] "
-                to="/admin"
+                to="/prefile"
+                onClick={active}
               >
                 <FontAwesomeIcon icon={faUser} />
               </Link>
@@ -204,7 +206,7 @@ const Navbar = ({ Mood }) => {
               <Link
                 to="/"
                 className="text-white hover:text-[#ffac15]"
-                onClick={scrollToTop}
+                onClick={(scrollToTop, active)}
               >
                 Home
               </Link>
@@ -213,7 +215,7 @@ const Navbar = ({ Mood }) => {
               <Link
                 to="/Courses"
                 className="text-white hover:text-[#ffac15]"
-                onClick={scrollToTop}
+                onClick={(scrollToTop, active)}
               >
                 Courses
               </Link>
@@ -222,7 +224,7 @@ const Navbar = ({ Mood }) => {
               <Link
                 to="/RoadMaps"
                 className="text-white hover:text-[#ffac15]"
-                onClick={scrollToTop}
+                onClick={(scrollToTop, active)}
               >
                 Road Maps
               </Link>
@@ -231,7 +233,7 @@ const Navbar = ({ Mood }) => {
               <Link
                 to="/Trainers"
                 className="text-white hover:text-[#ffac15]"
-                onClick={scrollToTop}
+                onClick={(scrollToTop, active)}
               >
                 Trainers
               </Link>
@@ -240,7 +242,7 @@ const Navbar = ({ Mood }) => {
               <Link
                 to="/AboutUs"
                 className="text-white hover:text-[#ffac15]"
-                onClick={scrollToTop}
+                onClick={(scrollToTop, active)}
               >
                 AboutUs
               </Link>

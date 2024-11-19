@@ -5,8 +5,8 @@ import { useParams } from 'react-router-dom';
 const Learn = () => {
   const { playlistId } = useParams();
   const [videoData, setVideoData] = useState(null);
-  const [videoIndex, setVideoIndex] = useState(0); 
-  const [allVideos, setAllVideos] = useState([]); 
+  const [videoIndex, setVideoIndex] = useState(0);
+  const [allVideos, setAllVideos] = useState([]);
 
   useEffect(() => {
     if (!playlistId) {
@@ -18,65 +18,77 @@ const Learn = () => {
       console.log("Fetching data for playlistId:", playlistId);
       const data = await getYtData(playlistId);
       if (data && data.length > 0) {
-        setAllVideos(data); 
-        setVideoData(data[videoIndex]); 
+        setAllVideos(data);
+        setVideoData(data[0]);
       }
     };
-
+    window.scrollTo(0, 0);
     fetchData();
-  }, [playlistId]);  
+  }, [playlistId]);
 
-  const handleNextVideo = () => {
-    if (videoIndex < allVideos.length - 1) {
-      setVideoIndex(videoIndex + 1);
-      setVideoData(allVideos[videoIndex + 1]);
-    }
-  };
-
-  const handlePreviousVideo = () => {
-    if (videoIndex > 0) {
-      setVideoIndex(videoIndex - 1);
-      setVideoData(allVideos[videoIndex - 1]); 
-    }
+  const handleVideoSelect = (index) => {
+    setVideoIndex(index);
+    setVideoData(allVideos[index]);
   };
 
   return (
-    <div className="pt-36 w-screen flex justify-center items-start">
-  {videoData ? (
-    <div className="w-[90%] sm:w-[70%] flex flex-col justify-center items-start">
-      <h3>{videoData.snippet.channelTitle}</h3>
-      <div className="relative w-full pb-[56.25%]"> 
-        <iframe
-          className="absolute top-0 left-0 w-full h-full"
-          src={`https://www.youtube.com/embed/${videoData.snippet.resourceId.videoId}`}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-      </div>
-      <div className="mt-4 flex justify-between w-full">
-        <button 
-          onClick={handlePreviousVideo} 
-          disabled={videoIndex === 0} 
-          className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-400"
-        >
-          Previous
-        </button>
-        <button 
-          onClick={handleNextVideo} 
-          disabled={videoIndex === allVideos.length - 1} 
-          className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-400"
-        >
-          Next
-        </button>
-      </div>
-    </div>
-  ) : (
-    <p className="text-3xl text-white text-center">Loading...</p> 
-  )}
-</div>
+    <div className="pt-36 w-screen flex flex-col justify-center items-center">
+      {videoData ? (
+        <div className="w-[90%] sm:w-[70%] flex flex-col justify-center items-center">
+          <div className="relative w-full pb-[56.25%]">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src={`https://www.youtube.com/embed/${videoData.snippet.resourceId.videoId}`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className="mt-4 flex justify-between w-full">
+            <button
+              onClick={() => handleVideoSelect(videoIndex - 1)}
+              disabled={videoIndex === 0}
+              className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-400"
+            >
+              Previous
+            </button>
+            <button
+              onClick={() => handleVideoSelect(videoIndex + 1)}
+              disabled={videoIndex === allVideos.length - 1}
+              className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-400"
+            >
+              Next
+            </button>
+          </div>
 
+          {/* Slider Section */}
+          <div className="mt-6 w-full overflow-x-auto bg-gray-800 p-4 rounded-lg">
+            <div className="flex flex-wrap gap-5 justify-center w-full" style={{ direction: "rtl"}}>
+              {allVideos.map((video, index) => (
+                <div
+                  key={index}
+                  onClick={() => handleVideoSelect(index)}
+                  style={{ direction: "rtl"}} 
+                  className={`cursor-pointer p-2 rounded-lg w-full sm:w-[45%] md:w-[30%] flex gap-5 ${
+                    index === videoIndex ? 'bg-blue-500 text-white' : 'bg-gray-700 text-gray-300'
+                  }`}
+                >
+                  <img
+                    src={video.snippet.thumbnails.default.url}
+                    alt={video.snippet.title}
+                    className="w-fit h-14 rounded-md mb-2"
+                  />
+                  <p className="text-xs">{video.snippet.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <p className="text-3xl text-white text-center">Loading...</p>
+      )}
+    </div>
   );
 };
 
@@ -85,7 +97,7 @@ async function getYtData(id) {
   const url = `https://www.googleapis.com/youtube/v3/playlistItems`;
   const params = {
     part: "snippet",
-    maxResults: 100, 
+    maxResults: 100,
     playlistId: id,
     key: apiKey,
   };
@@ -106,4 +118,3 @@ async function getYtData(id) {
 }
 
 export default Learn;
- 
