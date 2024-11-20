@@ -71,7 +71,7 @@ export const DataProvider = ({ children }) => {
     if (!email || !password) {
       toast.error("Please provide an email and password");
     } else {
-      try{
+      
         await axios
         .post(`${url}/api/v1/users/login`, {
           email,
@@ -83,8 +83,9 @@ export const DataProvider = ({ children }) => {
           Cookies.set("token", token, { expires: 7 });
           ResetData();
           fetchData();
-        });
-      } catch (err) { toast.error("try again after a few minutes") }
+        })
+        .catch( (err) => { toast.error(err) })
+      
       
     }
   };
