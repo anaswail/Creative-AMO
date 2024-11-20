@@ -84,8 +84,8 @@ const Settings = () => {
           </div>
         </>
       ) : (
-        <div className="flex h-screen bg-[#0d0b21] w-full fixed top-0 left-0 justify-center items-center">
-          <PulseLoader color="#ffac15" size={15} margin={2} />
+        <div className="flex h-screen bg-[#0d0b21] w-full fixed top-0 left-0 justify-center items-center z-50">
+          <PulseLoader color="#ffac15" size={30} margin={4} />
         </div>
       )}
     </div>

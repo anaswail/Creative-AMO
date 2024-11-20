@@ -117,6 +117,7 @@ const Images = ({ hiddenCase, setHiddenCase, setImage }) => {
           <img
             src={image}
             alt={`Image ${index + 1}`}
+            loading="lazy"
             className="w-full h-full object-cover cursor-pointer"
             onClick={() => handleImageClick(image)}
           />
@@ -173,6 +174,7 @@ const ProfileHeader = ({ image, setImage }) => {
         {/* Profile Image */}
         <img
           src={image}
+          loading="lazy"
           alt="Creative AMO"
           className="w-full h-full object-cover"
         />

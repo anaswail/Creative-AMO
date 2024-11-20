@@ -62,9 +62,11 @@ const AboutUs = () => {
   ];
   return (
     <div className="aboutUs">
-      <div className="mainSection bg-[#0d0b21] w-full rounded-bl-[30%] md:rounded-bl-[50%] min-h-[500px] flex justify-center items-center pt-28 flex-col">
-        <h1 className="text-white font-bold text-center text-5xl">About Us</h1>
-        <p className="text-white text-center w-3/4 mt-5 leading-8">
+      <div className="mainSection bg-[#0d0b21] w-full rounded-bl-[30%] md:rounded-bl-[50%] min-h-[500px] flex justify-center items-center pt-32 flex-col max-md:pt-44 ">
+        <h1 className="text-white font-bold text-center text-5xl max-md:text-4xl">
+          About Us
+        </h1>
+        <p className="text-white text-center w-3/4 mt-5 leading-8 max-md:text-base max-md:w-[85%]">
           Creative Amo is a dynamic and engaging platform designed to inspire
           and empower users with high-quality educational and creative
           resources. The website includes a variety of sections such as Home,
@@ -83,23 +85,27 @@ const AboutUs = () => {
       <div className="members flex justify-center items-center flex-wrap mt-20 gap-14">
         {teamMembers.map((member, index) => {
           return (
-            <div className="member w-[510px] h-44 bg-[#0d0b21] rounded-md flex items-center p-5">
-              <div className="image-content rounded-full overflow-hidden w-36 h-36 flex justify-center items-center border-solid border-[3px] border-[#ffac15]">
+            <div
+              className="member w-[510px] h-44 max-md:h-fit max-md:w-[85%] bg-[#0d0b21] rounded-md flex items-center p-5 max-md:flex-col max-md:items-center"
+              key={index}
+            >
+              <div className="image-content rounded-full overflow-hidden w-36 h-36 mb-8 flex justify-center items-center border-solid border-[3px] border-[#ffac15]">
                 <img
                   src={member.image}
                   alt="Circular Image"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
               </div>
 
-              <div className="text-context ml-10">
-                <h1 className="font-bold text-3xl text-[#ffac15]">
+              <div className="text-context ml-10 max-md:flex max-md:flex-col max-md:items-center max-md:w-full">
+                <h1 className="font-bold text-3xl text-[#ffac15] max-md:truncate max-md:w-full max-md:text-center ">
                   {member.name}
                 </h1>
                 <h2 className="text-white text-base mb-8 mt-2">
                   {member.role}
                 </h2>
-                <div className="socialMedia flex gap-1 mt-2">
+                <div className="socialMedia flex gap-1 mt-2 max-md:w-full max-md:justify-center gap-5">
                   <a
                     href={member.socialMedia.portfolio}
                     target="_blank"

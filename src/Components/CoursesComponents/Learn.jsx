@@ -86,6 +86,7 @@ const Learn = () => {
                   <img
                     src={video.snippet.thumbnails.default.url}
                     alt={video.snippet.title}
+                    loading="lazy"
                     className="w-fit h-14 rounded-md mb-2"
                   />
                   <p className="text-xs">{video.snippet.title}</p>
