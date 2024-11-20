@@ -13,9 +13,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { DataContext } from "../../data/data";
+import { handleChangedData } from "../MainComponents/ChangedDataContext";
 import profileImage from "../../images/profileImage.webp";
 
 const Navbar = ({ Mood }) => {
+  const { changedImage } = useContext(handleChangedData);
+
   const { success } = useContext(DataContext);
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
@@ -126,8 +129,8 @@ const Navbar = ({ Mood }) => {
             to="/Profile"
             onClick={scrollToTop}
           >
-            <div className="image-container lg:flex justify-center transition-all items-center overflow-hidden w-10 h-10 rounded-full border group-hover:border-[#ffac15] ">
-              <img src={profileImage} alt="profile image" />
+            <div className="image-container lg:flex justify-center transition-all items-center overflow-hidden w-10 h-10 rounded-full border-solid border-[2px] group-hover:border-[#ffac15] ">
+              <img src={changedImage} alt="profile image" />
             </div>
             <h1 className="text-xl font-bold ">
               {userData?.fname && userData?.lname

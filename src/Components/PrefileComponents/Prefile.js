@@ -12,14 +12,23 @@ import profileImage8 from "../../images/profileImage8.webp";
 import profileImage9 from "../../images/profileImage9.webp";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { handleChangedData } from "../MainComponents/ChangedDataContext";
 
 const MainProfile = () => {
   const navigate = useNavigate();
-  const [image, setImage] = useState(profileImage);
+  // Check if there's a saved image in localStorage
+  const savedImage = localStorage.getItem("profileImage") || profileImage;
+  const [image, setImage] = useState(savedImage);
 
   useEffect(() => {
     navigate("DashboardLayout");
   }, []);
+
+  useEffect(() => {
+    // Save the selected image to localStorage whenever it changes
+    localStorage.setItem("profileImage", image);
+  }, [image]);
+
   return (
     <div className="flex min-h-screen bg-transparent text-white pt-32">
       <Sidebar />
@@ -56,14 +65,15 @@ const Sidebar = () => {
           to="Settings"
           className="hover:text-yellow-200 text-2xl py-3 ml-2 block"
         >
-          Settings
+          Settings & information
         </Link>
       </nav>
     </aside>
   );
 };
 
-const Images = ({ hiddenCase, setHiddenCase }) => {
+const Images = ({ hiddenCase, setHiddenCase, setImage }) => {
+  const { setChangedImage } = useContext(handleChangedData);
   const imagesList = [
     profileImage,
     profileImage2,
@@ -75,7 +85,7 @@ const Images = ({ hiddenCase, setHiddenCase }) => {
     profileImage8,
     profileImage9,
   ];
-  const [selectedImage, setSelectedImage] = useState("");
+  const [selectedImage, setSelectedImage] = useState(profileImage);
   const handleImageClick = (image) => {
     setSelectedImage(image);
   };
@@ -83,6 +93,12 @@ const Images = ({ hiddenCase, setHiddenCase }) => {
   const handleImageDelete = () => {
     setHiddenCase(true);
     setSelectedImage("");
+  };
+
+  const handleChangeImage = () => {
+    setImage(selectedImage);
+    setHiddenCase(true);
+    setChangedImage(selectedImage);
   };
 
   return (
@@ -109,7 +125,7 @@ const Images = ({ hiddenCase, setHiddenCase }) => {
       <div className="btns flex gap-2 w-full mt-4">
         <button
           className="bg-[#0d0b21] p-2 rounded-md text-white w-72 hover:bg-green-600 transition-all"
-          onClick={() => console.log("Change Image clicked")} // Add your logic here
+          onClick={handleChangeImage} // Add your logic here
         >
           Change Image
         </button>
@@ -138,7 +154,12 @@ const ProfileHeader = ({ image, setImage }) => {
     <div className="flex text-center items-center mb-4 mt-4 gap-4 p-4 bg-transparent rounded-md text-orange-200 h-[150px] border-b-[2px] border-white border-solid width-full ">
       <div className="bg-slate-400 rounded-full w-32 h-32 overflow-hidden relative group">
         {/* Pass hiddenCase as a prop to Images component */}
-        <Images hiddenCase={hiddenCase} setHiddenCase={setHiddenCase} />
+        <Images
+          hiddenCase={hiddenCase}
+          setHiddenCase={setHiddenCase}
+          setImage={setImage}
+          image={image}
+        />
 
         {/* Only render icon in Profile/Settings path */}
         {location.pathname === "/Profile/Settings" && (

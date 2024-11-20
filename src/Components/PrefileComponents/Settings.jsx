@@ -77,12 +77,9 @@ const Settings = () => {
           <div className="btns mt-8 ">
             <button
               onClick={handleDelete}
-              className="py-2 px-6 bg-red-500 text-white font-bold rounded-md hover:bg-red-600 "
+              className="py-2 px-6 bg-red-500 text-white font-bold rounded-md hover:bg-red-600 w-44 h-12 "
             >
               Logout
-            </button>
-            <button className="py-2 px-6 ml-3 bg-green-500 text-white hover:bg-green-600 font-bold rounded-md   ">
-              save changes
             </button>
           </div>
         </>

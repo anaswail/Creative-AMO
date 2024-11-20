@@ -124,7 +124,7 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
                 />
               </div>
               <div className="information my-5 p-1 flex justify-between items-center">
-                <span className="bg-[#ffac15] py-1 px-4 rounded-md text-[#0d0b21] text-xs font-semibold truncate w-32">
+                <span className="bg-[#ffac15] py-1 px-4 rounded-md text-[#0d0b21] text-xs font-semibold truncate w-28">
                   {res.channelTitle || res.instructor}
                 </span>
                 <span className="bg-[#ffac15] py-1 px-4 rounded-md text-[#0d0b21] text-xs font-semibold">

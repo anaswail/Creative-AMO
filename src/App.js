@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import CourseContext from "./Components/MainComponents/CourseContext";
 import RoadContext from "./Components/MainComponents/RoadContext";
+import ChangedDataContext from "./Components/MainComponents/ChangedDataContext";
 
 import Navbar from "./Components/MainComponents/Navbar";
 import Home from "./Components/HomeComponents/Home";
@@ -44,45 +45,49 @@ function App() {
       <div className="dark:bg-[#080c14] bg-white">
         <CourseContext>
           <RoadContext>
-            <Navbar Mood={setMood} /> {/* Pass Mood properly */}
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route
-                path="/Courses/*"
-                element={success ? <Courses /> : <Navigate to="/login" />}
-              />
-              <Route
-                path="/Profile"
-                element={success ? <Prefile /> : <Navigate to="/login" />}
-              >
-                <Route path="DashboardLayout" element={<DashboardLayout />} />
-                <Route path="Settings" element={<Settings />} />
-                <Route path="Profile-Courses" element={<ProfileCourses />} />
-              </Route>
-              <Route path="/RoadMaps" element={<RoadMaps />} />
-              <Route path="/RoadMaps/:id" element={<Track />} />
-              <Route path="/Trainers" element={<Trainers />} />
-              <Route path="/AboutUs" element={<AboutUs />} />
-              <Route
-                path="/LogIn"
-                element={success ? <Navigate to="/" /> : <LogIn />}
-              />
-              <Route
-                path="/SignUp"
-                element={success ? <Navigate to="/" /> : <SignUp />}
-              />
-              <Route
-                path="/course/:id"
-                element={success ? <CourseDetails /> : <Navigate to="/login" />}
-              />
-              <Route path="/admin" element={<AdminPrefile />} />
-              <Route
-                path="/learn/:playlistId"
-                element={success ? <Learn /> : <Navigate to="/login" />}
-              />
-              <Route path="*" element={<Erorr />} />
-            </Routes>
-            <Footer />
+            <ChangedDataContext>
+              <Navbar Mood={setMood} /> {/* Pass Mood properly */}
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route
+                  path="/Courses/*"
+                  element={success ? <Courses /> : <Navigate to="/login" />}
+                />
+                <Route
+                  path="/Profile"
+                  element={success ? <Prefile /> : <Navigate to="/login" />}
+                >
+                  <Route path="DashboardLayout" element={<DashboardLayout />} />
+                  <Route path="Settings" element={<Settings />} />
+                  <Route path="Profile-Courses" element={<ProfileCourses />} />
+                </Route>
+                <Route path="/RoadMaps" element={<RoadMaps />} />
+                <Route path="/RoadMaps/:id" element={<Track />} />
+                <Route path="/Trainers" element={<Trainers />} />
+                <Route path="/AboutUs" element={<AboutUs />} />
+                <Route
+                  path="/LogIn"
+                  element={success ? <Navigate to="/" /> : <LogIn />}
+                />
+                <Route
+                  path="/SignUp"
+                  element={success ? <Navigate to="/" /> : <SignUp />}
+                />
+                <Route
+                  path="/course/:id"
+                  element={
+                    success ? <CourseDetails /> : <Navigate to="/login" />
+                  }
+                />
+                <Route path="/admin" element={<AdminPrefile />} />
+                <Route
+                  path="/learn/:playlistId"
+                  element={success ? <Learn /> : <Navigate to="/login" />}
+                />
+                <Route path="*" element={<Erorr />} />
+              </Routes>
+              <Footer />
+            </ChangedDataContext>
           </RoadContext>
         </CourseContext>
       </div>
