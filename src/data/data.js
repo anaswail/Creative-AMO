@@ -15,7 +15,6 @@ export const DataProvider = ({ children }) => {
   const [password, setPassword] = useState(null);
   const [userData, setUserData] = useState(null);
   const [url , setUrl] = useState("http://fi3.bot-hosting.net:22756");
-  const [selectedCourse, setSelectedCourse] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -141,6 +140,35 @@ export const DataProvider = ({ children }) => {
       return {};
     }
   }
+
+  const updateCourseProgress = async (token, playlistId, videoIndex) => {
+    try {
+      const response = await axios.post(
+        `${url}/api/v1/users/progress`, 
+        {
+          playlistId,
+          videoIndex,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, 
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  
+      if (response.data.success) {
+        console.log("Progress updated successfully:", response.data.message);
+        return response.data;
+      } else {
+        console.log("Failed to update progress:", response.data.error);
+        return null;
+      }
+    } catch (error) {
+      console.log("Error while updating progress:", error.response?.data || error.message);
+      return null;
+    }
+  };
   
 
   let data = {
@@ -159,7 +187,8 @@ export const DataProvider = ({ children }) => {
     Register,
     Login,
     logout,
-    getYtData
+    getYtData,
+    updateCourseProgress,
   };
   return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
 };

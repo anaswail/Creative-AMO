@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import PulseLoader from "react-spinners/PulseLoader";
+import { DataContext } from "../../data/data";
+import Cookies from "js-cookie";
 
 const Learn = () => {
   const { playlistId } = useParams();
   const [videoData, setVideoData] = useState(null);
   const [videoIndex, setVideoIndex] = useState(0);
   const [allVideos, setAllVideos] = useState([]);
+  const { updateCourseProgress } = useContext(DataContext);
 
   useEffect(() => {
     if (!playlistId) {
@@ -32,6 +35,7 @@ const Learn = () => {
 
   const handleVideoSelect = (index) => {
     setVideoIndex(index);
+    updateCourseProgress(Cookies.get("token"), playlistId, index);
     setVideoData(allVideos[index]);
   };
 

@@ -7,35 +7,8 @@ import { DataContext } from "../../data/data";
  
 const CourseDetails = () => {
   const {url} = useContext(DataContext)
-
-  const updateCourseProgress = async (token, playlistId, videoIndex) => {
-    try {
-      const response = await axios.post(
-        `${url}/api/v1/users/progress`, 
-        {
-          playlistId,
-          videoIndex,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`, 
-            "Content-Type": "application/json",
-          },
-        }
-      );
+  const {updateCourseProgress} = useContext(DataContext)
   
-      if (response.data.success) {
-        console.log("Progress updated successfully:", response.data.message);
-        return response.data;
-      } else {
-        console.error("Failed to update progress:", response.data.error);
-        return null;
-      }
-    } catch (error) {
-      console.error("Error while updating progress:", error.response?.data || error.message);
-      return null;
-    }
-  };
   
   const {selectedCourse} = useContext(Course);
   return (
