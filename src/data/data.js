@@ -122,7 +122,7 @@ export const DataProvider = ({ children }) => {
     const url = `https://www.googleapis.com/youtube/v3/playlistItems`;
     const params = {
       part: "snippet",
-      maxResults: 1,
+      maxResults: 100,
       playlistId: id,
       key: apiKey,
     };

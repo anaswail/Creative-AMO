@@ -7,10 +7,10 @@ import Cookies from "js-cookie";
 
 const Learn = () => {
   const { playlistId } = useParams();
-  const [videoData, setVideoData] = useState(null);
-  const [videoIndex, setVideoIndex] = useState(0);
-  const [allVideos, setAllVideos] = useState([]);
-  const { updateCourseProgress } = useContext(DataContext);
+  const [ videoData, setVideoData ] = useState(null);
+  const [ videoIndex, setVideoIndex ] = useState(0);
+  const [ allVideos, setAllVideos ] = useState([]);
+  const { updateCourseProgress, x } = useContext(DataContext);
 
   useEffect(() => {
     if (!playlistId) {
@@ -26,7 +26,7 @@ const Learn = () => {
       const data = await getYtData(playlistId);
       if (data && data.length > 0) {
         setAllVideos(data);
-        setVideoData(data[0]);
+        setVideoData(data[x]);
       }
     };
     window.scrollTo(0, 0);
