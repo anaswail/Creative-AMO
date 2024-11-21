@@ -142,13 +142,15 @@ export const DataProvider = ({ children }) => {
     }
   }
 
-  const updateCourseProgress = async (token, playlistId, videoIndex) => {
+  const updateCourseProgress = async (token, playlistId, videoIndex, lang = null, img = null) => {
     try {
       const response = await axios.post(
         `${url}/api/v1/users/progress`, 
         {
           playlistId,
           videoIndex,
+          lang,
+          img
         },
         {
           headers: {

@@ -36,7 +36,10 @@ const CourseDetails = () => {
               updateCourseProgress(
                 Cookies.get("token"),
                 selectedCourse.playListId,
-                0
+                0,
+                selectedCourse.lang,
+                selectedCourse.image
+
               );
             }}
             className="bg-[#ffac15] transition-all text-[#080c14] hover:text-[#ffffff] hover:scale-105 hover:bg-[#3a319c] py-3 px-12 font-bold text-2xl rounded-full"
