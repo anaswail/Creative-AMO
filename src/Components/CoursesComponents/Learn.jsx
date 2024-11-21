@@ -40,7 +40,7 @@ const Learn = () => {
   };
 
   return (
-    <div className="pt-36 w-screen flex flex-col justify-center items-center">
+    <div className="pt-36 w-screen flex flex-col justify-center items-center ">
       {videoData ? (
         <div className="w-[90%] sm:w-[70%] flex flex-col justify-center items-center">
           <div className="relative w-full pb-[56.25%]">

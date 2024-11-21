@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { DataContext } from "../../data/data";
- 
+
 const CourseDetails = () => {
-  const {url} = useContext(DataContext)
-  const {updateCourseProgress} = useContext(DataContext)
-  
-  
-  const {selectedCourse} = useContext(Course);
+  const { url } = useContext(DataContext);
+  const { updateCourseProgress } = useContext(DataContext);
+
+  const { selectedCourse } = useContext(Course);
   return (
     <div className="pt-52 w-full">
       <div className="title w-full flex justify-center items-center">
@@ -19,10 +18,12 @@ const CourseDetails = () => {
         </h1>
       </div>
 
-      <div className="details flex items-start justify-center gap-20 mt-20 ">
-        <p className="text-white text-xl w-1/2">{selectedCourse.discription}</p>
+      <div className="details flex items-start justify-center gap-20 mt-20 max-md:flex-col-reverse max-md:items-center max-md:gap-10">
+        <p className="text-white text-xl w-1/2 max-md:text-center max-md:w-[90%]">
+          {selectedCourse.discription}
+        </p>
         <img
-          className="w-1/3 border-[4px] border-solid border-white rounded-xl"
+          className="w-1/3 border-[4px] border-solid border-white rounded-xl max-md:w-[90%] max-md:text-center"
           src={selectedCourse.image}
           alt={selectedCourse.instructor}
         />
@@ -30,7 +31,16 @@ const CourseDetails = () => {
 
       <div className="start-learning w-full flex justify-center mt-20">
         <Link to={`/learn/${selectedCourse.playListId}`}>
-          <button onClick={()=>{updateCourseProgress(Cookies.get("token"), selectedCourse.playListId, 0)}} className="bg-[#ffac15] transition-all text-[#080c14] hover:text-[#ffffff] hover:scale-105 hover:bg-[#3a319c] py-3 px-12 font-bold text-2xl rounded-full">
+          <button
+            onClick={() => {
+              updateCourseProgress(
+                Cookies.get("token"),
+                selectedCourse.playListId,
+                0
+              );
+            }}
+            className="bg-[#ffac15] transition-all text-[#080c14] hover:text-[#ffffff] hover:scale-105 hover:bg-[#3a319c] py-3 px-12 font-bold text-2xl rounded-full"
+          >
             Start Learning
           </button>
         </Link>

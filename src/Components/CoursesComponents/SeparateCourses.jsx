@@ -105,7 +105,7 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
           placeholder="Search courses..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="p-3 text-xl w-96 rounded-2xl placeholder:text-sm outline-none my-10"
+          className="p-3 text-xl max-md:text-lg max-md:w-72 w-96 rounded-2xl placeholder:text-sm outline-none mt-6 mb-3 dark:bg-white bg-[#0d0b21] text-white dark:text-[#0d0b21]"
         />
       </div>
       <div className="cards flex justify-center gap-9 items-center mt-10 flex-wrap">
@@ -113,7 +113,7 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
           filteredCourses.map((res, index) => (
             <div
               key={index}
-              className="card w-72 bg-[#0d0b21] h-[400px] rounded-2xl p-4  border-tr overflow-hidden relative z-10 grid"
+              className="card w-72 bg-[#0d0b21] h-[400px] rounded-2xl p-4  border-tr overflow-hidden relative z-10 grid max-md:w-72"
             >
               <div className="image-container">
                 <img
