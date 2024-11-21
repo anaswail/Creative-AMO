@@ -14,24 +14,22 @@ export const DataProvider = ({ children }) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [userData, setUserData] = useState(null);
-  const [url , setUrl] = useState("http://fi3.bot-hosting.net:22756");
+  const [url, setUrl] = useState("http://fi3.bot-hosting.net:22756");
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedToken = Cookies.get("token"); 
-    if (storedToken) { 
+    const storedToken = Cookies.get("token");
+    if (storedToken) {
       setSuccess(true);
-      
     }
-    fetch('/config.json')
+    fetch("/config.json")
       .then((response) => response.json())
       .then((data) => {
-        setUrl(data.url)
+        setUrl(data.url);
         fetchData();
       })
-      .catch((error) => console.error('Error loading config:', error));
+      .catch((error) => console.error("Error loading config:", error));
   }, []);
-
 
   const ResetData = () => {
     setFname("");
@@ -71,8 +69,7 @@ export const DataProvider = ({ children }) => {
     if (!email || !password) {
       toast.error("Please provide an email and password");
     } else {
-      
-        await axios
+      await axios
         .post(`${url}/api/v1/users/login`, {
           email,
           password,
@@ -84,33 +81,37 @@ export const DataProvider = ({ children }) => {
           ResetData();
           fetchData();
         })
-        .catch( (err) => { toast.error(err) })
-      
-      
+        .catch((err) => {
+          toast.error(err);
+          Cookies.remove("token");
+          setSuccess(false);
+          setUserData(null);
+        });
     }
   };
 
-  async function fetchData () {
-    await axios.get(`${url}/api/v1/users/me`, {
-      headers: {
-        Authorization: `Bearer ${Cookies.get("token")}`
-      }
-    })
-    .then(res => {
-      setUserData(res.data);
-      console.log(res.data)
-    })
-    .catch(err => {
-      console.log("Error fetching data:", err); 
-    });
-  };
+  async function fetchData() {
+    await axios
+      .get(`${url}/api/v1/users/me`, {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("token")}`,
+        },
+      })
+      .then((res) => {
+        setUserData(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log("Error fetching data:", err);
+      });
+  }
 
   const logout = async () => {
     try {
       Cookies.remove("token");
       navigate("/login");
       setSuccess(false);
-      setUserData(null)
+      setUserData(null);
     } catch (error) {
       console.error("Error during logout:", error);
     }
@@ -120,12 +121,12 @@ export const DataProvider = ({ children }) => {
     const apiKey = "AIzaSyDcx-nZ3fkqEcSF_WXutU82YvatKmBUB6w";
     const url = `https://www.googleapis.com/youtube/v3/playlistItems`;
     const params = {
-      part: 'snippet',
+      part: "snippet",
       maxResults: 1,
       playlistId: id,
       key: apiKey,
     };
-  
+
     try {
       const res = await axios.get(url, { params });
       const data = res.data;
@@ -137,29 +138,35 @@ export const DataProvider = ({ children }) => {
         };
       }
     } catch (err) {
-      console.log('Error fetching YouTube data:', err);
+      console.log("Error fetching YouTube data:", err);
       return {};
     }
   }
 
-  const updateCourseProgress = async (token, playlistId, videoIndex, lang = null, img = null) => {
+  const updateCourseProgress = async (
+    token,
+    playlistId,
+    videoIndex,
+    lang = null,
+    img = null
+  ) => {
     try {
       const response = await axios.post(
-        `${url}/api/v1/users/progress`, 
+        `${url}/api/v1/users/progress`,
         {
           playlistId,
           videoIndex,
           lang,
-          img
+          img,
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`, 
+            Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
         }
       );
-  
+
       if (response.data.success) {
         console.log("Progress updated successfully:", response.data.message);
         return response.data;
@@ -168,11 +175,13 @@ export const DataProvider = ({ children }) => {
         return null;
       }
     } catch (error) {
-      console.log("Error while updating progress:", error.response?.data || error.message);
+      console.log(
+        "Error while updating progress:",
+        error.response?.data || error.message
+      );
       return null;
     }
   };
-  
 
   let data = {
     success,
