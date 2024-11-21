@@ -60,16 +60,16 @@ const Settings = () => {
             {settingsData.map((setting, index) => (
               <div
                 key={index}
-                className="flex items-center bg-gray-100 shadow-md rounded-md overflow-hidden "
+                className="flex items-center bg-gray-100 shadow-md rounded-md overflow-hidden max-md:w-full"
               >
-                <h1 className="font-bold text-lg bg-[#ffac15] w-36 h-14 flex justify-center items-center text-center">
+                <h1 className="font-bold text-lg bg-[#ffac15] max-md:w-1/4 max-md:text-lg w-36 h-14 flex justify-center items-center text-center">
                   {setting.title}
                 </h1>
                 <input
                   type="text"
                   value={setting.value}
                   readOnly
-                  className="flex-grow text-black font-medium text-lg p-2 outline-none h-14 w-72"
+                  className="flex-grow text-black font-medium text-lg p-2 outline-none h-14 w-72 max-md:w-3/4 max-md:text-base "
                 />
               </div>
             ))}
@@ -77,7 +77,7 @@ const Settings = () => {
           <div className="btns mt-8 ">
             <button
               onClick={handleDelete}
-              className="py-2 px-6 bg-red-500 text-white font-bold rounded-md hover:bg-red-600 w-44 h-12 "
+              className="py-2 px-6 bg-red-500 text-white font-bold rounded-md hover:bg-red-600 w-44 h-12 max-md:w-full "
             >
               Logout
             </button>

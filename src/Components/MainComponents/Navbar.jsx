@@ -141,13 +141,13 @@ const Navbar = ({ Mood }) => {
         </div>
       ) : (
         <div className="profile max-lg:hidden">
-          <Link to="/LogIn" className="text-[#0d0b21]">
+          <Link to="/LogIn" className="text-[#0d0b21]" onClick={scrollToTop}>
             <button className="bg-white py-2 px-7 mr-5 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
               Login
             </button>
           </Link>
 
-          <Link to="/SignUp" className="text-[#0d0b21]">
+          <Link to="/SignUp" className="text-[#0d0b21]" onClick={scrollToTop}>
             <button className="bg-white py-2 px-7 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
               Sign up
             </button>
@@ -183,7 +183,7 @@ const Navbar = ({ Mood }) => {
               <Link
                 className="flex text-white items-center  gap-3  border-white transition-all group hover:text-[#ffac15]"
                 to="/Profile"
-                onClick={scrollToTop}
+                onClick={(scrollToTop, active)}
               >
                 <div className="image-container lg:flex justify-center transition-all items-center overflow-hidden w-10 h-10 rounded-full border group-hover:border-[#ffac15] ">
                   <img src={profileImage} alt="profile image" />
@@ -213,13 +213,21 @@ const Navbar = ({ Mood }) => {
             </div>
           ) : (
             <div className="profile absolute bottom-3 text-center w-full">
-              <Link to="/LogIn" className="text-[#0d0b21]">
+              <Link
+                to="/LogIn"
+                className="text-[#0d0b21]"
+                onClick={(scrollToTop, active)}
+              >
                 <button className="bg-white py-2 px-7 mr-5 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
                   Login
                 </button>
               </Link>
 
-              <Link to="/SignUp" className="text-[#0d0b21]">
+              <Link
+                to="/SignUp"
+                className="text-[#0d0b21]"
+                onClick={(scrollToTop, active)}
+              >
                 <button className="bg-white py-2 px-7 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
                   Sign up
                 </button>
