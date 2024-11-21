@@ -62,7 +62,7 @@ export const DataProvider = ({ children }) => {
         })
         .catch((err) => {
           console.log(err);
-          toast.error("try again")
+          toast.error(err);
         });
     }
   };
