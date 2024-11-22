@@ -69,7 +69,7 @@ const Settings = () => {
                   type="text"
                   value={setting.value}
                   readOnly
-                  className="flex-grow text-black font-medium text-lg p-2 outline-none h-14 w-72 max-md:w-3/4 max-md:text-base "
+                  className="flex-grow text-white font-medium text-lg p-2 outline-none h-14 w-72 max-md:w-3/4 max-md:text-base dark:bg-white bg-[#0d0b21] dark:text-[#0d0b21] "
                 />
               </div>
             ))}

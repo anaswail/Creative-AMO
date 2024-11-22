@@ -62,18 +62,18 @@ const Sidebar = () => {
         aria-label="Open menu"
       />
       <aside
-        className={`w-64 bg-transparent max-md:bg-[#0d0b21] text-gray-400 flex flex-col p-2 mt-20 max-md:fixed sticky max-md:z-40 h-[calc(100vh-4rem)] transition-all max-md:top-20  ${
+        className={`w-64 bg-transparent max-md:bg-[#0d0b21] dark:text-gray-400 text-[#0d0b21] flex flex-col p-2 mt-20 max-md:fixed sticky max-md:z-40 h-[calc(100vh-4rem)] transition-all max-md:top-20  ${
           menu ? "" : " overflow-hidden max-md:hidden"
         } t`}
       >
         <FontAwesomeIcon
           icon={faAngleLeft}
           onClick={handleShowMenu}
-          className="absolute -right-10 top-8 text-2xl text-[#ffac15] bg-[#0d0b21] rounded-r-full p-3 hover:text-white transition-all pl-0 cursor-pointer"
+          className="absolute -right-10 top-8 text-2xl text-[#ffac15] bg-[#0d0b21] rounded-r-full p-3 hover:text-white transition-all pl-0 cursor-pointer md:hidden"
           aria-label="Close menu"
         />
         <div
-          className={`text-2xl p-2 text-center font-bold mb-4 text-neutral-400 hover:text-yellow-200 rounded-t-2xl bg-slate-500 ${
+          className={`text-2xl p-2 text-center font-bold mb-4 dark:text-neutral-400 dark:hover:text-yellow-200 rounded-t-2xl dark:bg-slate-500 bg-slate-600 hover:text-[#6356e3]   ${
             menu ? "" : "max-md:hidden"
           }  transition-all`}
         >
@@ -82,20 +82,20 @@ const Sidebar = () => {
         <nav className="flex flex-col gap-2">
           <Link
             to="DashboardLayout"
-            className="hover:text-yellow-200 text-2xl ml-2 py-3"
+            className="dark:hover:text-yellow-200 hover:text-[#6356e3] text-2xl ml-2 py-3"
           >
             Home
           </Link>
 
           <Link
             to="Profile-Courses"
-            className="hover:text-yellow-200 text-2xl ml-2 py-3"
+            className="dark:hover:text-yellow-200 hover:text-[#6356e3] text-2xl ml-2 py-3"
           >
             Courses
           </Link>
           <Link
             to="Settings"
-            className="hover:text-yellow-200 text-2xl py-3 ml-2 block"
+            className="dark:hover:text-yellow-200 hover:text-[#6356e3] text-2xl py-3 ml-2 block"
           >
             Settings & information
           </Link>
@@ -136,14 +136,14 @@ const Images = ({ hiddenCase, setHiddenCase, setImage }) => {
 
   return (
     <div
-      className={`bg-white rounded-md p-8 grid grid-cols-3 gap-6 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 ${
+      className={`bg-white rounded-md p-8 grid grid-cols-3 gap-6 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 max-sm:w-[90%] ${
         hiddenCase ? "hidden" : ""
       }`}
     >
       {imagesList.map((image, index) => (
         <div
           key={index}
-          className={`bg-slate-400 rounded-full w-32 h-32 overflow-hidden image ${
+          className={`bg-slate-400 rounded-full w-32 h-32 overflow-hidden image max-md:w-20 max-md:h-20 ${
             selectedImage === image ? "border-4 border-[#ffac15]" : ""
           }`}
         >
@@ -159,7 +159,7 @@ const Images = ({ hiddenCase, setHiddenCase, setImage }) => {
       <div className="btns flex gap-2 w-full mt-4">
         <button
           className="bg-[#0d0b21] p-2 rounded-md text-white w-72 hover:bg-green-600 transition-all"
-          onClick={handleChangeImage} // Add your logic here
+          onClick={handleChangeImage}
         >
           Change Image
         </button>
@@ -185,7 +185,7 @@ const ProfileHeader = ({ image, setImage }) => {
   };
 
   return (
-    <div className="flex text-center items-center mb-4 mt-4 gap-4 p-4 bg-transparent rounded-md text-orange-200 h-[150px] border-b-[2px] border-white border-solid width-full ">
+    <div className="flex text-center items-center mb-4 mt-4 gap-4 p-4 bg-transparent rounded-md dark:text-orange-200 text-[#0d0b21]  h-[150px] border-b-[2px] border-white border-solid width-full ">
       <div className="bg-slate-400 rounded-full w-32 h-32 overflow-hidden relative group max-sm:w-20 max-sm:h-20">
         {/* Pass hiddenCase as a prop to Images component */}
         <Images
@@ -200,7 +200,7 @@ const ProfileHeader = ({ image, setImage }) => {
           <FontAwesomeIcon
             icon={faPenToSquare}
             onClick={handleOnClick} // Call handleOnClick when clicked
-            className="bg-white text-xl cursor-pointer hover:bg-[#0d0b21] hover:text-white text-[#0d0b21] rounded-bl-full p-5 absolute transition-all duration-300 rounded-t-md rounded-b-md group-hover:top-0 group-hover:right-0 -right-10 -top-10"
+            className="bg-white text-xl cursor-pointer hover:bg-[#0d0b21] hover:text-white text-[#0d0b21] rounded-bl-full p-5 absolute transition-all duration-300 rounded-t-md rounded-b-md group-hover:top-0 group-hover:right-0 -right-10 -top-10 max-md:text-base max-md:p-2"
           />
         )}
 
@@ -215,12 +215,12 @@ const ProfileHeader = ({ image, setImage }) => {
 
       {/* User information */}
       <div className="text-base p-2">
-        <h2 className="text-3xl font-bold mb-2 max-sm:text-2xl ">
+        <h2 className="text-3xl font-bold mb-2 max-sm:text-xl ">
           {userData?.fname && userData?.lname
             ? `Welcome ${userData.fname} ${userData.lname}`
             : "Creative User"}
         </h2>
-        <p className="font-light mb-2 max-sm:text-xs ">
+        <p className=" mb-2 max-sm:text-xs ">
           Email:{" "}
           {userData?.email ? `${userData.email}` : "anaswail246@gmail.com"}
         </p>
