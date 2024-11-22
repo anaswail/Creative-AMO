@@ -63,7 +63,7 @@ function App() {
                 </Route>
                 <Route path="/RoadMaps" element={<RoadMaps />} />
                 <Route path="/RoadMaps/:id" element={<Track />} />
-                <Route path="/Trainers" element={<Trainers />} />
+                <Route path="/Guides" element={<Trainers />} />
                 <Route path="/AboutUs" element={<AboutUs />} />
                 <Route
                   path="/LogIn"

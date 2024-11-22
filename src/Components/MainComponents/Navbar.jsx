@@ -104,11 +104,11 @@ const Navbar = ({ Mood }) => {
         </li>
         <li className="mx-3">
           <Link
-            to="/Trainers"
+            to="/Guides"
             className="text-white hover:text-[#ffac15] group"
             onClick={scrollToTop}
           >
-            Trainers
+            Guides
           </Link>
         </li>
         <li className="mx-3">
@@ -264,11 +264,11 @@ const Navbar = ({ Mood }) => {
             </li>
             <li className="mx-3">
               <Link
-                to="/Trainers"
+                to="/Guides"
                 className="text-white hover:text-[#ffac15]"
                 onClick={(scrollToTop, active)}
               >
-                Trainers
+                Guides
               </Link>
             </li>
             <li className="mx-3">

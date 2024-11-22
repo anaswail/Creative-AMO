@@ -11,19 +11,27 @@ const LogIn = () => {
   const handleLogIn = async (e) => {
     e.preventDefault();
 
-    // Call the Login function and check if it succeeds
-    const isLoggedIn = await Login();
+    try {
+      // Call the Login function and await its result
+      const isLoggedIn = await Login();
 
-    // Clear the form inputs only if the login is successful
-    if (isLoggedIn) {
-      setEmail("");
-      setPassword("");
+      // If the login is successful, clear the form and show the notification
+      if (isLoggedIn) {
+        setEmail("");
+        setPassword("");
+        showNotification();
+      } else {
+        console.error("Login failed."); // Handle unsuccessful login
+      }
+    } catch (error) {
+      console.error("An error occurred during login:", error); // Handle any errors during login
     }
   };
+
   const showNotification = () => {
     Swal.fire({
       position: "top-end",
-      icon: "Hello 🎉",
+      icon: "success",
       title: "Welcome back again 😉💪",
       showConfirmButton: false,
       timer: 1700,
@@ -111,7 +119,7 @@ const LogIn = () => {
 
           <button
             type="submit"
-            onClick={showNotification}
+            // onClick={showNotification}
             className="w-full bg-[#f39c12] text-black py-3 border-none rounded-full text-lg cursor-pointer flex justify-center items-center hover:translate-x-3 transition-all font-semibold"
           >
             Login <span className="ml-2">→</span>

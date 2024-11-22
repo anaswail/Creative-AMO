@@ -2,7 +2,7 @@ import React from "react";
 import Anas from "../../images/Anas.webp";
 import Omar from "../../images/Omar.webp";
 import Mohamed from "../../images/Mohamed.webp";
-// import Maruane from "../../images/Maruane.jpeg";
+import Maruane from "../../images/Maruane.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -26,7 +26,7 @@ const AboutUs = () => {
     {
       name: "Marouane Makhlouf",
       role: "MERN Stack Developer",
-      image: "",
+      image: Maruane,
       socialMedia: {
         portfolio: "https://marouanemakhlouf.github.io/Portfolio/",
         facebook: "https://www.facebook.com/profile.php?id=100080248663458",
