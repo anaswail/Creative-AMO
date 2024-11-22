@@ -47,7 +47,7 @@ const RoadMaps = () => {
     window.scrollTo(0, 0);
   };
 
-  if (loading == true) {
+  if (loading === true) {
     return (
       <div className="flex h-screen bg-[#0d0b21] w-full z-50 fixed top-0 left-0 justify-center items-center">
         <PulseLoader color="#ffac15" size={30} margin={4} />

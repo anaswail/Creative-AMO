@@ -92,7 +92,7 @@ const AboutUs = () => {
               <div className="image-content rounded-full overflow-hidden w-36 h-36 mb-8 flex justify-center items-center border-solid border-[3px] border-[#ffac15]">
                 <img
                   src={member.image}
-                  alt="Circular Image"
+                  alt={member.name}
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />
