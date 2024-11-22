@@ -74,7 +74,7 @@ const Trainers = () => {
           key={index}
           className="guides mt-10 w-full flex flex-col justify-center items-center"
         >
-          <div className="programming bg-[#0d0b21] w-3/4 cursor-pointer group transition-all duration-150">
+          <div className="programming bg-[#0d0b21] w-[90%] cursor-pointer group transition-all duration-150">
             <h1
               className="text-white text-2xl group-hover:text-[#ffac15] transition-all p-3"
               onClick={() => showContent(index)}
@@ -83,7 +83,7 @@ const Trainers = () => {
             </h1>
             <div
               className={`content text-white mt-5 bg-indigo-950 leading-10 text-lg overflow-hidden px-2 transition-all duration-300 ${
-                visibleContent === index ? "max-h-[500px]" : "max-h-0"
+                visibleContent === index ? " " : "max-h-0"
               }`}
             >
               {visibleContent === index && <p>{item.content}</p>}
