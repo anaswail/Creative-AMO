@@ -57,7 +57,7 @@ const Cards = () => {
                 </p>
               </div>
               <div className="wrapper flex justify-center">
-                <Link className="cta" to="/">
+                <Link className="cta" to="/Courses">
                   <span>Start Now</span>
                   <span>
                     <svg

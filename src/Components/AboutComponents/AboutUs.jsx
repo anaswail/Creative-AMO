@@ -86,7 +86,7 @@ const AboutUs = () => {
         {teamMembers.map((member, index) => {
           return (
             <div
-              className="member w-[510px] h-44 max-md:h-fit max-md:w-[85%] bg-[#0d0b21] rounded-md flex items-center p-5 max-md:flex-col max-md:items-center"
+              className="member w-[510px] h-44 max-md:h-fit max-md:w-[85%] bg-[#0d0b21] rounded-md flex items-center p-5 max-md:flex-col max-md:items-center "
               key={index}
             >
               <div className="image-content rounded-full overflow-hidden w-36 h-36 mb-8 flex justify-center items-center border-solid border-[3px] border-[#ffac15]">

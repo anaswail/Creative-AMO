@@ -1,6 +1,6 @@
 // src/context/data.jsx
 import axios from "axios";
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
@@ -14,22 +14,31 @@ export const DataProvider = ({ children }) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [userData, setUserData] = useState(null);
-  const [url, setUrl] = useState("http://fi3.bot-hosting.net:22756");
+  const [url, setUrl] = useState(
+    process.env.REACT_APP_API_URL || "http://fi3.bot-hosting.net:22756"
+  );
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedToken = Cookies.get("token");
-    if (storedToken) {
-      setSuccess(true);
-    }
-    fetch("/config.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setUrl(data.url);
-        fetchData();
-      })
-      .catch((error) => console.error("Error loading config:", error));
-  }, []);
+    const initialize = async () => {
+      try {
+        const storedToken = Cookies.get("token");
+        if (storedToken) {
+          setSuccess(true);
+        }
+
+        // Load config.json if available
+        const response = await fetch("/config.json");
+        const data = await response.json();
+        setUrl(data.url || url);
+
+        await fetchData();
+      } catch (error) {
+        console.error("Error during initialization:", error);
+      }
+    };
+    initialize();
+  }, [url]);
 
   const ResetData = () => {
     setFname("");
@@ -38,88 +47,93 @@ export const DataProvider = ({ children }) => {
     setPassword("");
   };
 
-  const Register = () => {
+  const Register = async () => {
     if (!fname || !email || !password) {
       return toast.error("Please provide an email and password");
-    } else {
-      axios
-        .post(`${url}/api/v1/users/register`, {
-          firstname: fname,
-          lastname: lname || null,
-          email,
-          password,
-        })
-        .then((res) => {
-          const { success, token } = res.data;
-          setSuccess(success);
-          Cookies.set("token", token, { expires: 7 });
-          navigate("/courses");
-          toast.success("login successfull");
-          ResetData();
-          fetchData();
-        })
-        .catch((err) => {
-          console.log(err);
-          toast.error(err);
-        });
+    }
+
+    try {
+      const res = await axios.post(`${url}/api/v1/users/register`, {
+        firstname: fname,
+        lastname: lname || null,
+        email,
+        password,
+      });
+
+      const { success, token } = res.data;
+      setSuccess(success);
+      Cookies.set("token", token, { expires: 7 });
+      navigate("/courses");
+      toast.success("Registration successful!");
+      ResetData();
+      await fetchData();
+    } catch (err) {
+      console.error(err);
+      const message = err.response?.data?.message || "Registration failed!";
+      toast.error(message);
     }
   };
 
   const Login = async () => {
     if (!email || !password) {
-      toast.error("Please provide an email and password");
-    } else {
-      await axios
-        .post(`${url}/api/v1/users/login`, {
-          email,
-          password,
-        })
-        .then((res) => {
-          const { success, token } = res.data;
-          setSuccess(success);
-          Cookies.set("token", token, { expires: 7 });
-          ResetData();
-          fetchData();
-        })
-        .catch((err) => {
-          toast.error(err);
-          Cookies.remove("token");
-          setSuccess(false);
-          setUserData(null);
-        });
+      return toast.error("Please provide an email and password");
+    }
+
+    try {
+      const res = await axios.post(`${url}/api/v1/users/login`, {
+        email,
+        password,
+      });
+
+      const { success, token } = res.data;
+      setSuccess(success);
+      Cookies.set("token", token, { expires: 7 });
+      ResetData();
+      await fetchData();
+    } catch (err) {
+      console.error(err);
+      const message = err.response?.data?.message || "Login failed!";
+      toast.error(message);
+      Cookies.remove("token");
+      setSuccess(false);
+      setUserData(null);
     }
   };
 
-  async function fetchData() {
-    await axios
-      .get(`${url}/api/v1/users/me`, {
+  const fetchData = useCallback(async () => {
+    if (userData) return; // Skip if already fetched
+
+    try {
+      const res = await axios.get(`${url}/api/v1/users/me`, {
         headers: {
           Authorization: `Bearer ${Cookies.get("token")}`,
         },
-      })
-      .then((res) => {
-        setUserData(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log("Error fetching data:", err);
       });
-  }
-
-  const logout = async () => {
-    try {
-      Cookies.remove("token");
-      navigate("/login");
-      setSuccess(false);
-      setUserData(null);
-    } catch (error) {
-      console.error("Error during logout:", error);
+      setUserData(res.data);
+    } catch (err) {
+      console.error("Error fetching data:", err);
+      if (err.response?.status === 401) {
+        Cookies.remove("token");
+        setSuccess(false);
+        navigate("/login");
+      }
     }
+  }, [userData, url, navigate]);
+
+  const logout = () => {
+    Cookies.remove("token");
+    navigate("/login");
+    setSuccess(false);
+    setUserData(null);
   };
 
-  async function getYtData(id) {
-    const apiKey = "AIzaSyDcx-nZ3fkqEcSF_WXutU82YvatKmBUB6w";
-    const url = `https://www.googleapis.com/youtube/v3/playlistItems`;
+  const getYtData = async (id) => {
+    const apiKey =
+      "AIzaSyDcx-nZ3fkqEcSF_WXutU82YvatKmBUB6w" ||
+      "AIzaSyCppfZDUwgSiyjA6U406JfeCLAfwE2daMo" ||
+      "AIzaSyA2JnlMIimu2d-negu7kZIamjtraPD8Zc0" ||
+      "AIzaSyC3gSv4-ql6XaxPW_rQZm4hZTsXZeF6tQU";
+    const ytUrl = `https://www.googleapis.com/youtube/v3/playlistItems`;
     const params = {
       part: "snippet",
       maxResults: 100,
@@ -128,8 +142,9 @@ export const DataProvider = ({ children }) => {
     };
 
     try {
-      const res = await axios.get(url, { params });
+      const res = await axios.get(ytUrl, { params });
       const data = res.data;
+
       if (data.items && data.items.length > 0) {
         const firstVideo = data.items[0].snippet;
         return {
@@ -138,10 +153,10 @@ export const DataProvider = ({ children }) => {
         };
       }
     } catch (err) {
-      console.log("Error fetching YouTube data:", err);
+      console.error("Error fetching YouTube data:", err);
       return {};
     }
-  }
+  };
 
   const updateCourseProgress = async (
     token,
@@ -171,11 +186,11 @@ export const DataProvider = ({ children }) => {
         console.log("Progress updated successfully:", response.data.message);
         return response.data;
       } else {
-        console.log("Failed to update progress:", response.data.error);
+        console.error("Failed to update progress:", response.data.error);
         return null;
       }
     } catch (error) {
-      console.log(
+      console.error(
         "Error while updating progress:",
         error.response?.data || error.message
       );
@@ -183,13 +198,14 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  let data = {
+  const data = {
     success,
     email,
     password,
     fname,
     lname,
     userData,
+    setUserData,
     url,
     setSuccess,
     setEmail,
@@ -202,5 +218,6 @@ export const DataProvider = ({ children }) => {
     getYtData,
     updateCourseProgress,
   };
+
   return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
 };

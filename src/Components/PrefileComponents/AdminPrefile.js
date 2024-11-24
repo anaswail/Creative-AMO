@@ -7,24 +7,24 @@ import { toast } from "react-toastify";
 
 const AddCourses = () => {
   const { url } = useContext(DataContext);
- 
+
   const checkAuth = async (token) => {
     await axios
-    .get(`http://fi3.bot-hosting.net:22756/api/v1/admin/check`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then((responce) => {
-      if (responce.data.admin !== "admin") {
+      .get(`http://fi3.bot-hosting.net:22756/api/v1/admin/check`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((responce) => {
+        if (responce.data.admin !== "admin") {
+          navigate("/");
+        }
+      })
+      .catch((error) => {
         navigate("/");
-      }
-    })  
-    .catch((error) => {
-      navigate("/");
-    });
-  }
-    
+      });
+  };
+
   const navigate = useNavigate();
   useEffect(() => {
     const token = Cookies.get("token");
@@ -32,7 +32,7 @@ const AddCourses = () => {
       console.log("no token");
       navigate("/");
     } else {
-      checkAuth(token)
+      checkAuth(token);
     }
   }, [navigate]);
 
@@ -41,7 +41,12 @@ const AddCourses = () => {
     if (!token) {
       console.log("no token");
     } else {
-      if(formData.title === "" || formData.instructor === "" || formData.discription === "" || formData.playlistId === "") {
+      if (
+        formData.title === "" ||
+        formData.instructor === "" ||
+        formData.discription === "" ||
+        formData.playlistId === ""
+      ) {
         toast.error("Please fill all the fields");
         return;
       }
@@ -68,8 +73,8 @@ const AddCourses = () => {
             discription: "",
             playlistId: "",
             category: "HTML",
-            email: ""
-          })
+            email: "",
+          });
           toast.success("Course added successfully:");
         })
         .catch((error) => {
@@ -88,10 +93,10 @@ const AddCourses = () => {
     try {
       await axios.post(
         `${url}/api/v1/admin/add`,
-        { email }, 
+        { email },
         {
           headers: {
-            Authorization: `Bearer ${token}`, 
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -108,7 +113,7 @@ const AddCourses = () => {
     discription: "",
     playlistId: "",
     category: "HTML",
-    email: ""
+    email: "",
   });
 
   const [categorys, setCategorys] = useState([
@@ -130,13 +135,16 @@ const AddCourses = () => {
     "C#",
     "Go",
     "Swift",
+    "Node JS",
+    "Mongo DB",
+    "projects",
   ]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value, 
+      [name]: value,
     });
   };
 
@@ -231,27 +239,25 @@ const AddCourses = () => {
                 </option>
               ))}
             </select>
-            
-
           </div>
 
           <div className="w-full">
-              <label
-                htmlFor="discription"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Discription:
-              </label>
-              <textarea
-                id="discription"
-                name="discription"
-                value={formData.discription}
-                onChange={handleChange}
-                placeholder="ex: This is a course about HTML"
-                required
-                className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              ></textarea>
-            </div>
+            <label
+              htmlFor="discription"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Discription:
+            </label>
+            <textarea
+              id="discription"
+              name="discription"
+              value={formData.discription}
+              onChange={handleChange}
+              placeholder="ex: This is a course about HTML"
+              required
+              className="w-full px-4 py-2 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+          </div>
 
           <div className="w-full">
             <button
@@ -293,7 +299,9 @@ const AddCourses = () => {
           <div className="w-full sm:w-[48%]">
             {/* button  */}
             <button
-              onClick={()=>{AddAdmin(formData.email)}} 
+              onClick={() => {
+                AddAdmin(formData.email);
+              }}
               type="submit"
               className="w-full px-4 py-2 bg-[#ffac15] text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >

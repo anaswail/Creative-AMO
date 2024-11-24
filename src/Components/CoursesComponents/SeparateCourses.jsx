@@ -131,11 +131,7 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
                   {res.lang}
                 </span>
               </div>
-              <div className="description">
-                <p className="text-white mt-1 mb-2 p-3 text-sm">
-                  {res.advantages}
-                </p>
-              </div>
+
               <div className="wrapper flex justify-center">
                 <Link
                   className="cta "
