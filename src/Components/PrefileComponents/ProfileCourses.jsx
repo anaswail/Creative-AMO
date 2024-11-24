@@ -88,7 +88,12 @@ const ProfileCourses = () => {
           ))}
         </div>
       ) : (
-        <p>No courses available.</p>
+        <div className="text-white flex flex-col justify-center items-center ">
+          <p className="text-3xl">No courses added yet.</p>
+          <Link className="text-xl text-[#ffac15] " to="/Courses">
+            Start learn 🔥{" "}
+          </Link>
+        </div>
       )}
     </div>
   );

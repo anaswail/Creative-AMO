@@ -73,6 +73,7 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
     loadAllCourses();
   }, [courses]);
 
+  console.log(allCourses);
   const handleSelectedCourse = (res) => {
     setSelectedCourse(res);
   };
@@ -131,6 +132,7 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
                   {res.lang}
                 </span>
               </div>
+              <h2 className="text-white text-2xl ">{res.title}</h2>
 
               <div className="wrapper flex justify-center">
                 <Link

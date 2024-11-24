@@ -26,22 +26,47 @@ import Settings from "./Components/PrefileComponents/Settings";
 import ProfileCourses from "./Components/PrefileComponents/ProfileCourses";
 import DashboardLayout from "./Components/PrefileComponents/DashboardLayout";
 import Learn from "./Components/CoursesComponents/Learn";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const { success } = useContext(DataContext);
-  const [mood, setMood] = useState(() => {
-    // Get the saved mood from localStorage or default to "dark"
-    return localStorage.getItem("mood") || "dark";
-  });
+  const [mood, setMood] = useState(localStorage.getItem("mood") || "dark");
 
-  // Update localStorage whenever the mood changes
   useEffect(() => {
     localStorage.setItem("mood", mood);
   }, [mood]);
 
-  //
+  useEffect(() => {
+    const scrollToTop = document.querySelector(".scrollToTop");
+
+    const clacScrollValue = () => {
+      const pos = document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollToTop) {
+        scrollToTop.style.display = pos > 100 ? "flex" : "none";
+        const percentValue = Math.round(
+          (pos * 100) / document.documentElement.scrollHeight
+        );
+        scrollToTop.style.background = `linear-gradient(to top, #0d0b21 ${percentValue}%, #ffac15 ${percentValue}%)`;
+      }
+    };
+
+    window.addEventListener("scroll", clacScrollValue);
+    return () => window.removeEventListener("scroll", clacScrollValue);
+  }, []);
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className={`App overflow-x-hidden ${mood}`}>
+      <div
+        onClick={scrollTop}
+        className="scrollToTop h-[50px] text-xl w-[50px] rounded-xl bg-blue-600 hidden justify-center items-center rounded-1/2 text-white cursor-pointer fixed bottom-8 right-8 max-md:h-[35px] max-md:w-[35px] max-md:text-lg hover:-translate-y-2 transition-all z-50"
+      >
+        <FontAwesomeIcon icon={faArrowUp} />
+      </div>
       <div className="dark:bg-[#080c14] bg-white">
         <CourseContext>
           <RoadContext>
