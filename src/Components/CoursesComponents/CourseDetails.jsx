@@ -1,15 +1,61 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Course } from "../MainComponents/CourseContext";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import Cookies from "js-cookie";
 import { DataContext } from "../../data/data";
+import Swal from "sweetalert2";
 
 const CourseDetails = () => {
   const { url } = useContext(DataContext);
   const { updateCourseProgress } = useContext(DataContext);
 
   const { selectedCourse } = useContext(Course);
+
+  const addToProfile = () => {
+    const swalWithTailwindButtons = Swal.mixin({
+      customClass: {
+        confirmButton:
+          "bg-[#0d0b21] text-white font-bold py-2 px-4 rounded transition-all hover:bg-green-600",
+        cancelButton:
+          "bg-[#0d0b21] text-white font-bold py-2 px-4 mx-5 transition-all rounded hover:bg-red-600",
+      },
+      buttonsStyling: false, // Disable default SweetAlert2 styling
+    });
+
+    swalWithTailwindButtons
+      .fire({
+        title: "Do you really want to join the course?",
+        text: "",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, i'm ready 💪",
+        cancelButtonText: "No, i'm not sure 😞",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          updateCourseProgress(
+            Cookies.get("token"),
+            selectedCourse.playListId,
+            0,
+            selectedCourse.lang,
+            selectedCourse.image
+          );
+          swalWithTailwindButtons.fire({
+            title: "Subscribed",
+            text: "I wish you an enjoyable learning journey.",
+            icon: "success",
+          });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithTailwindButtons.fire({
+            title: "Count soon",
+            text: "The course has not been added to the profile, but you can view the content.",
+            icon: "error",
+          });
+        }
+      });
+  };
+
   return (
     <div className="pt-52 w-full">
       <div className="title w-full flex justify-center items-center">
@@ -32,15 +78,7 @@ const CourseDetails = () => {
       <div className="start-learning w-full flex justify-center mt-20">
         <Link to={`/learn/${selectedCourse.playListId}`}>
           <button
-            onClick={() => {
-              updateCourseProgress(
-                Cookies.get("token"),
-                selectedCourse.playListId,
-                0,
-                selectedCourse.lang,
-                selectedCourse.image
-              );
-            }}
+            onClick={addToProfile}
             className="bg-[#ffac15] transition-all text-[#080c14] hover:text-[#ffffff] hover:scale-105 hover:bg-[#3a319c] py-3 px-12 font-bold text-2xl rounded-full"
           >
             Start Learning

@@ -736,6 +736,107 @@ const Trainers = () => {
       content:
         "A session is a way to store user-specific data on the server side, which persists across multiple requests from the same user. Sessions are commonly used for tracking user authentication and preferences.",
     },
+    {
+      title: "What is the difference between TCP and UDP?",
+      content:
+        "TCP (Transmission Control Protocol) is connection-oriented, providing reliable data transfer with error checking and retransmission. UDP (User Datagram Protocol) is connectionless, offering faster but less reliable data transfer, often used in streaming and gaming applications.",
+    },
+    {
+      title: "What is multithreading?",
+      content:
+        "Multithreading allows a program to run multiple threads concurrently, enabling efficient utilization of CPU resources. It’s useful for performing tasks like file I/O and computations simultaneously.",
+    },
+    {
+      title: "What is a deadlock?",
+      content:
+        "A deadlock occurs in a multithreaded environment when two or more threads are blocked, waiting for resources held by each other, causing a standstill. Avoiding deadlocks requires careful resource allocation and synchronization.",
+    },
+    {
+      title: "What is Big-O notation?",
+      content:
+        "Big-O notation describes the time or space complexity of an algorithm in terms of its input size. It helps evaluate an algorithm's efficiency. For example, O(n) indicates linear complexity.",
+    },
+    {
+      title: "What is recursion?",
+      content:
+        "Recursion is a programming technique where a function calls itself to solve smaller instances of a problem. It’s often used in problems like factorial calculation, tree traversal, and backtracking.",
+    },
+    {
+      title: "What is polymorphism in object-oriented programming?",
+      content:
+        "Polymorphism allows objects of different types to be treated as objects of a common supertype. It’s achieved through method overriding (runtime polymorphism) or method overloading (compile-time polymorphism).",
+    },
+    {
+      title: "What is encapsulation?",
+      content:
+        "Encapsulation is the principle of bundling data and methods that operate on the data within a class, restricting direct access to some components to enforce data integrity.",
+    },
+    {
+      title: "What is a singleton design pattern?",
+      content:
+        "The Singleton pattern ensures that a class has only one instance and provides a global point of access to it. It’s often used for managing resources like database connections.",
+    },
+    {
+      title: "What is the difference between GET and POST methods in HTTP?",
+      content:
+        "GET requests data from a server and appends parameters to the URL, while POST sends data in the request body, making it more secure for transmitting sensitive information like passwords.",
+    },
+    {
+      title: "What is the purpose of middleware in web development?",
+      content:
+        "Middleware acts as a bridge between a server and an application, processing requests and responses. It’s often used for tasks like authentication, logging, and error handling in frameworks like Express.js.",
+    },
+    {
+      title: "What is the Document Object Model (DOM)?",
+      content:
+        "The DOM is a programming interface for web documents, representing the structure of a webpage as a tree of objects. JavaScript uses the DOM to manipulate HTML and CSS dynamically.",
+    },
+    {
+      title: "What is Cross-Origin Resource Sharing (CORS)?",
+      content:
+        "CORS is a security feature in browsers that restricts web applications from making requests to a domain different from the one serving the application. It can be controlled using HTTP headers.",
+    },
+    {
+      title:
+        "What is the difference between synchronous and asynchronous programming?",
+      content:
+        "Synchronous programming executes tasks sequentially, blocking subsequent tasks until the current one finishes. Asynchronous programming allows tasks to run concurrently, improving efficiency in operations like API calls.",
+    },
+    {
+      title: "What is a virtual DOM?",
+      content:
+        "A virtual DOM is a lightweight representation of the real DOM used in libraries like React. It improves performance by updating only the necessary parts of the DOM instead of re-rendering the entire page.",
+    },
+    {
+      title: "What is a responsive web design?",
+      content:
+        "Responsive web design ensures that a website adapts to different screen sizes and devices, providing an optimal user experience. It uses flexible layouts, media queries, and scalable assets.",
+    },
+    {
+      title: "What is the purpose of version control?",
+      content:
+        "Version control systems like Git track changes in files, enabling collaboration, rollback, and management of different versions of a project over time.",
+    },
+    {
+      title: "What is the difference between a compiler and an interpreter?",
+      content:
+        "A compiler translates the entire code into machine language before execution, while an interpreter translates and executes code line by line. C uses compilers, and Python uses interpreters.",
+    },
+    {
+      title: "What are web sockets?",
+      content:
+        "Web sockets enable real-time, full-duplex communication between a client and a server over a single, long-lived connection. They’re commonly used in chat applications and live updates.",
+    },
+    {
+      title: "What is an indexed database?",
+      content:
+        "An indexed database organizes data using indexes for faster searches and retrieval. In web development, IndexedDB is a browser-based database for storing structured data locally.",
+    },
+    {
+      title: "What is CRUD in database operations?",
+      content:
+        "CRUD stands for Create, Read, Update, and Delete—basic operations performed on a database. For example, SQL commands like INSERT, SELECT, UPDATE, and DELETE implement CRUD.",
+    },
   ];
 
   const filteredGuides = GuidesData.filter(
@@ -781,7 +882,7 @@ const Trainers = () => {
           key={index}
           className="guides mt-10 w-full flex flex-col justify-center items-center"
         >
-          <div className="programming bg-[#0d0b21] w-[90%] cursor-pointer group transition-all duration-150">
+          <div className="programming bg-[#0d0b21] rounded-t-md w-[90%] cursor-pointer group transition-all duration-150">
             <h1
               className="text-white text-2xl group-hover:text-[#ffac15] transition-all p-3"
               onClick={() => showContent(index)}
@@ -789,7 +890,7 @@ const Trainers = () => {
               <span>{visibleContent === index ? "-" : "+"}</span> {item.title}
             </h1>
             <div
-              className={`content text-white mt-5 bg-[#05040f] leading-10 text-lg overflow-hidden px-2 transition-all duration-300 ${
+              className={`content text-white mt-5 bg-[#05040f] rounded-b-md leading-10 text-lg overflow-hidden px-2 transition-all duration-300 ${
                 visibleContent === index ? " " : "max-h-0"
               }`}
             >
