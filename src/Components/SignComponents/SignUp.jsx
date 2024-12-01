@@ -73,7 +73,7 @@ const SignUp = () => {
               First Name
             </label>
             <input
-              value={fname}
+              value={fname || ""}
               onChange={(e) => setFname(e.target.value)}
               type="text"
               id="firstName"
@@ -87,7 +87,7 @@ const SignUp = () => {
               Last Name
             </label>
             <input
-              value={lname}
+              value={lname || ""}
               onChange={(e) => setLname(e.target.value)}
               type="text"
               id="lastName"
@@ -101,7 +101,7 @@ const SignUp = () => {
               Email
             </label>
             <input
-              value={email}
+              value={email || ""}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               id="email"
@@ -115,7 +115,7 @@ const SignUp = () => {
               Password
             </label>
             <input
-              value={password}
+              value={password || ""}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
               id="password"

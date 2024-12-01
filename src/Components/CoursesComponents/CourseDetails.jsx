@@ -65,9 +65,18 @@ const CourseDetails = () => {
       </div>
 
       <div className="details flex items-start justify-center gap-20 mt-20 max-md:flex-col-reverse max-md:items-center max-md:gap-10">
-        <p className="text-white text-xl w-1/2 max-md:text-center max-md:w-[90%]">
-          {selectedCourse.discription}
-        </p>
+        <div className="text-content w-1/2 max-md:text-center max-md:w-[90%] text-xl">
+          <h1 className="text-[#ffac15] font-bold mb-5">
+            Instructor:{"  "}
+            <span className="text-white">{selectedCourse.instructor}</span>
+          </h1>
+          <p className="text-[#ffac15] font-bold">
+            Description:{"  "}
+            <span className="text-white font-light text-lg ">
+              {selectedCourse.discription}
+            </span>
+          </p>
+        </div>
         <img
           className="w-1/3 border-[4px] border-solid border-white rounded-xl max-md:w-[90%] max-md:text-center"
           src={selectedCourse.image}

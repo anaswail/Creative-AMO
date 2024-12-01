@@ -7,6 +7,13 @@ import Cookies from "js-cookie";
 
 export const DataContext = createContext();
 
+const axiosInstance = axios.create({
+  baseURL:
+    process.env.REACT_APP_API_URL ||
+    "https://creative-amo-back-end-5u2b.vercel.app",
+  withCredentials: true, // عشان الكوكيز تشتغل تمام
+});
+
 export const DataProvider = ({ children }) => {
   const [success, setSuccess] = useState(false);
   const [fname, setFname] = useState(null);
@@ -14,27 +21,23 @@ export const DataProvider = ({ children }) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [userData, setUserData] = useState(null);
-  const [url, setUrl] = useState(
-    process.env.REACT_APP_API_URL || "http://fi3.bot-hosting.net:22756"
-  );
+  const [url, setUrl] = useState(axiosInstance.defaults.baseURL);
   const navigate = useNavigate();
 
   useEffect(() => {
     const initialize = async () => {
       try {
         const storedToken = Cookies.get("token");
-        if (storedToken) {
-          setSuccess(true);
-        }
+        if (storedToken) setSuccess(true);
 
-        // Load config.json if available
+        // لو في config.json هنحملها
         const response = await fetch("/config.json");
         const data = await response.json();
-        setUrl(data.url || url);
+        if (data.url) setUrl(data.url);
 
         await fetchData();
       } catch (error) {
-        console.error("Error during initialization:", error);
+        console.error("Initialization Error:", error);
       }
     };
     initialize();

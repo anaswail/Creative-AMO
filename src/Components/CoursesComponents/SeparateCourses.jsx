@@ -73,7 +73,6 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
     loadAllCourses();
   }, [courses]);
 
-  console.log(allCourses);
   const handleSelectedCourse = (res) => {
     setSelectedCourse(res);
   };
@@ -211,7 +210,9 @@ async function getYtData(id) {
       return {
         image: firstVideo.thumbnails.high.url,
         channelTitle: firstVideo.channelTitle,
+        length: data.length,
       };
+      console.log(data.length);
     }
   } catch (err) {
     console.log("Error fetching YouTube data:", err);
