@@ -154,7 +154,7 @@ export const DataProvider = ({ children }) => {
     playlistId,
     videoIndex,
     lang = null,
-    img = null
+    img = null,
   ) => {
     try {
       const response = await api.post(
@@ -170,7 +170,7 @@ export const DataProvider = ({ children }) => {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-        }
+        },
       );
 
       if (response.data.success) {
@@ -183,7 +183,7 @@ export const DataProvider = ({ children }) => {
     } catch (error) {
       console.error(
         "Error while updating progress:",
-        error.response?.data || error.message
+        error.response?.data || error.message,
       );
       return null;
     }
