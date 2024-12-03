@@ -8,6 +8,13 @@ import { api } from "./axios";
 
 export const DataContext = createContext();
 
+const axiosInstance = axios.create({
+  baseURL:
+    process.env.REACT_APP_API_URL ||
+    "https://wholesome-consideration-production.up.railway.app",
+  withCredentials: true, // عشان الكوكيز تشتغل تمام
+});
+
 export const DataProvider = ({ children }) => {
   const [success, setSuccess] = useState(false);
   const [fname, setFname] = useState(null);
@@ -16,6 +23,24 @@ export const DataProvider = ({ children }) => {
   const [password, setPassword] = useState(null);
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
+  const [url, setUrl] = useState(axiosInstance.defaults.baseURL);
+
+  useEffect(() => {
+    const initialize = async () => {
+      try {
+        const storedToken = Cookies.get("token");
+        if (storedToken) setSuccess(true);
+        // لو في config.json هنحملها
+        const response = await fetch("/config.json");
+        const data = await response.json();
+        if (data.url) setUrl(data.url);
+        await fetchData();
+      } catch (error) {
+        console.error("Initialization Error:", error);
+      }
+    };
+    initialize();
+  }, [url]);
 
   const ResetData = () => {
     setFname("");
@@ -30,7 +55,7 @@ export const DataProvider = ({ children }) => {
     }
 
     try {
-      const res = await api.post(`/api/v1/users/register`, {
+      const res = await axios.post(`${url}/api/v1/users/register`, {
         firstname: fname || "",
         lastname: lname || "",
         email,
@@ -57,7 +82,7 @@ export const DataProvider = ({ children }) => {
     }
 
     try {
-      const res = await api.post(`/api/v1/users/login`, {
+      const res = await axios.post(`${url}/api/v1/users/login`, {
         email,
         password,
       });
@@ -81,7 +106,7 @@ export const DataProvider = ({ children }) => {
     if (userData) return; // Skip if already fetched
 
     try {
-      const res = await api.get(`/api/v1/users/me`, {
+      const res = await axios.get(`${url}/api/v1/users/me`, {
         headers: {
           Authorization: `Bearer ${Cookies.get("token")}`,
         },
@@ -95,7 +120,7 @@ export const DataProvider = ({ children }) => {
         navigate("/login");
       }
     }
-  }, [userData, navigate]);
+  }, [userData, navigate, url]);
 
   useEffect(() => {
     const initialize = async () => {
@@ -157,8 +182,8 @@ export const DataProvider = ({ children }) => {
     img = null
   ) => {
     try {
-      const response = await api.post(
-        `/api/v1/users/progress`,
+      const response = await axios.post(
+        `${url}/api/v1/users/progress`,
         {
           playlistId,
           videoIndex,
@@ -200,6 +225,7 @@ export const DataProvider = ({ children }) => {
     setSuccess,
     setEmail,
     setPassword,
+    url,
     setFname,
     setLname,
     Register,
