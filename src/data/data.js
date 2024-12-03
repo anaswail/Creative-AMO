@@ -9,8 +9,7 @@ export const DataContext = createContext();
 
 const axiosInstance = axios.create({
   baseURL:
-    process.env.REACT_APP_API_URL ||
-    "https://creative-amo-back-end-5u2b.vercel.app",
+    process.env.REACT_APP_API_URL || "https://creative-amo-back-end.vercel.app",
   withCredentials: true, // عشان الكوكيز تشتغل تمام
 });
 
