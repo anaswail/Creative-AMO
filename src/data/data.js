@@ -31,8 +31,8 @@ export const DataProvider = ({ children }) => {
 
     try {
       const res = await api.post(`/api/v1/users/register`, {
-        firstname: fname,
-        lastname: lname || null,
+        firstname: fname || "",
+        lastname: lname || "",
         email,
         password,
       });
