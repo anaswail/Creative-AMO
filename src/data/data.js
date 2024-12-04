@@ -117,7 +117,7 @@ export const DataProvider = ({ children }) => {
       if (err.response?.status === 401) {
         Cookies.remove("token");
         setSuccess(false);
-        navigate("/login");
+        // navigate("/SignUp" );
       }
     }
   }, [userData, navigate, url]);
