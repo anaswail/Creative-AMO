@@ -141,7 +141,7 @@ const AddCourses = () => {
     "Node JS",
     "Mongo DB",
     "Front-end projects",
-    "Next js",
+    "Next.js",
   ]);
 
   const handleChange = (e) => {
