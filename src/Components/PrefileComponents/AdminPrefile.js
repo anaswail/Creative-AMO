@@ -142,6 +142,9 @@ const AddCourses = () => {
     "Mongo DB",
     "Front-end projects",
     "Next.js",
+    "Flutter",
+    "Dart",
+    "Full Stack projects",
   ]);
 
   const handleChange = (e) => {

@@ -1,15 +1,12 @@
-.card::before{
-    @apply absolute content-[""] w-3/4 h-[5000px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#ffac15] rotate-[30deg] -z-10;
-    
+.card::before {
+  @apply absolute content-[""] w-3/4 h-[5000px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#ffac15] rotate-[30deg] -z-10;
 }
 
-
-.card::after{
-    @apply absolute content-[""] inset-[5px] bg-[#0d0b21] -z-10 rounded-2xl ;
+.card::after {
+  @apply absolute content-[""] inset-[5px] bg-[#0d0b21] -z-10 rounded-2xl;
 }
 
-
-@import url('https://fonts.googleapis.com/css?family=Poppins:900i');
+@import url("https://fonts.googleapis.com/css?family=Poppins:900i");
 
 .wrapper {
   position: relative;
@@ -22,12 +19,12 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 16px;
   color: white;
   padding: 2px 40px;
-  background-color: #6225E6;
+  background-color: #6225e6;
   box-shadow: 0 15px 30px 0 rgba(46, 41, 41, 0.4);
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
@@ -49,7 +46,9 @@ svg {
   fill: none;
 }
 
-.one, .two, .three {
+.one,
+.two,
+.three {
   transition: 0.2s;
 }
 
