@@ -52,7 +52,7 @@ const TextContent = () => {
           Are you lost?
         </Link>
         <img src="./icon.png" alt="" />
-        <Link to="/" className="text-white">
+        <Link to="/AboutUs" className="text-white">
           Why Creative?
         </Link>
       </div>
