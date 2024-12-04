@@ -13,7 +13,7 @@ const AboutUs = () => {
   const teamMembers = [
     {
       name: "Anas Wail",
-      role: "Frontend Developer",
+      role: "Front-end (React)",
       image: Anas,
       socialMedia: {
         portfolio: "https://anas-portofolio.vercel.app/",
@@ -37,7 +37,7 @@ const AboutUs = () => {
     },
     {
       name: "Mohamed Haikal",
-      role: "Frontend Developer",
+      role: "Front-end (React)",
       image: Mohamed,
       socialMedia: {
         portfolio: "https://wa.me/+201093185244",

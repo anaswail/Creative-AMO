@@ -77,7 +77,7 @@ const SignUp = () => {
               onChange={(e) => setFname(e.target.value)}
               type="text"
               id="firstName"
-              placeholder="First Name"
+              placeholder="Ex. Anas"
               className="mt-2 w-full px-3 py-3 border border-[#ccc] rounded-[10px] bg-white text-sm placeholder-slate-500"
             />
           </div>
@@ -91,7 +91,7 @@ const SignUp = () => {
               onChange={(e) => setLname(e.target.value)}
               type="text"
               id="lastName"
-              placeholder="Last Name"
+              placeholder="Ex. Wael"
               className="mt-2 w-full px-3 py-3 border border-[#ccc] rounded-[10px] bg-white text-sm placeholder-slate-500"
             />
           </div>
@@ -105,7 +105,7 @@ const SignUp = () => {
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               id="email"
-              placeholder="Email"
+              placeholder="Ex. creativeamo31@gmail.com"
               className="mt-2 w-full px-3 py-3 border border-[#ccc] rounded-[10px] bg-white text-sm placeholder-slate-500"
             />
           </div>
