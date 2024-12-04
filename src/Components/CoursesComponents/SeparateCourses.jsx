@@ -79,8 +79,8 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
   // filter search by title, channel title, instructor and lang
   const filteredCourses = allCourses.filter(
     (course) =>
-      (course.discription &&
-        course.discription.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (course.title &&
+        course.title.toLowerCase().includes(searchTerm.toLowerCase())) ||
       (course.channelTitle &&
         course.channelTitle.toLowerCase().includes(searchTerm.toLowerCase())) ||
       (course.instructor &&
@@ -113,7 +113,7 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
           filteredCourses.map((res, index) => (
             <div
               key={index}
-              className="card w-72 bg-[#0d0b21] h-[450px] rounded-2xl p-4  border-tr overflow-hidden relative z-10 grid max-md:w-72"
+              className="card w-72 bg-[#0d0b21] h-[400px] rounded-2xl p-4  border-tr overflow-hidden relative z-10 grid max-md:w-72"
             >
               <div className="image-container">
                 <img
@@ -123,7 +123,7 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
                   alt={res.channelTitle || res.instructor}
                 />
               </div>
-              <div className="information my-3 p-1 flex justify-between items-center">
+              <div className="information my-5 p-1 flex justify-between items-center">
                 <span className="bg-[#ffac15] py-1 px-4 rounded-md text-[#0d0b21] text-xs font-semibold truncate w-28">
                   {res.channelTitle || res.instructor}
                 </span>
@@ -131,9 +131,6 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
                   {res.lang}
                 </span>
               </div>
-              <h2 className="text-white text-lg truncate max-md:text-base font-medium">
-                {res.discription}
-              </h2>
 
               <div className="wrapper flex justify-center">
                 <Link
