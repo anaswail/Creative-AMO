@@ -10,11 +10,14 @@ const AddCourses = () => {
 
   const checkAuth = async (token) => {
     await axios
-      .get(`http://fi3.bot-hosting.net:22756/api/v1/admin/check`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .get(
+        `https://wholesome-consideration-production.up.railway.app/api/v1/admin/check`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((responce) => {
         if (responce.data.admin !== "admin") {
           navigate("/");

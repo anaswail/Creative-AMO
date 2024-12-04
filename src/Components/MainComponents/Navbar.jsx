@@ -50,7 +50,7 @@ const Navbar = ({ Mood }) => {
 
   // Scroll to top on link click
   const scrollToTop = () => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const { userData } = useContext(DataContext);
 

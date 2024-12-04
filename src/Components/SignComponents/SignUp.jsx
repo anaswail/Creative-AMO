@@ -119,7 +119,7 @@ const SignUp = () => {
               onChange={(e) => setPassword(e.target.value)}
               type="password"
               id="password"
-              placeholder="Password"
+              placeholder="Must contain #,5,%,@,A,a"
               className="mt-2 w-full px-3 py-3 border border-[#ccc] rounded-[10px] bg-white text-sm placeholder-slate-500"
             />
           </div>
