@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { RoadMapContext } from "../MainComponents/RoadContext";
 import PulseLoader from "react-spinners/PulseLoader";
+import { Link } from "react-router-dom";
 
 const Track = () => {
   const { selectedRoad } = useContext(RoadMapContext);
@@ -14,7 +15,7 @@ const Track = () => {
 
   return (
     <div className="track">
-      <div className="mainSection bg-[#0d0b21] w-full rounded-bl-[30%] md:rounded-bl-[50%] pb-5 max-md:pt-44 min-h-96 flex justify-center items-center pt-36 flex-col">
+      <div className="mainSection bg-[#100d30] w-full rounded-bl-[30%] md:rounded-bl-[50%] pb-5 max-md:pt-44 min-h-96 flex justify-center items-center pt-36 flex-col">
         <h1 className="text-white font-bold text-center text-5xl max-md:text-4xl">
           {selectedRoad.track || "No Track Data"}
         </h1>
@@ -42,8 +43,8 @@ const RoadTimeLine = ({ selectedRoad }) => {
             }`}
           >
             <div
-              className={`text-[#ffac15] p-5 bg-[#0d0b21] w-[40%] text-center max-md:w-[85%] max-md:rounded-md  ${
-                sectionData?.[0]?.design || ""
+              className={`text-[#ffac15] p-5 bg-[#100d30] w-[40%] text-center max-md:w-[85%] max-md:rounded-md  ${
+                sectionData?.[0]?.design || "rounded-lg"
               }`}
             >
               <h1 className="font-bold text-2xl my-3">
@@ -51,7 +52,7 @@ const RoadTimeLine = ({ selectedRoad }) => {
               </h1>
               <p>{sectionData?.[0]?.description || "No Description"}</p>
               <button className="mt-5 bg-white hover:bg-[#ffac15] transition-all font-bold text-[#0d0b21] rounded-full py-2 px-10">
-                Let's learn
+                <Link to="/Courses/SeparateCourses">Let's learn</Link>
               </button>
             </div>
             <div

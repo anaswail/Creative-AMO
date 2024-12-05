@@ -3,6 +3,7 @@ import { DataContext } from "../../data/data";
 import { Link } from "react-router-dom";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import errorImage from "../../images/video.gif";
 
 const ProfileCourses = () => {
   const { userData, setUserData } = useContext(DataContext);
@@ -37,19 +38,13 @@ const ProfileCourses = () => {
                 <img
                   className="rounded-md w-fit h-fit"
                   loading="lazy"
-                  src={course.img}
+                  src={course.img || errorImage}
                   alt={course.title}
                 />
               </div>
               <div className="information my-5 p-1 flex justify-between items-center">
                 <span className="bg-[#ffac15] py-1 px-4 rounded-md text-[#0d0b21] text-xs font-semibold truncate w-28">
-                  {course.lang}
-                </span>
-                <span
-                  className="text-[#ffac15] text-2xl hover:text-red-700 cursor-pointer transition-all"
-                  onClick={() => handleSelectedCourses(index)}
-                >
-                  <FontAwesomeIcon icon={faTrashCan} />
+                  {course.lang || "Language not specified"}
                 </span>
               </div>
               <div className="description"></div>

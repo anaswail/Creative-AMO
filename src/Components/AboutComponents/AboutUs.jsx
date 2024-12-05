@@ -28,7 +28,7 @@ const AboutUs = () => {
       role: "MERN Stack Developer",
       image: Maruane,
       socialMedia: {
-        portfolio: "https://marouanemakhlouf.github.io/Portfolio/",
+        portfolio: "https://mr-default-o.github.io/Portfolio/",
         facebook: "https://www.facebook.com/profile.php?id=100080248663458",
         github: "https://github.com/MarouaneMakhlouf",
         whatsapp: "https://wa.me/+212638387499",
@@ -62,7 +62,7 @@ const AboutUs = () => {
   ];
   return (
     <div className="aboutUs">
-      <div className="mainSection bg-[#0d0b21] w-full rounded-bl-[30%] md:rounded-bl-[50%] min-h-[500px] flex justify-center items-center pt-32 flex-col max-md:pt-44 ">
+      <div className="mainSection bg-[#100d30] w-full rounded-bl-[30%] md:rounded-bl-[50%] min-h-[500px] flex justify-center items-center pt-32 flex-col max-md:pt-44 ">
         <h1 className="text-white font-bold text-center text-5xl max-md:text-4xl">
           About Us
         </h1>

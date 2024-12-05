@@ -75,6 +75,7 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
 
   const handleSelectedCourse = (res) => {
     setSelectedCourse(res);
+    console.log(res);
   };
   // filter search by title, channel title, instructor and lang
   const filteredCourses = allCourses.filter(
@@ -113,7 +114,7 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
           filteredCourses.map((res, index) => (
             <div
               key={index}
-              className="card w-72 bg-[#0d0b21] h-[400px] rounded-2xl p-4  border-tr overflow-hidden relative z-10 grid max-md:w-72"
+              className="card w-72 bg-[#100d30] h-[400px] rounded-2xl p-4 shadow-xl  border-tr overflow-hidden relative z-10 grid max-md:w-72"
             >
               <div className="image-container">
                 <img

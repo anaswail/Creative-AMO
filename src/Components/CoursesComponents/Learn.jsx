@@ -22,7 +22,7 @@ const Learn = () => {
     }
 
     const fetchData = async () => {
-      console.log("Fetching data for playlistId:", playlistId);
+      // console.log("Fetching data for playlistId:", playlistId);
       const data = await getYtData(playlistId);
       if (data && data.length > 0) {
         setAllVideos(data);
