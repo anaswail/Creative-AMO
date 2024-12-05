@@ -10,6 +10,7 @@ import {
   faX,
   faMoon,
   faSun,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { DataContext } from "../../data/data";
@@ -41,13 +42,6 @@ const Navbar = ({ Mood }) => {
     setToggleMenu(!toggleMenu);
   };
 
-  // setScroll
-  const handleLoading = () => {
-    setTimeout(() => {
-      setLoading(true);
-    }, 3000);
-  };
-
   // Scroll to top on link click
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -56,7 +50,7 @@ const Navbar = ({ Mood }) => {
 
   return (
     <motion.nav
-      className="bg-[#0d0b21] h-36 rounded-bl-full max-md:rounded-bl-[30%] flex justify-around items-center fixed top-0 right-0 z-50 w-full "
+      className="bg-[#100d30] h-36 rounded-bl-full max-md:rounded-bl-[30%] flex justify-around items-center fixed top-0 right-0 z-50 w-full "
       variants={{
         visible: { y: 0 },
         hidden: { y: "-100%" },
@@ -123,7 +117,7 @@ const Navbar = ({ Mood }) => {
       </ul>
 
       {success ? (
-        <div className="flex">
+        <div className="flex ">
           <Link
             className="flex text-white items-center max-md:hidden gap-3 border-white transition-all group hover:text-[#ffac15]"
             to="/Profile"
@@ -172,21 +166,24 @@ const Navbar = ({ Mood }) => {
       </div>
       {/*Toggle Menu*/}
       {toggleMenu ? (
-        <div className="mobileMenu h-screen w-96 bg-[#0d0b21] fixed top-0 right-0 flex flex-col justify-center items-center">
+        <div className="mobileMenu  h-screen w-96 dark:bg-[#100d30] bg-[#f2f4f7] fixed top-0 right-0 flex flex-col justify-center items-center">
           <FontAwesomeIcon
             icon={faX}
-            className="text-white text-2xl absolute top-2 right-2 cursor-pointer "
+            className="dark:text-white text-black text-2xl absolute top-4 right-4 cursor-pointer "
             onClick={active}
           />
           {success ? (
-            <div className="flex absolute bottom-6 items-center gap-5">
+            <div className="flex absolute bottom-20 items-center gap-5 ">
               <Link
-                className="flex text-white items-center  gap-3  border-white transition-all group hover:text-[#ffac15]"
+                className="flex dark:text-white text-black items-center  gap-3 border-black dark:border-white transition-all group hover:text-[#ffac15]"
                 to="/Profile"
-                onClick={(scrollToTop, active)}
+                onClick={() => {
+                  scrollToTop();
+                  active();
+                }}
               >
                 <div className="image-container lg:flex justify-center transition-all items-center overflow-hidden w-10 h-10 rounded-full border group-hover:border-[#ffac15] ">
-                  <img src={profileImage} alt="profile image" />
+                  <img src={changedImage} alt="profile image" />
                 </div>
                 <h1 className="text-xl font-bold ">
                   {userData?.fname && userData?.lname
@@ -212,11 +209,14 @@ const Navbar = ({ Mood }) => {
               </div>
             </div>
           ) : (
-            <div className="profile absolute bottom-3 text-center w-full">
+            <div className="profile absolute bottom-20 text-center w-full">
               <Link
                 to="/LogIn"
                 className="text-[#0d0b21]"
-                onClick={(scrollToTop, active)}
+                onClick={() => {
+                  scrollToTop();
+                  active();
+                }}
               >
                 <button className="bg-white py-2 px-7 mr-5 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
                   Login
@@ -226,7 +226,10 @@ const Navbar = ({ Mood }) => {
               <Link
                 to="/SignUp"
                 className="text-[#0d0b21]"
-                onClick={(scrollToTop, active)}
+                onClick={() => {
+                  scrollToTop();
+                  active();
+                }}
               >
                 <button className="bg-white py-2 px-7 text-sm rounded-xl hover:bg-[#ffac15] transition-all">
                   Sign up
@@ -238,8 +241,11 @@ const Navbar = ({ Mood }) => {
             <li className="mx-3">
               <Link
                 to="/"
-                className="text-white hover:text-[#ffac15]"
-                onClick={(scrollToTop, active)}
+                className="text-black dark:font-normal font-medium dark:text-white hover:text-[#ffac15]"
+                onClick={() => {
+                  scrollToTop();
+                  active();
+                }}
               >
                 Home
               </Link>
@@ -247,8 +253,11 @@ const Navbar = ({ Mood }) => {
             <li className="mx-3">
               <Link
                 to="/Courses"
-                className="text-white hover:text-[#ffac15]"
-                onClick={(scrollToTop, active)}
+                className="text-black dark:font-normal font-medium dark:text-white hover:text-[#ffac15]"
+                onClick={() => {
+                  scrollToTop();
+                  active();
+                }}
               >
                 Courses
               </Link>
@@ -256,8 +265,11 @@ const Navbar = ({ Mood }) => {
             <li className="mx-3">
               <Link
                 to="/RoadMaps"
-                className="text-white hover:text-[#ffac15]"
-                onClick={(scrollToTop, active)}
+                className="text-black dark:font-normal font-medium dark:text-white hover:text-[#ffac15]"
+                onClick={() => {
+                  scrollToTop();
+                  active();
+                }}
               >
                 Road Maps
               </Link>
@@ -265,8 +277,11 @@ const Navbar = ({ Mood }) => {
             <li className="mx-3">
               <Link
                 to="/Guides"
-                className="text-white hover:text-[#ffac15]"
-                onClick={(scrollToTop, active)}
+                className="text-black dark:font-normal font-medium dark:text-white hover:text-[#ffac15]"
+                onClick={() => {
+                  scrollToTop();
+                  active();
+                }}
               >
                 Guides
               </Link>
@@ -274,8 +289,11 @@ const Navbar = ({ Mood }) => {
             <li className="mx-3">
               <Link
                 to="/AboutUs"
-                className="text-white hover:text-[#ffac15]"
-                onClick={(scrollToTop, active)}
+                className="text-black dark:font-normal font-medium dark:text-white hover:text-[#ffac15]"
+                onClick={() => {
+                  scrollToTop();
+                  active();
+                }}
               >
                 AboutUs
               </Link>
@@ -285,9 +303,12 @@ const Navbar = ({ Mood }) => {
           <Link
             to="/"
             className="logo flex justify-center items-center absolute top-8 left-1/2 -translate-x-1/2 w-full "
+            onClick={scrollToTop}
           >
             <img src={Logo} alt="Creative AMO" className="w-32" />
-            <h1 className="text-white font-bold text-2xl">Creative AMO</h1>
+            <h1 className="text-black  dark:text-white font-bold text-2xl">
+              Creative AMO
+            </h1>
           </Link>
         </div>
       ) : (
@@ -296,7 +317,7 @@ const Navbar = ({ Mood }) => {
       <FontAwesomeIcon
         onClick={active}
         className="text-white cursor-pointer md:text-3xl text-2xl lg:hidden "
-        icon={faLaptopCode}
+        icon={faBars}
       />
     </motion.nav>
   );

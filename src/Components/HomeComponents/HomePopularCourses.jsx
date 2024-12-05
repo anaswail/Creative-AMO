@@ -9,7 +9,7 @@ const HomePopularCourses = () => {
       <h1 className="dark:text-white text-black text-center text-3xl font-bold">
         Our Popular Courses
       </h1>
-      <p className="dark:text-white text-black w-1/3 max-md:w-3/4 text-center my-5">
+      <p className="description dark:text-white text-black text-xl w-[40%] max-md:w-3/4 text-center">
         Discover some of the many benefits you will enjoy when you add us to
         your online learning platform.
       </p>
@@ -27,6 +27,10 @@ const Cards = () => {
     });
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="cards flex justify-center gap-9  items-center mt-10 flex-wrap">
       {data.map(
@@ -35,7 +39,7 @@ const Cards = () => {
           res.id <= 4 && (
             <div
               key={res.id}
-              className="card w-80 bg-[#0d0b21] h-[490px] max-md:w-72  rounded-2xl p-4 border-tr overflow-hidden relative z-10 grid"
+              className="card w-80 bg-[#100d30] h-[490px] max-md:w-72  rounded-2xl p-4 border-tr overflow-hidden relative z-10 grid"
             >
               <div className="image-container">
                 <img
@@ -57,7 +61,11 @@ const Cards = () => {
               </div>
               {/* Replacing the original button with the new button */}
               <div className="wrapper flex justify-center">
-                <Link className="cta" to="/Courses/SeparateCourses">
+                <Link
+                  className="cta"
+                  to="/Courses/SeparateCourses"
+                  onClick={scrollToTop}
+                >
                   <span>Start Now</span>
                   <span>
                     <svg

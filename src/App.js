@@ -67,7 +67,7 @@ function App() {
       >
         <FontAwesomeIcon icon={faArrowUp} />
       </div>
-      <div className="dark:bg-[#080c14] bg-white">
+      <div className="dark:bg-[#080c14] bg-[#f2f4f7] ">
         <CourseContext>
           <RoadContext>
             <ChangedDataContext>

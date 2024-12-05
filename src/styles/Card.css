@@ -3,7 +3,7 @@
 }
 
 .card::after {
-  @apply absolute content-[""] inset-[5px] bg-[#0d0b21] -z-10 rounded-2xl;
+  @apply absolute content-[""] inset-[5px] bg-[#100d30] -z-10 rounded-2xl;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Poppins:900i");
@@ -28,6 +28,8 @@
   box-shadow: 0 15px 30px 0 rgba(46, 41, 41, 0.4);
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
+  height: 60px;
+  overflow: hidden;
 }
 
 .cta:hover {
@@ -38,12 +40,22 @@
 
 .cta span {
   margin-right: 10px;
+  transition: 0.5s;
+}
+
+.cta:hover span {
+  transform: translateX(22px);
 }
 
 svg {
   width: 30px;
   height: 43px;
   fill: none;
+  transition: 0.5s;
+}
+
+.cta:hover svg {
+  transform: translateX(70px);
 }
 
 .one,

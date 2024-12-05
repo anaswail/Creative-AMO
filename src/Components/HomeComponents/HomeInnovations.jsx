@@ -28,6 +28,10 @@ const Cards = () => {
     });
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="cards flex justify-center gap-9 items-center mt-10 flex-wrap">
       {data.map(
@@ -36,7 +40,7 @@ const Cards = () => {
           res.id <= 11 && (
             <div
               key={res.id}
-              className="card w-80 bg-[#0d0b21] h-[490px] max-md:w-72  rounded-2xl p-4 border-tr overflow-hidden relative z-10 grid"
+              className="card w-80 bg-[#100d30] h-[490px]  rounded-2xl p-4 border-tr overflow-hidden relative z-10 grid"
             >
               <div className="image-container">
                 <img
@@ -57,7 +61,7 @@ const Cards = () => {
                 </p>
               </div>
               <div className="wrapper flex justify-center">
-                <Link className="cta" to="/Courses">
+                <Link className="cta" to="/Courses" onClick={scrollToTop}>
                   <span>Start Now</span>
                   <span>
                     <svg

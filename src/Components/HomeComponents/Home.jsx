@@ -16,7 +16,7 @@ import group from "../../images/group.webp";
 const Home = () => {
   return (
     <>
-      <div className="mainSection bg-[#0d0b21] w-full rounded-bl-[20%] md:rounded-bl-[50%] min-h-screen flex justify-around items-center pt-28 max-md:flex-col">
+      <div className="mainSection bg-[#100d30] w-full rounded-bl-0 max-md:pb-16 md:rounded-bl-[50%] min-h-screen flex justify-around items-center pt-28 max-md:flex-col">
         <TextContent />
         <ImageContent />
       </div>
@@ -37,6 +37,9 @@ const Home = () => {
 };
 
 const TextContent = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <div className="w-1/2 py-10 h-[70vh] flex flex-col justify-around items-center max-md:w-full ">
       <h1 className="text-white text-3xl font-bold w-3/4 max-md:text-center">
@@ -47,12 +50,17 @@ const TextContent = () => {
       <div className="flex gap-5 my-8">
         <Link
           to="/RoadMaps"
+          onClick={scrollToTop}
           className="bg-white text-black py-2 px-4 rounded-lg border-solid border-[2px] border-white hover:bg-transparent hover:text-white "
         >
           Are you lost?
         </Link>
         <img src="./icon.png" alt="" />
-        <Link to="/AboutUs" className="text-white">
+        <Link
+          to="/AboutUs"
+          onClick={scrollToTop}
+          className="text-white hover:text-[#ffac15] transition-all "
+        >
           Why Creative?
         </Link>
       </div>
@@ -79,7 +87,7 @@ const TextContent = () => {
 
 const ImageContent = () => {
   return (
-    <div className="md:w-1/2 h-[90vh] flex justify-center items-center">
+    <div className="md:w-1/2 h-[90vh] flex justify-center items-center max-md:hidden">
       <img className="w-[400px]" src={person} alt="person" />
     </div>
   );
