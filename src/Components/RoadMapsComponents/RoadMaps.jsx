@@ -57,7 +57,7 @@ const RoadMaps = () => {
 
   return (
     <div className="roadMaps">
-      <div className="mainSection bg-[#100d30] w-full rounded-bl-[30%] md:rounded-bl-[50%] min-h-96 max-md:pt-24 flex justify-center items-center pt-28 flex-col">
+      <div className="mainSection bg-[#100d30] w-full rounded-bl-[30%] md:rounded-bl-[50%] min-h-96 flex justify-center items-center pt-28 flex-col">
         <h1 className="text-white font-bold text-center text-5xl max-md:text-4xl">
           Road Maps
         </h1>
@@ -85,7 +85,7 @@ const RoadMaps = () => {
             onClick={() => {
               handleSelectedTrack(track);
             }}
-            className="frontRoad cursor-pointer hover:shadow-md hover:bg-[#0d0b21] transition-all bg-[#100d30] p-5 flex items-center rounded-lg justify-between h-32 w-96 max-md:w-80"
+            className="frontRoad cursor-pointer hover:shadow-md shadow-xl hover:bg-[#0d0b21] transition-all bg-[#100d30] p-5 flex items-center rounded-lg justify-between h-32 w-96 max-md:w-80"
           >
             <img src={track.image} alt={track.track} className="w-1/4" />
             <h1 className="text-white text-xl max-md:text-lg w-[65%] truncate">

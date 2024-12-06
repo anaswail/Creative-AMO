@@ -80,8 +80,8 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
   // filter search by title, channel title, instructor and lang
   const filteredCourses = allCourses.filter(
     (course) =>
-      (course.title &&
-        course.title.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (course.discription &&
+        course.discription.toLowerCase().includes(searchTerm.toLowerCase())) ||
       (course.channelTitle &&
         course.channelTitle.toLowerCase().includes(searchTerm.toLowerCase())) ||
       (course.instructor &&
@@ -114,7 +114,7 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
           filteredCourses.map((res, index) => (
             <div
               key={index}
-              className="card w-72 bg-[#100d30] h-[400px] rounded-2xl p-4 shadow-xl  border-tr overflow-hidden relative z-10 grid max-md:w-72"
+              className="card w-72 bg-[#100d30] h-[530px] rounded-2xl p-4 shadow-xl  border-tr overflow-hidden relative z-10 grid max-md:w-72"
             >
               <div className="image-container">
                 <img
@@ -132,6 +132,9 @@ const Cards = ({ searchTerm, setSearchTerm }) => {
                   {res.lang}
                 </span>
               </div>
+              <h1 className="h-[115px] overflow-hidden text-white">
+                {res.discription}
+              </h1>
 
               <div className="wrapper flex justify-center">
                 <Link

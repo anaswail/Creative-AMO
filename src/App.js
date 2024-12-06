@@ -43,7 +43,7 @@ function App() {
     const clacScrollValue = () => {
       const pos = document.documentElement.scrollTop || document.body.scrollTop;
       if (scrollToTop) {
-        scrollToTop.style.display = pos > 100 ? "flex" : "none";
+        scrollToTop.style.display = pos > 50 ? "flex" : "none";
         const percentValue = Math.round(
           (pos * 100) / document.documentElement.scrollHeight
         );

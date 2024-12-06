@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "../../data/data";
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const LogIn = () => {
   const { email, setEmail, password, setPassword, Login } =
@@ -38,6 +39,14 @@ const LogIn = () => {
     });
   };
 
+  const addedSoon = () => {
+    return toast.error("Sorry, it’s not working right now.");
+  };
+
+  const whatIDo = () => {
+    return toast.error("What should I do?! 😠 Remember your stuff next time! ");
+  };
+
   return (
     <div className="flex justify-center items-center bg-[#080c14] pt-44">
       <div className="bg-[#06042e] p-8 w-[550px] shadow-lg border-2 border-white">
@@ -53,6 +62,7 @@ const LogIn = () => {
 
           <button
             type="button"
+            onClick={addedSoon}
             className="flex items-center justify-center bg-white text-black border-none py-2 w-full text-sm rounded-lg mb-5 cursor-pointer"
           >
             <img
@@ -109,12 +119,12 @@ const LogIn = () => {
                 Remember me
               </label>
             </div>
-            <Link
-              to="/ForgetPassword"
-              className="text-[#58a6ff] hover:underline text-sm"
+            <h1
+              onClick={whatIDo}
+              className="text-[#58a6ff] cursor-pointer hover:underline text-sm"
             >
               Forgot Password?
-            </Link>
+            </h1>
           </div>
 
           <button

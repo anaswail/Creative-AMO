@@ -15,16 +15,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { handleChangedData } from "../MainComponents/ChangedDataContext";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import ProfileCourses from "./ProfileCourses";
 
 const MainProfile = () => {
-  const navigate = useNavigate();
   // Check if there's a saved image in localStorage
   const savedImage = localStorage.getItem("profileImage") || profileImage;
   const [image, setImage] = useState(savedImage);
-
-  useEffect(() => {
-    navigate("DashboardLayout");
-  }, []);
 
   useEffect(() => {
     // Save the selected image to localStorage whenever it changes
@@ -51,6 +47,25 @@ const Sidebar = () => {
     setMenu(!menu);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const location = useLocation();
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    const handleProfileHome = () => {
+      if (
+        location.pathname === "/Profile/DashboardLayout" ||
+        location.pathname === "/Profile"
+      ) {
+        navigate("/Profile/Profile-Courses");
+      }
+    };
+    handleProfileHome();
+  }, [location, navigate]);
+
   return (
     <>
       <FontAwesomeIcon
@@ -62,7 +77,7 @@ const Sidebar = () => {
         aria-label="Open menu"
       />
       <aside
-        className={`w-64 bg-transparent max-md:bg-[#0d0b21] dark:text-gray-400 text-[#0d0b21] flex flex-col p-2 mt-20 max-md:fixed sticky max-md:z-40 h-[calc(100vh-4rem)] transition-all max-md:top-20  ${
+        className={`w-64 bg-transparent max-md:bg-[#0d0b21] dark:text-gray-400 text-[#0d0b21] max-md:text-white flex flex-col p-2 mt-20 max-md:fixed sticky max-md:z-40 h-[calc(100vh-4rem)] transition-all max-md:top-20  ${
           menu ? "" : " overflow-hidden max-md:hidden"
         } t`}
       >
@@ -83,6 +98,7 @@ const Sidebar = () => {
           <Link
             to="DashboardLayout"
             className="dark:hover:text-yellow-200 hover:text-[#6356e3] text-2xl ml-2 py-3"
+            onClick={scrollToTop}
           >
             Home
           </Link>
@@ -90,12 +106,14 @@ const Sidebar = () => {
           <Link
             to="Profile-Courses"
             className="dark:hover:text-yellow-200 hover:text-[#6356e3] text-2xl ml-2 py-3"
+            onCanPlay={scrollToTop}
           >
             Courses
           </Link>
           <Link
             to="Settings"
             className="dark:hover:text-yellow-200 hover:text-[#6356e3] text-2xl py-3 ml-2 block"
+            onClick={scrollToTop}
           >
             Settings & information
           </Link>

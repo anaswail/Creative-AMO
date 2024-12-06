@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { DataContext } from "../../data/data";
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const {
@@ -36,6 +37,16 @@ const SignUp = () => {
     }
   };
 
+  const addedSoon = () => {
+    return toast.error("Sorry, it’s not working right now.");
+  };
+
+  const whatIDo = () => {
+    return toast.error(
+      "What should i do ?! Remember your things in the next time "
+    );
+  };
+
   return (
     <div className="flex justify-center items-center bg-[#080c14] pt-44">
       <div className="bg-[#06042e] p-8 w-[550px] shadow-lg border-2 border-white">
@@ -51,6 +62,7 @@ const SignUp = () => {
 
           <button
             type="button"
+            onClick={addedSoon}
             className="flex items-center justify-center bg-white text-black border-none py-2 w-full text-sm rounded-lg mb-5 cursor-pointer"
           >
             <img

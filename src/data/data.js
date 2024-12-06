@@ -5,6 +5,7 @@ import React, { createContext, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "./axios";
+import Swal from "sweetalert2";
 
 export const DataContext = createContext();
 
@@ -92,6 +93,13 @@ export const DataProvider = ({ children }) => {
       Cookies.set("token", token, { expires: 7 });
       ResetData();
       await fetchData();
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Welcome back again 😉💪",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } catch (err) {
       console.error(err);
       const message = err.response?.data?.message || "Login failed!";
@@ -145,10 +153,12 @@ export const DataProvider = ({ children }) => {
 
   const getYtData = async (id) => {
     const apiKey =
-      "AIzaSyDcx-nZ3fkqEcSF_WXutU82YvatKmBUB6w" ||
-      "AIzaSyCppfZDUwgSiyjA6U406JfeCLAfwE2daMo" ||
-      "AIzaSyA2JnlMIimu2d-negu7kZIamjtraPD8Zc0" ||
-      "AIzaSyC3gSv4-ql6XaxPW_rQZm4hZTsXZeF6tQU";
+      "AIzaSyCz0n8Id57ylbOignO-8UXjwrK7b5oUQrE" ||
+      "AIzaSyBQLoPgKgUwOBo2FNjFlnY5X70Z5JrVxcA" ||
+      "AIzaSyCztwr9lE-0xswBNaNuH95XT6qmRs4-Sz0" ||
+      "AIzaSyD4JOSNjuGveQqjnNTDYqiGXX75eqkOwZc" ||
+      "AIzaSyACSewVp4nT_Zt_25_5rsMaqEsyYx7L4HE" ||
+      "AIzaSyAHIeP0bHrvXgnNXoq-D43HOoBgBFhDAIE";
     const ytUrl = `https://www.googleapis.com/youtube/v3/playlistItems`;
     const params = {
       part: "snippet",
@@ -199,7 +209,8 @@ export const DataProvider = ({ children }) => {
       );
 
       if (response.data.success) {
-        console.log("Progress updated successfully:", response.data.message);
+        // console.log("Progress updated successfully:", response.data.message);
+        console.log(response.data);
         return response.data;
       } else {
         console.error("Failed to update progress:", response.data.error);

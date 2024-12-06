@@ -1314,7 +1314,7 @@ const Trainers = () => {
           key={index}
           className="guides mt-10 w-full flex flex-col justify-center items-center"
         >
-          <div className="programming bg-[#0d0b21] rounded-t-md w-[90%] cursor-pointer group transition-all duration-150">
+          <div className="programming shadow-xl bg-[#100d30] rounded-t-md w-[90%] cursor-pointer group transition-all duration-150">
             <h1
               className="text-white text-2xl group-hover:text-[#ffac15] transition-all p-3 max-md:text-lg"
               onClick={() => showContent(index)}
@@ -1322,7 +1322,7 @@ const Trainers = () => {
               <span>{visibleContent === index ? "-" : "+"}</span> {item.title}
             </h1>
             <div
-              className={`content text-white mt-5 bg-[#05040f] rounded-b-md leading-10 text-lg max-md:text-base overflow-hidden px-2 transition-all duration-300  ${
+              className={`content text-white mt-5 bg-[#0d0b21] rounded-b-md leading-10 text-lg max-md:text-base overflow-hidden px-2 transition-all duration-300  ${
                 visibleContent === index ? " " : "max-h-0"
               }`}
             >
